@@ -2,3 +2,5 @@
 TODO
 test.py
 .DS_Store
+scailo_sdk/**/__pycache__
+scailo_sdk/**/*.pyc

@@ -45,7 +45,7 @@ setuptools.setup(
         "protogen==0.3.1",
         "pydantic==2.11.9",
         "pydantic_core==2.33.2",
-        "setuptools==75.8.0",
+        "setuptools>=80.1.0",
         "sniffio==1.3.1",
         "starlette==0.48.0",
         "types-protobuf==6.32.1.20250918",

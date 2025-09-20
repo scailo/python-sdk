@@ -36,4 +36,5 @@ for file in files_to_copy:
 
 print(" and ".join(files_to_copy) + " have been copied")
 
+shutil.rmtree("scailo_sdk")
 os.rename(default_lib_folder, "scailo_sdk")
