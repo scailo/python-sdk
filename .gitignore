@@ -4,3 +4,6 @@ test.py
 .DS_Store
 scailo_sdk/**/__pycache__
 scailo_sdk/**/*.pyc
+scailo_sdk/build
+scailo_sdk/dist
+scailo_sdk/scailo_sdk.egg-info
