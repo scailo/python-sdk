@@ -32,8 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import base.scailo_pb2
-import tax_params.scailo_pb2
+from scailo_sdk import base, tax_params
 
 class TaxParamsServiceClient:
     def __init__(

@@ -32,8 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import announcements.scailo_pb2
-import base.scailo_pb2
+from scailo_sdk import announcements, base
 
 class AnnouncementsServiceClient:
     def __init__(

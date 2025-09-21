@@ -32,8 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import base.scailo_pb2
-import labels.scailo_pb2
+from scailo_sdk import base, labels
 
 class LabelsServiceClient:
     def __init__(

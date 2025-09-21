@@ -32,12 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import base.scailo_pb2
-import roles.scailo_pb2
-import vault.scailo_pb2
-import vault_commons.scailo_pb2
-import vault_files.scailo_pb2
-import vault_folders.scailo_pb2
+from scailo_sdk import base, roles, vault, vault_commons, vault_files, vault_folders
 
 class VaultServiceClient:
     def __init__(

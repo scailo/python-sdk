@@ -32,9 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import base.scailo_pb2
-import equations_replaceables.scailo_pb2
-import magic_links.scailo_pb2
+from scailo_sdk import base, equations_replaceables, magic_links
 
 class EquationsReplaceablesServiceClient:
     def __init__(

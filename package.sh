@@ -1,5 +1,7 @@
 #!/bin/bash
 
+python build.py
+
 rm -rf build
 rm -rf dist
 

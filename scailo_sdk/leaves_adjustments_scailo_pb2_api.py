@@ -32,8 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import base.scailo_pb2
-import leaves_adjustments.scailo_pb2
+from scailo_sdk import base, leaves_adjustments
 
 class LeavesAdjustmentsServiceClient:
     def __init__(

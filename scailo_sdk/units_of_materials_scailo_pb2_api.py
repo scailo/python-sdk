@@ -32,8 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import base.scailo_pb2
-import units_of_materials.scailo_pb2
+from scailo_sdk import base, units_of_materials
 
 class UnitsOfMaterialsServiceClient:
     def __init__(

@@ -32,10 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import base.scailo_pb2
-import families.scailo_pb2
-import magic_links.scailo_pb2
-import outward_jobs_free_issue_materials.scailo_pb2
+from scailo_sdk import base, families, magic_links, outward_jobs_free_issue_materials
 
 class OutwardJobsFreeIssueMaterialsServiceClient:
     def __init__(

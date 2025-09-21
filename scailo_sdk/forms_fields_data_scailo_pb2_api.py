@@ -32,7 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import forms_fields_data.scailo_pb2
+from scailo_sdk import forms_fields_data
 
 class FormsFieldsDataServiceClient:
     def __init__(

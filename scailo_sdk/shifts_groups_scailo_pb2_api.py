@@ -32,8 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import base.scailo_pb2
-import shifts_groups.scailo_pb2
+from scailo_sdk import base, shifts_groups
 
 class ShiftsGroupsServiceClient:
     def __init__(

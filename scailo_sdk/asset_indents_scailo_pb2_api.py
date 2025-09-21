@@ -32,10 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import asset_indents.scailo_pb2
-import base.scailo_pb2
-import families.scailo_pb2
-import magic_links.scailo_pb2
+from scailo_sdk import asset_indents, base, families, magic_links
 
 class AssetIndentsServiceClient:
     def __init__(

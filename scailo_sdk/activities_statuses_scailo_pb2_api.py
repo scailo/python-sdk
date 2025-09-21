@@ -32,8 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import activities_statuses.scailo_pb2
-import base.scailo_pb2
+from scailo_sdk import activities_statuses, base
 
 class ActivitiesStatusesServiceClient:
     def __init__(

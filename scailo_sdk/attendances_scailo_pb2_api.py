@@ -32,9 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import attendances.scailo_pb2
-import base.scailo_pb2
-import magic_links.scailo_pb2
+from scailo_sdk import attendances, base, magic_links
 
 class AttendancesServiceClient:
     def __init__(

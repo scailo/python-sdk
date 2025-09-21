@@ -32,8 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import base.scailo_pb2
-import general_streams.scailo_pb2
+from scailo_sdk import base, general_streams
 
 class GeneralStreamsServiceClient:
     def __init__(

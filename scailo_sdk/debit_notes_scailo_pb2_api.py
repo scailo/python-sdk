@@ -32,10 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import base.scailo_pb2
-import debit_notes.scailo_pb2
-import families.scailo_pb2
-import magic_links.scailo_pb2
+from scailo_sdk import base, debit_notes, families, magic_links
 
 class DebitNotesServiceClient:
     def __init__(

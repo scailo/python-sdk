@@ -32,8 +32,7 @@ if typing.TYPE_CHECKING:
     else:
         from _typeshed.wsgi import WSGIApplication
 
-import bank_accounts.scailo_pb2
-import base.scailo_pb2
+from scailo_sdk import bank_accounts, base
 
 class BankAccountsServiceClient:
     def __init__(
