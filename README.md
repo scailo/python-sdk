@@ -42,8 +42,7 @@ Here's how you can log in and retrieve your authentication token.
 
 ```python
 import urllib3
-from scailo_sdk.login import scailo_pb2 as login
-from scailo_sdk.login_scailo_pb2_api import LoginServiceClient
+from scailo_sdk.login_api import LoginServiceClient, login
 
 # --- Your Scailo Credentials ---
 # Replace with your Scailo instance domain and user credentials
@@ -79,15 +78,14 @@ This example shows how to fetch the 10 most recent active Purchase Orders.
 ```python
 # Make sure you have the auth_token from the previous step
 if auth_token:
-    from scailo_sdk.purchases_orders import scailo_pb2 as purchases
-    from scailo_sdk.purchases_orders_scailo_pb2_api import PurchasesOrdersServiceClient
+    from scailo_sdk.purchases_orders_api import PurchasesOrdersServiceClient, purchases_orders
     from scailo_sdk.base import scailo_pb2 as base
 
     # 1. Create the purchases client
     purchases_client = PurchasesOrdersServiceClient(SCAILO_DOMAIN, urllib3.PoolManager())
 
     # 2. Prepare the request
-    filter_req = purchases.PurchasesOrdersServiceFilterReq(
+    filter_req = purchases_orders.PurchasesOrdersServiceFilterReq(
         is_active=base.BOOL_FILTER_TRUE, 
         count=10
     )
@@ -112,15 +110,14 @@ Similarly, you can query other services, like Goods Receipts.
 ```python
 # Make sure you have the auth_token
 if auth_token:
-    from scailo_sdk.goods_receipts import scailo_pb2 as goodsreceipts
-    from scailo_sdk.goods_receipts_scailo_pb2_api import GoodsReceiptsServiceClient
+    from scailo_sdk.goods_receipts_api import GoodsReceiptsServiceClient, goods_receipts
     from scailo_sdk.base import scailo_pb2 as base
 
     # 1. Create the Goods Receipts client
     goodsreceipts_client = GoodsReceiptsServiceClient(SCAILO_DOMAIN, urllib3.PoolManager())
     
     # 2. Prepare the request
-    filter_req = goodsreceipts.GoodsReceiptsServiceFilterReq(
+    filter_req = goods_receipts.GoodsReceiptsServiceFilterReq(
         is_active=base.BOOL_FILTER_TRUE, 
         count=10
     )

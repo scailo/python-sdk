@@ -50,10 +50,12 @@ print("added __init__.py")
 # Rename files
 files = os.listdir(default_lib_folder)
 for file in files:
-    if file.endswith(".py"):
-        t = file.removesuffix(".py")
-        l = "_".join(t.split("."))
-        l = l.replace("_connect", "_api")
+    if file.endswith(".py") and file != "__init__.py":
+        t = file.removesuffix(".scailo_pb2_connect.py")
+        # l = "_".join(t.split("."))
+        # l = l.replace("_connect", "_api")
+        t += "_api"
+        l = t
         os.rename(f"{default_lib_folder}/{file}", f"{default_lib_folder}/{l}.py")
 
 print("files have been renamed")
@@ -111,7 +113,7 @@ def handle_api_files():
     api_files_list = []
     all_files = os.listdir(default_lib_folder)
     for f in all_files:
-        if f != "__init__.py" and f.endswith("scailo_pb2_api.py"):
+        if f != "__init__.py" and f.endswith("_api.py"):
             api_files_list.append(f)
     for file in api_files_list:
         processed_api_file = process_api_file(os.path.join(default_lib_folder, file))
