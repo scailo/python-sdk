@@ -32,6 +32,12 @@ You can install the Scailo SDK directly from PyPI:
 pip install scailo_sdk
 ```
 
+You can also install using [uv](https://docs.astral.sh/uv/)
+
+```bash
+uv add scailo_sdk
+```
+
 ## ✨ Getting Started
 
 Using the SDK is straightforward. First, you'll need to authenticate to get an auth_token, which you can then use to make subsequent API calls.

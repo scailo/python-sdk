@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="scailo_sdk",
-    version="0.2.0",
+    version="0.2.1",
     author="Pratheek Adidela",
     author_email="apratheek@unaxiom.com",
     description="Python SDK for the Scailo API",
