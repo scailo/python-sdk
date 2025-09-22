@@ -46,7 +46,7 @@ from scailo_sdk.login_api import LoginServiceClient, login
 
 # --- Your Scailo Credentials ---
 # Replace with your Scailo instance domain and user credentials
-SCAILO_DOMAIN = "[https://your-scailo-domain.com](https://your-scailo-domain.com)"
+SCAILO_DOMAIN = "https://your-scailo-domain.com"
 USERNAME = "USERNAME"
 PASSWORD = "PASSWORD"
 
