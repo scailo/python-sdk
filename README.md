@@ -140,6 +140,61 @@ if auth_token:
         print(f"Failed to retrieve Goods Receipts: {e}")
 ```
 
+#### Support for Async Requests
+
+The SDK supports async requests using asyncio. The following example demonstrates how:
+
+```python
+import asyncio
+# Import aiohttp library for async requests
+import aiohttp
+
+# Import the necessary sdk modules
+
+# Import login module
+from scailo_sdk.login_api import AsyncLoginServiceClient, login
+from scailo_sdk.base import scailo_pb2 as base
+
+# --- Your Scailo Credentials ---
+# Replace with your Scailo instance domain and user credentials
+SCAILO_DOMAIN = "https://your-scailo-domain.com"
+USERNAME = "USERNAME"
+PASSWORD = "PASSWORD"
+
+async def main():
+    async with aiohttp.ClientSession() as http_client:
+        # Create the login client
+        login_client = AsyncLoginServiceClient(SCAILO_DOMAIN, http_client)
+        # Call the login method to retrieve the auth token
+        login_resp = await login_client.login_as_employee_primary(login.UserLoginRequest(username=USERNAME, plain_text_password=PASSWORD))
+        print(login_resp)
+
+        if login_resp.auth_token:
+            # Import purchases module
+            from scailo_sdk.purchases_orders_api import AsyncPurchasesOrdersServiceClient, purchases_orders
+            # Import goods receipts module
+            from scailo_sdk.goods_receipts_api import AsyncGoodsReceiptsServiceClient, goods_receipts
+
+            # Create the purchases client
+            purchases_client = AsyncPurchasesOrdersServiceClient(SCAILO_DOMAIN, http_client)
+            # Create the goods receipts client
+            goodsreceipts_client = AsyncGoodsReceiptsServiceClient(SCAILO_DOMAIN, http_client)
+
+            [purchases_list, goods_receipts_list] = await asyncio.gather(
+                # Retrieve 1 active purchase
+                purchases_client.filter(purchases_orders.PurchasesOrdersServiceFilterReq(is_active=base.BOOL_FILTER_TRUE, count=1), extra_headers={"auth_token": login_resp.auth_token}),
+                # Retrieve 1 active goods receipt
+                goodsreceipts_client.filter(goods_receipts.GoodsReceiptsServiceFilterReq(is_active=base.BOOL_FILTER_TRUE, count=1), extra_headers={"auth_token": login_resp.auth_token})
+            )
+            print(purchases_list.list)
+            print("-------")
+            print(goods_receipts_list.list)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
 ## 📦 Repository
 
 The source code for the Scailo Python SDK is hosted on GitHub.
