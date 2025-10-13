@@ -277,6 +277,42 @@ class SalesOrdersServiceItemCreateRequest(_message.Message):
     is_invoiceable: bool
     def __init__(self, user_comment: _Optional[str] = ..., sales_order_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., discount: _Optional[int] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ..., is_invoiceable: _Optional[bool] = ...) -> None: ...
 
+class SalesOrdersServiceMultipleItemsSingleton(_message.Message):
+    __slots__ = ("family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "unit_price", "tax_group_id", "discount", "delivery_date", "specifications", "is_invoiceable")
+    FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
+    INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_UOM_ID_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_FAMILY_CODE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
+    TAX_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    DISCOUNT_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_DATE_FIELD_NUMBER: _ClassVar[int]
+    SPECIFICATIONS_FIELD_NUMBER: _ClassVar[int]
+    IS_INVOICEABLE_FIELD_NUMBER: _ClassVar[int]
+    family_id: int
+    internal_quantity: int
+    client_uom_id: int
+    client_quantity: int
+    client_family_code: str
+    unit_price: int
+    tax_group_id: int
+    discount: int
+    delivery_date: str
+    specifications: str
+    is_invoiceable: bool
+    def __init__(self, family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., discount: _Optional[int] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ..., is_invoiceable: _Optional[bool] = ...) -> None: ...
+
+class SalesOrdersServiceMultipleItemsCreateRequest(_message.Message):
+    __slots__ = ("user_comment", "sales_order_id", "list")
+    USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    SALES_ORDER_ID_FIELD_NUMBER: _ClassVar[int]
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    user_comment: str
+    sales_order_id: int
+    list: _containers.RepeatedCompositeFieldContainer[SalesOrdersServiceMultipleItemsSingleton]
+    def __init__(self, user_comment: _Optional[str] = ..., sales_order_id: _Optional[int] = ..., list: _Optional[_Iterable[_Union[SalesOrdersServiceMultipleItemsSingleton, _Mapping]]] = ...) -> None: ...
+
 class SalesOrdersServiceItemUpdateRequest(_message.Message):
     __slots__ = ("user_comment", "id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "unit_price", "tax_group_id", "discount", "delivery_date", "specifications", "is_invoiceable")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]

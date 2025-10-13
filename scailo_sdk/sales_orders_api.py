@@ -423,6 +423,26 @@ class SalesOrdersServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_add_multiple_sales_order_items(
+        self, req: sales_orders.scailo_pb2.SalesOrdersServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleSalesOrderItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.SalesOrdersService/AddMultipleSalesOrderItems"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def add_multiple_sales_order_items(
+        self, req: sales_orders.scailo_pb2.SalesOrdersServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_add_multiple_sales_order_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_add_sales_order_item(
         self, req: sales_orders.scailo_pb2.SalesOrdersServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifiersList]:
@@ -1835,6 +1855,25 @@ class AsyncSalesOrdersServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_add_multiple_sales_order_items(
+        self, req: sales_orders.scailo_pb2.SalesOrdersServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleSalesOrderItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.SalesOrdersService/AddMultipleSalesOrderItems"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def add_multiple_sales_order_items(
+        self, req: sales_orders.scailo_pb2.SalesOrdersServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_add_multiple_sales_order_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_add_sales_order_item(
         self, req: sales_orders.scailo_pb2.SalesOrdersServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifiersList]:
@@ -2864,6 +2903,8 @@ class SalesOrdersServiceProtocol(typing.Protocol):
         ...
     def create_magic_link(self, req: ClientRequest[magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource]) -> ServerResponse[magic_links.scailo_pb2.MagicLink]:
         ...
+    def add_multiple_sales_order_items(self, req: ClientRequest[sales_orders.scailo_pb2.SalesOrdersServiceMultipleItemsCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def add_sales_order_item(self, req: ClientRequest[sales_orders.scailo_pb2.SalesOrdersServiceItemCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifiersList]:
         ...
     def modify_sales_order_item(self, req: ClientRequest[sales_orders.scailo_pb2.SalesOrdersServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifiersList]:
@@ -2992,6 +3033,7 @@ def wsgi_sales_orders_service(implementation: SalesOrdersServiceProtocol) -> WSG
     app.register_unary_rpc("/Scailo.SalesOrdersService/Autofill", implementation.autofill, sales_orders.scailo_pb2.SalesOrdersServiceAutofillRequest)
     app.register_unary_rpc("/Scailo.SalesOrdersService/Amend", implementation.amend, base.scailo_pb2.IdentifierUUIDWithUserComment)
     app.register_unary_rpc("/Scailo.SalesOrdersService/CreateMagicLink", implementation.create_magic_link, magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource)
+    app.register_unary_rpc("/Scailo.SalesOrdersService/AddMultipleSalesOrderItems", implementation.add_multiple_sales_order_items, sales_orders.scailo_pb2.SalesOrdersServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.SalesOrdersService/AddSalesOrderItem", implementation.add_sales_order_item, sales_orders.scailo_pb2.SalesOrdersServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.SalesOrdersService/ModifySalesOrderItem", implementation.modify_sales_order_item, sales_orders.scailo_pb2.SalesOrdersServiceItemUpdateRequest)
     app.register_unary_rpc("/Scailo.SalesOrdersService/ApproveSalesOrderItem", implementation.approve_sales_order_item, base.scailo_pb2.IdentifierWithUserComment)

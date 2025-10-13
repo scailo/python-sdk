@@ -423,6 +423,26 @@ class GoodsDispatchesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_add_multiple_goods_dispatch_items(
+        self, req: goods_dispatches.scailo_pb2.GoodsDispatchesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleGoodsDispatchItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.GoodsDispatchesService/AddMultipleGoodsDispatchItems"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def add_multiple_goods_dispatch_items(
+        self, req: goods_dispatches.scailo_pb2.GoodsDispatchesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_add_multiple_goods_dispatch_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_add_goods_dispatch_item(
         self, req: goods_dispatches.scailo_pb2.GoodsDispatchesServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1575,6 +1595,25 @@ class AsyncGoodsDispatchesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_add_multiple_goods_dispatch_items(
+        self, req: goods_dispatches.scailo_pb2.GoodsDispatchesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleGoodsDispatchItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.GoodsDispatchesService/AddMultipleGoodsDispatchItems"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def add_multiple_goods_dispatch_items(
+        self, req: goods_dispatches.scailo_pb2.GoodsDispatchesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_add_multiple_goods_dispatch_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_add_goods_dispatch_item(
         self, req: goods_dispatches.scailo_pb2.GoodsDispatchesServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2357,6 +2396,8 @@ class GoodsDispatchesServiceProtocol(typing.Protocol):
         ...
     def create_magic_link(self, req: ClientRequest[magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource]) -> ServerResponse[magic_links.scailo_pb2.MagicLink]:
         ...
+    def add_multiple_goods_dispatch_items(self, req: ClientRequest[goods_dispatches.scailo_pb2.GoodsDispatchesServiceMultipleItemsCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def add_goods_dispatch_item(self, req: ClientRequest[goods_dispatches.scailo_pb2.GoodsDispatchesServiceItemCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def modify_goods_dispatch_item(self, req: ClientRequest[goods_dispatches.scailo_pb2.GoodsDispatchesServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2459,6 +2500,7 @@ def wsgi_goods_dispatches_service(implementation: GoodsDispatchesServiceProtocol
     app.register_unary_rpc("/Scailo.GoodsDispatchesService/Autofill", implementation.autofill, goods_dispatches.scailo_pb2.GoodsDispatchesServiceAutofillRequest)
     app.register_unary_rpc("/Scailo.GoodsDispatchesService/IsCompletable", implementation.is_completable, base.scailo_pb2.IdentifierUUID)
     app.register_unary_rpc("/Scailo.GoodsDispatchesService/CreateMagicLink", implementation.create_magic_link, magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource)
+    app.register_unary_rpc("/Scailo.GoodsDispatchesService/AddMultipleGoodsDispatchItems", implementation.add_multiple_goods_dispatch_items, goods_dispatches.scailo_pb2.GoodsDispatchesServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.GoodsDispatchesService/AddGoodsDispatchItem", implementation.add_goods_dispatch_item, goods_dispatches.scailo_pb2.GoodsDispatchesServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.GoodsDispatchesService/ModifyGoodsDispatchItem", implementation.modify_goods_dispatch_item, goods_dispatches.scailo_pb2.GoodsDispatchesServiceItemUpdateRequest)
     app.register_unary_rpc("/Scailo.GoodsDispatchesService/ApproveGoodsDispatchItem", implementation.approve_goods_dispatch_item, base.scailo_pb2.IdentifierWithUserComment)

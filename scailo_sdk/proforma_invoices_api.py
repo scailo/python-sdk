@@ -423,6 +423,26 @@ class ProformaInvoicesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_add_multiple_proforma_invoice_items(
+        self, req: proforma_invoices.scailo_pb2.ProformaInvoicesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleProformaInvoiceItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.ProformaInvoicesService/AddMultipleProformaInvoiceItems"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def add_multiple_proforma_invoice_items(
+        self, req: proforma_invoices.scailo_pb2.ProformaInvoicesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_add_multiple_proforma_invoice_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_add_proforma_invoice_item(
         self, req: proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1595,6 +1615,25 @@ class AsyncProformaInvoicesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_add_multiple_proforma_invoice_items(
+        self, req: proforma_invoices.scailo_pb2.ProformaInvoicesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleProformaInvoiceItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.ProformaInvoicesService/AddMultipleProformaInvoiceItems"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def add_multiple_proforma_invoice_items(
+        self, req: proforma_invoices.scailo_pb2.ProformaInvoicesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_add_multiple_proforma_invoice_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_add_proforma_invoice_item(
         self, req: proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2396,6 +2435,8 @@ class ProformaInvoicesServiceProtocol(typing.Protocol):
         ...
     def create_magic_link(self, req: ClientRequest[magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource]) -> ServerResponse[magic_links.scailo_pb2.MagicLink]:
         ...
+    def add_multiple_proforma_invoice_items(self, req: ClientRequest[proforma_invoices.scailo_pb2.ProformaInvoicesServiceMultipleItemsCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def add_proforma_invoice_item(self, req: ClientRequest[proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def modify_proforma_invoice_item(self, req: ClientRequest[proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2500,6 +2541,7 @@ def wsgi_proforma_invoices_service(implementation: ProformaInvoicesServiceProtoc
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/Autofill", implementation.autofill, proforma_invoices.scailo_pb2.ProformaInvoicesServiceAutofillRequest)
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/Amend", implementation.amend, base.scailo_pb2.IdentifierUUIDWithUserComment)
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/CreateMagicLink", implementation.create_magic_link, magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource)
+    app.register_unary_rpc("/Scailo.ProformaInvoicesService/AddMultipleProformaInvoiceItems", implementation.add_multiple_proforma_invoice_items, proforma_invoices.scailo_pb2.ProformaInvoicesServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/AddProformaInvoiceItem", implementation.add_proforma_invoice_item, proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/ModifyProformaInvoiceItem", implementation.modify_proforma_invoice_item, proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemUpdateRequest)
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/ApproveProformaInvoiceItem", implementation.approve_proforma_invoice_item, base.scailo_pb2.IdentifierWithUserComment)

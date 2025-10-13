@@ -423,6 +423,26 @@ class GoodsReceiptsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_add_multiple_goods_receipt_items(
+        self, req: goods_receipts.scailo_pb2.GoodsReceiptsServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleGoodsReceiptItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.GoodsReceiptsService/AddMultipleGoodsReceiptItems"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def add_multiple_goods_receipt_items(
+        self, req: goods_receipts.scailo_pb2.GoodsReceiptsServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_add_multiple_goods_receipt_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_add_goods_receipt_item(
         self, req: goods_receipts.scailo_pb2.GoodsReceiptsServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1575,6 +1595,25 @@ class AsyncGoodsReceiptsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_add_multiple_goods_receipt_items(
+        self, req: goods_receipts.scailo_pb2.GoodsReceiptsServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleGoodsReceiptItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.GoodsReceiptsService/AddMultipleGoodsReceiptItems"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def add_multiple_goods_receipt_items(
+        self, req: goods_receipts.scailo_pb2.GoodsReceiptsServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_add_multiple_goods_receipt_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_add_goods_receipt_item(
         self, req: goods_receipts.scailo_pb2.GoodsReceiptsServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2357,6 +2396,8 @@ class GoodsReceiptsServiceProtocol(typing.Protocol):
         ...
     def create_magic_link(self, req: ClientRequest[magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource]) -> ServerResponse[magic_links.scailo_pb2.MagicLink]:
         ...
+    def add_multiple_goods_receipt_items(self, req: ClientRequest[goods_receipts.scailo_pb2.GoodsReceiptsServiceMultipleItemsCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def add_goods_receipt_item(self, req: ClientRequest[goods_receipts.scailo_pb2.GoodsReceiptsServiceItemCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def modify_goods_receipt_item(self, req: ClientRequest[goods_receipts.scailo_pb2.GoodsReceiptsServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2459,6 +2500,7 @@ def wsgi_goods_receipts_service(implementation: GoodsReceiptsServiceProtocol) ->
     app.register_unary_rpc("/Scailo.GoodsReceiptsService/Autofill", implementation.autofill, goods_receipts.scailo_pb2.GoodsReceiptsServiceAutofillRequest)
     app.register_unary_rpc("/Scailo.GoodsReceiptsService/IsCompletable", implementation.is_completable, base.scailo_pb2.IdentifierUUID)
     app.register_unary_rpc("/Scailo.GoodsReceiptsService/CreateMagicLink", implementation.create_magic_link, magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource)
+    app.register_unary_rpc("/Scailo.GoodsReceiptsService/AddMultipleGoodsReceiptItems", implementation.add_multiple_goods_receipt_items, goods_receipts.scailo_pb2.GoodsReceiptsServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.GoodsReceiptsService/AddGoodsReceiptItem", implementation.add_goods_receipt_item, goods_receipts.scailo_pb2.GoodsReceiptsServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.GoodsReceiptsService/ModifyGoodsReceiptItem", implementation.modify_goods_receipt_item, goods_receipts.scailo_pb2.GoodsReceiptsServiceItemUpdateRequest)
     app.register_unary_rpc("/Scailo.GoodsReceiptsService/ApproveGoodsReceiptItem", implementation.approve_goods_receipt_item, base.scailo_pb2.IdentifierWithUserComment)

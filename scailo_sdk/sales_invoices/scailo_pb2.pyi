@@ -236,6 +236,38 @@ class SalesInvoicesServiceItemCreateRequest(_message.Message):
     specifications: str
     def __init__(self, user_comment: _Optional[str] = ..., sales_invoice_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., round_off: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
+class SalesInvoicesServiceMultipleItemsSingleton(_message.Message):
+    __slots__ = ("family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "unit_price", "tax_group_id", "round_off", "specifications")
+    FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
+    INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_UOM_ID_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_FAMILY_CODE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
+    TAX_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    ROUND_OFF_FIELD_NUMBER: _ClassVar[int]
+    SPECIFICATIONS_FIELD_NUMBER: _ClassVar[int]
+    family_id: int
+    internal_quantity: int
+    client_uom_id: int
+    client_quantity: int
+    client_family_code: str
+    unit_price: int
+    tax_group_id: int
+    round_off: int
+    specifications: str
+    def __init__(self, family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., round_off: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
+
+class SalesInvoicesServiceMultipleItemsCreateRequest(_message.Message):
+    __slots__ = ("user_comment", "sales_invoice_id", "list")
+    USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    SALES_INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    user_comment: str
+    sales_invoice_id: int
+    list: _containers.RepeatedCompositeFieldContainer[SalesInvoicesServiceMultipleItemsSingleton]
+    def __init__(self, user_comment: _Optional[str] = ..., sales_invoice_id: _Optional[int] = ..., list: _Optional[_Iterable[_Union[SalesInvoicesServiceMultipleItemsSingleton, _Mapping]]] = ...) -> None: ...
+
 class SalesInvoicesServiceItemUpdateRequest(_message.Message):
     __slots__ = ("user_comment", "id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "unit_price", "tax_group_id", "round_off", "specifications")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]

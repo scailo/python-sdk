@@ -189,6 +189,32 @@ class GoodsDispatchesServiceItemCreateRequest(_message.Message):
     client_family_code: str
     def __init__(self, user_comment: _Optional[str] = ..., goods_dispatch_id: _Optional[int] = ..., family_id: _Optional[int] = ..., item_hash: _Optional[str] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ...) -> None: ...
 
+class GoodsDispatchesServiceMultipleItemsSingleton(_message.Message):
+    __slots__ = ("family_id", "item_hash", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code")
+    FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
+    ITEM_HASH_FIELD_NUMBER: _ClassVar[int]
+    INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_UOM_ID_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_FAMILY_CODE_FIELD_NUMBER: _ClassVar[int]
+    family_id: int
+    item_hash: str
+    internal_quantity: int
+    client_uom_id: int
+    client_quantity: int
+    client_family_code: str
+    def __init__(self, family_id: _Optional[int] = ..., item_hash: _Optional[str] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ...) -> None: ...
+
+class GoodsDispatchesServiceMultipleItemsCreateRequest(_message.Message):
+    __slots__ = ("user_comment", "goods_dispatch_id", "list")
+    USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    GOODS_DISPATCH_ID_FIELD_NUMBER: _ClassVar[int]
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    user_comment: str
+    goods_dispatch_id: int
+    list: _containers.RepeatedCompositeFieldContainer[GoodsDispatchesServiceMultipleItemsSingleton]
+    def __init__(self, user_comment: _Optional[str] = ..., goods_dispatch_id: _Optional[int] = ..., list: _Optional[_Iterable[_Union[GoodsDispatchesServiceMultipleItemsSingleton, _Mapping]]] = ...) -> None: ...
+
 class GoodsDispatchesServiceItemUpdateRequest(_message.Message):
     __slots__ = ("user_comment", "id", "item_hash", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]

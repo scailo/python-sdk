@@ -234,6 +234,36 @@ class VendorInvoicesServiceItemCreateRequest(_message.Message):
     specifications: str
     def __init__(self, user_comment: _Optional[str] = ..., vendor_invoice_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., vendor_uom_id: _Optional[int] = ..., vendor_quantity: _Optional[int] = ..., vendor_unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., round_off: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
+class VendorInvoicesServiceMultipleItemsSingleton(_message.Message):
+    __slots__ = ("family_id", "internal_quantity", "vendor_uom_id", "vendor_quantity", "vendor_unit_price", "tax_group_id", "round_off", "specifications")
+    FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
+    INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    VENDOR_UOM_ID_FIELD_NUMBER: _ClassVar[int]
+    VENDOR_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    VENDOR_UNIT_PRICE_FIELD_NUMBER: _ClassVar[int]
+    TAX_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    ROUND_OFF_FIELD_NUMBER: _ClassVar[int]
+    SPECIFICATIONS_FIELD_NUMBER: _ClassVar[int]
+    family_id: int
+    internal_quantity: int
+    vendor_uom_id: int
+    vendor_quantity: int
+    vendor_unit_price: int
+    tax_group_id: int
+    round_off: int
+    specifications: str
+    def __init__(self, family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., vendor_uom_id: _Optional[int] = ..., vendor_quantity: _Optional[int] = ..., vendor_unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., round_off: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
+
+class VendorInvoicesServiceMultipleItemsCreateRequest(_message.Message):
+    __slots__ = ("user_comment", "vendor_invoice_id", "list")
+    USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    VENDOR_INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    user_comment: str
+    vendor_invoice_id: int
+    list: _containers.RepeatedCompositeFieldContainer[VendorInvoicesServiceMultipleItemsSingleton]
+    def __init__(self, user_comment: _Optional[str] = ..., vendor_invoice_id: _Optional[int] = ..., list: _Optional[_Iterable[_Union[VendorInvoicesServiceMultipleItemsSingleton, _Mapping]]] = ...) -> None: ...
+
 class VendorInvoicesServiceItemUpdateRequest(_message.Message):
     __slots__ = ("user_comment", "id", "internal_quantity", "vendor_uom_id", "vendor_quantity", "vendor_unit_price", "tax_group_id", "round_off", "specifications")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]

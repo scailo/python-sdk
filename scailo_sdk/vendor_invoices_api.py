@@ -423,6 +423,26 @@ class VendorInvoicesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_add_multiple_vendor_invoice_items(
+        self, req: vendor_invoices.scailo_pb2.VendorInvoicesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleVendorInvoiceItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VendorInvoicesService/AddMultipleVendorInvoiceItems"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def add_multiple_vendor_invoice_items(
+        self, req: vendor_invoices.scailo_pb2.VendorInvoicesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_add_multiple_vendor_invoice_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_add_vendor_invoice_item(
         self, req: vendor_invoices.scailo_pb2.VendorInvoicesServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1655,6 +1675,25 @@ class AsyncVendorInvoicesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_add_multiple_vendor_invoice_items(
+        self, req: vendor_invoices.scailo_pb2.VendorInvoicesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleVendorInvoiceItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VendorInvoicesService/AddMultipleVendorInvoiceItems"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def add_multiple_vendor_invoice_items(
+        self, req: vendor_invoices.scailo_pb2.VendorInvoicesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_add_multiple_vendor_invoice_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_add_vendor_invoice_item(
         self, req: vendor_invoices.scailo_pb2.VendorInvoicesServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2513,6 +2552,8 @@ class VendorInvoicesServiceProtocol(typing.Protocol):
         ...
     def create_magic_link(self, req: ClientRequest[magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource]) -> ServerResponse[magic_links.scailo_pb2.MagicLink]:
         ...
+    def add_multiple_vendor_invoice_items(self, req: ClientRequest[vendor_invoices.scailo_pb2.VendorInvoicesServiceMultipleItemsCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def add_vendor_invoice_item(self, req: ClientRequest[vendor_invoices.scailo_pb2.VendorInvoicesServiceItemCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def modify_vendor_invoice_item(self, req: ClientRequest[vendor_invoices.scailo_pb2.VendorInvoicesServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2623,6 +2664,7 @@ def wsgi_vendor_invoices_service(implementation: VendorInvoicesServiceProtocol) 
     app.register_unary_rpc("/Scailo.VendorInvoicesService/Autofill", implementation.autofill, vendor_invoices.scailo_pb2.VendorInvoicesServiceAutofillRequest)
     app.register_unary_rpc("/Scailo.VendorInvoicesService/IsAdmittedToStore", implementation.is_admitted_to_store, base.scailo_pb2.IdentifierUUID)
     app.register_unary_rpc("/Scailo.VendorInvoicesService/CreateMagicLink", implementation.create_magic_link, magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource)
+    app.register_unary_rpc("/Scailo.VendorInvoicesService/AddMultipleVendorInvoiceItems", implementation.add_multiple_vendor_invoice_items, vendor_invoices.scailo_pb2.VendorInvoicesServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.VendorInvoicesService/AddVendorInvoiceItem", implementation.add_vendor_invoice_item, vendor_invoices.scailo_pb2.VendorInvoicesServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.VendorInvoicesService/ModifyVendorInvoiceItem", implementation.modify_vendor_invoice_item, vendor_invoices.scailo_pb2.VendorInvoicesServiceItemUpdateRequest)
     app.register_unary_rpc("/Scailo.VendorInvoicesService/ApproveVendorInvoiceItem", implementation.approve_vendor_invoice_item, base.scailo_pb2.IdentifierWithUserComment)

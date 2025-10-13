@@ -423,6 +423,26 @@ class PurchasesOrdersServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_add_multiple_purchase_order_items(
+        self, req: purchases_orders.scailo_pb2.PurchasesOrdersServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultiplePurchaseOrderItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesOrdersService/AddMultiplePurchaseOrderItems"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def add_multiple_purchase_order_items(
+        self, req: purchases_orders.scailo_pb2.PurchasesOrdersServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_add_multiple_purchase_order_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_add_purchase_order_item(
         self, req: purchases_orders.scailo_pb2.PurchasesOrdersServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1835,6 +1855,25 @@ class AsyncPurchasesOrdersServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_add_multiple_purchase_order_items(
+        self, req: purchases_orders.scailo_pb2.PurchasesOrdersServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultiplePurchaseOrderItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesOrdersService/AddMultiplePurchaseOrderItems"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def add_multiple_purchase_order_items(
+        self, req: purchases_orders.scailo_pb2.PurchasesOrdersServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_add_multiple_purchase_order_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_add_purchase_order_item(
         self, req: purchases_orders.scailo_pb2.PurchasesOrdersServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2864,6 +2903,8 @@ class PurchasesOrdersServiceProtocol(typing.Protocol):
         ...
     def create_magic_link(self, req: ClientRequest[magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource]) -> ServerResponse[magic_links.scailo_pb2.MagicLink]:
         ...
+    def add_multiple_purchase_order_items(self, req: ClientRequest[purchases_orders.scailo_pb2.PurchasesOrdersServiceMultipleItemsCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def add_purchase_order_item(self, req: ClientRequest[purchases_orders.scailo_pb2.PurchasesOrdersServiceItemCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def modify_purchase_order_item(self, req: ClientRequest[purchases_orders.scailo_pb2.PurchasesOrdersServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2992,6 +3033,7 @@ def wsgi_purchases_orders_service(implementation: PurchasesOrdersServiceProtocol
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/Autofill", implementation.autofill, purchases_orders.scailo_pb2.PurchasesOrdersServiceAutofillRequest)
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/Amend", implementation.amend, base.scailo_pb2.IdentifierUUIDWithUserComment)
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/CreateMagicLink", implementation.create_magic_link, magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource)
+    app.register_unary_rpc("/Scailo.PurchasesOrdersService/AddMultiplePurchaseOrderItems", implementation.add_multiple_purchase_order_items, purchases_orders.scailo_pb2.PurchasesOrdersServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/AddPurchaseOrderItem", implementation.add_purchase_order_item, purchases_orders.scailo_pb2.PurchasesOrdersServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/ModifyPurchaseOrderItem", implementation.modify_purchase_order_item, purchases_orders.scailo_pb2.PurchasesOrdersServiceItemUpdateRequest)
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/ApprovePurchaseOrderItem", implementation.approve_purchase_order_item, base.scailo_pb2.IdentifierWithUserComment)

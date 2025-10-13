@@ -191,6 +191,28 @@ class GoodsReceiptsServiceItemCreateRequest(_message.Message):
     vendor_quantity: int
     def __init__(self, user_comment: _Optional[str] = ..., goods_receipt_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., vendor_uom_id: _Optional[int] = ..., vendor_quantity: _Optional[int] = ...) -> None: ...
 
+class GoodsReceiptsServiceMultipleItemsSingleton(_message.Message):
+    __slots__ = ("family_id", "internal_quantity", "vendor_uom_id", "vendor_quantity")
+    FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
+    INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    VENDOR_UOM_ID_FIELD_NUMBER: _ClassVar[int]
+    VENDOR_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    family_id: int
+    internal_quantity: int
+    vendor_uom_id: int
+    vendor_quantity: int
+    def __init__(self, family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., vendor_uom_id: _Optional[int] = ..., vendor_quantity: _Optional[int] = ...) -> None: ...
+
+class GoodsReceiptsServiceMultipleItemsCreateRequest(_message.Message):
+    __slots__ = ("user_comment", "goods_receipt_id", "list")
+    USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    GOODS_RECEIPT_ID_FIELD_NUMBER: _ClassVar[int]
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    user_comment: str
+    goods_receipt_id: int
+    list: _containers.RepeatedCompositeFieldContainer[GoodsReceiptsServiceMultipleItemsSingleton]
+    def __init__(self, user_comment: _Optional[str] = ..., goods_receipt_id: _Optional[int] = ..., list: _Optional[_Iterable[_Union[GoodsReceiptsServiceMultipleItemsSingleton, _Mapping]]] = ...) -> None: ...
+
 class GoodsReceiptsServiceItemUpdateRequest(_message.Message):
     __slots__ = ("user_comment", "id", "internal_quantity", "vendor_uom_id", "vendor_quantity")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]

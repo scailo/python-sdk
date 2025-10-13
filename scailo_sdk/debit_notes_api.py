@@ -403,6 +403,26 @@ class DebitNotesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_add_multiple_debit_note_items(
+        self, req: debit_notes.scailo_pb2.DebitNotesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleDebitNoteItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.DebitNotesService/AddMultipleDebitNoteItems"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def add_multiple_debit_note_items(
+        self, req: debit_notes.scailo_pb2.DebitNotesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_add_multiple_debit_note_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_add_debit_note_item(
         self, req: debit_notes.scailo_pb2.DebitNotesServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1616,6 +1636,25 @@ class AsyncDebitNotesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_add_multiple_debit_note_items(
+        self, req: debit_notes.scailo_pb2.DebitNotesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleDebitNoteItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.DebitNotesService/AddMultipleDebitNoteItems"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def add_multiple_debit_note_items(
+        self, req: debit_notes.scailo_pb2.DebitNotesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_add_multiple_debit_note_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_add_debit_note_item(
         self, req: debit_notes.scailo_pb2.DebitNotesServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2472,6 +2511,8 @@ class DebitNotesServiceProtocol(typing.Protocol):
         ...
     def create_magic_link(self, req: ClientRequest[magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource]) -> ServerResponse[magic_links.scailo_pb2.MagicLink]:
         ...
+    def add_multiple_debit_note_items(self, req: ClientRequest[debit_notes.scailo_pb2.DebitNotesServiceMultipleItemsCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def add_debit_note_item(self, req: ClientRequest[debit_notes.scailo_pb2.DebitNotesServiceItemCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def modify_debit_note_item(self, req: ClientRequest[debit_notes.scailo_pb2.DebitNotesServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2581,6 +2622,7 @@ def wsgi_debit_notes_service(implementation: DebitNotesServiceProtocol) -> WSGIA
     app.register_unary_rpc("/Scailo.DebitNotesService/SendEmail", implementation.send_email, base.scailo_pb2.IdentifierWithEmailAttributes)
     app.register_unary_rpc("/Scailo.DebitNotesService/Autofill", implementation.autofill, debit_notes.scailo_pb2.DebitNotesServiceAutofillRequest)
     app.register_unary_rpc("/Scailo.DebitNotesService/CreateMagicLink", implementation.create_magic_link, magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource)
+    app.register_unary_rpc("/Scailo.DebitNotesService/AddMultipleDebitNoteItems", implementation.add_multiple_debit_note_items, debit_notes.scailo_pb2.DebitNotesServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.DebitNotesService/AddDebitNoteItem", implementation.add_debit_note_item, debit_notes.scailo_pb2.DebitNotesServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.DebitNotesService/ModifyDebitNoteItem", implementation.modify_debit_note_item, debit_notes.scailo_pb2.DebitNotesServiceItemUpdateRequest)
     app.register_unary_rpc("/Scailo.DebitNotesService/ApproveDebitNoteItem", implementation.approve_debit_note_item, base.scailo_pb2.IdentifierWithUserComment)

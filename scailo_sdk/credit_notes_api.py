@@ -403,6 +403,26 @@ class CreditNotesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_add_multiple_credit_note_items(
+        self, req: credit_notes.scailo_pb2.CreditNotesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleCreditNoteItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.CreditNotesService/AddMultipleCreditNoteItems"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def add_multiple_credit_note_items(
+        self, req: credit_notes.scailo_pb2.CreditNotesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_add_multiple_credit_note_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_add_credit_note_item(
         self, req: credit_notes.scailo_pb2.CreditNotesServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1616,6 +1636,25 @@ class AsyncCreditNotesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_add_multiple_credit_note_items(
+        self, req: credit_notes.scailo_pb2.CreditNotesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddMultipleCreditNoteItems, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.CreditNotesService/AddMultipleCreditNoteItems"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def add_multiple_credit_note_items(
+        self, req: credit_notes.scailo_pb2.CreditNotesServiceMultipleItemsCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_add_multiple_credit_note_items(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_add_credit_note_item(
         self, req: credit_notes.scailo_pb2.CreditNotesServiceItemCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2472,6 +2511,8 @@ class CreditNotesServiceProtocol(typing.Protocol):
         ...
     def create_magic_link(self, req: ClientRequest[magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource]) -> ServerResponse[magic_links.scailo_pb2.MagicLink]:
         ...
+    def add_multiple_credit_note_items(self, req: ClientRequest[credit_notes.scailo_pb2.CreditNotesServiceMultipleItemsCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def add_credit_note_item(self, req: ClientRequest[credit_notes.scailo_pb2.CreditNotesServiceItemCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def modify_credit_note_item(self, req: ClientRequest[credit_notes.scailo_pb2.CreditNotesServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2581,6 +2622,7 @@ def wsgi_credit_notes_service(implementation: CreditNotesServiceProtocol) -> WSG
     app.register_unary_rpc("/Scailo.CreditNotesService/SendEmail", implementation.send_email, base.scailo_pb2.IdentifierWithEmailAttributes)
     app.register_unary_rpc("/Scailo.CreditNotesService/Autofill", implementation.autofill, credit_notes.scailo_pb2.CreditNotesServiceAutofillRequest)
     app.register_unary_rpc("/Scailo.CreditNotesService/CreateMagicLink", implementation.create_magic_link, magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource)
+    app.register_unary_rpc("/Scailo.CreditNotesService/AddMultipleCreditNoteItems", implementation.add_multiple_credit_note_items, credit_notes.scailo_pb2.CreditNotesServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.CreditNotesService/AddCreditNoteItem", implementation.add_credit_note_item, credit_notes.scailo_pb2.CreditNotesServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.CreditNotesService/ModifyCreditNoteItem", implementation.modify_credit_note_item, credit_notes.scailo_pb2.CreditNotesServiceItemUpdateRequest)
     app.register_unary_rpc("/Scailo.CreditNotesService/ApproveCreditNoteItem", implementation.approve_credit_note_item, base.scailo_pb2.IdentifierWithUserComment)
