@@ -48,7 +48,7 @@ USER_SORT_KEY_EMAIL: USER_SORT_KEY
 USER_SORT_KEY_PHONE: USER_SORT_KEY
 
 class UsersServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "user_type", "vault_folder_id", "username", "code", "name", "plain_text_password", "role_id", "mobile_role_id", "email", "work_email", "phone", "birthday", "joining_date", "address", "city", "state", "country", "pin_code", "blood_group", "shift_group_id", "attendance_uom_id", "department_id", "payroll_group_id", "payroll_tax_group_id", "payroll_currency_id", "basic_pay_amount", "basic_pay_uom_id", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     USER_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -112,7 +112,7 @@ class UsersServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., user_type: _Optional[_Union[USER_TYPE, str]] = ..., vault_folder_id: _Optional[int] = ..., username: _Optional[str] = ..., code: _Optional[str] = ..., name: _Optional[str] = ..., plain_text_password: _Optional[str] = ..., role_id: _Optional[int] = ..., mobile_role_id: _Optional[int] = ..., email: _Optional[str] = ..., work_email: _Optional[str] = ..., phone: _Optional[str] = ..., birthday: _Optional[str] = ..., joining_date: _Optional[str] = ..., address: _Optional[str] = ..., city: _Optional[str] = ..., state: _Optional[str] = ..., country: _Optional[str] = ..., pin_code: _Optional[str] = ..., blood_group: _Optional[str] = ..., shift_group_id: _Optional[int] = ..., attendance_uom_id: _Optional[int] = ..., department_id: _Optional[int] = ..., payroll_group_id: _Optional[int] = ..., payroll_tax_group_id: _Optional[int] = ..., payroll_currency_id: _Optional[int] = ..., basic_pay_amount: _Optional[int] = ..., basic_pay_uom_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class UsersServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "code", "name", "role_id", "mobile_role_id", "email", "work_email", "phone", "birthday", "joining_date", "address", "city", "state", "country", "pin_code", "blood_group", "shift_group_id", "attendance_uom_id", "department_id", "payroll_group_id", "payroll_tax_group_id", "payroll_currency_id", "basic_pay_amount", "basic_pay_uom_id", "form_data")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -172,7 +172,7 @@ class UsersServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., code: _Optional[str] = ..., name: _Optional[str] = ..., role_id: _Optional[int] = ..., mobile_role_id: _Optional[int] = ..., email: _Optional[str] = ..., work_email: _Optional[str] = ..., phone: _Optional[str] = ..., birthday: _Optional[str] = ..., joining_date: _Optional[str] = ..., address: _Optional[str] = ..., city: _Optional[str] = ..., state: _Optional[str] = ..., country: _Optional[str] = ..., pin_code: _Optional[str] = ..., blood_group: _Optional[str] = ..., shift_group_id: _Optional[int] = ..., attendance_uom_id: _Optional[int] = ..., department_id: _Optional[int] = ..., payroll_group_id: _Optional[int] = ..., payroll_tax_group_id: _Optional[int] = ..., payroll_currency_id: _Optional[int] = ..., basic_pay_amount: _Optional[int] = ..., basic_pay_uom_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class User(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "user_type", "vault_folder_id", "username", "code", "name", "role_id", "mobile_role_id", "email", "work_email", "phone", "birthday", "joining_date", "address", "city", "state", "country", "pin_code", "blood_group", "shift_group_id", "attendance_uom_id", "department_id", "payroll_group_id", "payroll_tax_group_id", "payroll_currency_id", "basic_pay_amount", "basic_pay_uom_id", "mfa_status", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -242,7 +242,7 @@ class User(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., user_type: _Optional[_Union[USER_TYPE, str]] = ..., vault_folder_id: _Optional[int] = ..., username: _Optional[str] = ..., code: _Optional[str] = ..., name: _Optional[str] = ..., role_id: _Optional[int] = ..., mobile_role_id: _Optional[int] = ..., email: _Optional[str] = ..., work_email: _Optional[str] = ..., phone: _Optional[str] = ..., birthday: _Optional[str] = ..., joining_date: _Optional[str] = ..., address: _Optional[str] = ..., city: _Optional[str] = ..., state: _Optional[str] = ..., country: _Optional[str] = ..., pin_code: _Optional[str] = ..., blood_group: _Optional[str] = ..., shift_group_id: _Optional[int] = ..., attendance_uom_id: _Optional[int] = ..., department_id: _Optional[int] = ..., payroll_group_id: _Optional[int] = ..., payroll_tax_group_id: _Optional[int] = ..., payroll_currency_id: _Optional[int] = ..., basic_pay_amount: _Optional[int] = ..., basic_pay_uom_id: _Optional[int] = ..., mfa_status: _Optional[bool] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class UserPrimaryInfo(_message.Message):
-    __slots__ = ("user_type", "username", "name", "password", "role_id", "mobile_role_id", "mfa_status", "mfa_secret", "blood_group")
+    __slots__ = ()
     USER_TYPE_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -264,13 +264,13 @@ class UserPrimaryInfo(_message.Message):
     def __init__(self, user_type: _Optional[_Union[USER_TYPE, str]] = ..., username: _Optional[str] = ..., name: _Optional[str] = ..., password: _Optional[bytes] = ..., role_id: _Optional[int] = ..., mobile_role_id: _Optional[int] = ..., mfa_status: _Optional[bool] = ..., mfa_secret: _Optional[bytes] = ..., blood_group: _Optional[str] = ...) -> None: ...
 
 class UsersList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[User]
     def __init__(self, list: _Optional[_Iterable[_Union[User, _Mapping]]] = ...) -> None: ...
 
 class UsersServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -286,7 +286,7 @@ class UsersServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[USER_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class UsersServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -298,7 +298,7 @@ class UsersServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[User, _Mapping]]] = ...) -> None: ...
 
 class UsersServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "user_type", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "username", "name", "code", "email", "phone", "role_id", "shift_group_id", "attendance_uom_id", "department_id", "payroll_group_id", "payroll_tax_group_id", "payroll_currency_id", "basic_pay_uom_id", "work_email", "vendor_id", "client_id", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -368,7 +368,7 @@ class UsersServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[USER_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., user_type: _Optional[_Union[USER_TYPE, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., username: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., email: _Optional[str] = ..., phone: _Optional[str] = ..., role_id: _Optional[int] = ..., shift_group_id: _Optional[int] = ..., attendance_uom_id: _Optional[int] = ..., department_id: _Optional[int] = ..., payroll_group_id: _Optional[int] = ..., payroll_tax_group_id: _Optional[int] = ..., payroll_currency_id: _Optional[int] = ..., basic_pay_uom_id: _Optional[int] = ..., work_email: _Optional[str] = ..., vendor_id: _Optional[int] = ..., client_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class UsersServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "user_type", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "username", "name", "code", "email", "phone", "role_id", "shift_group_id", "attendance_uom_id", "department_id", "payroll_group_id", "payroll_tax_group_id", "payroll_currency_id", "basic_pay_uom_id", "work_email", "vendor_id", "client_id", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -430,7 +430,7 @@ class UsersServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., user_type: _Optional[_Union[USER_TYPE, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., username: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., email: _Optional[str] = ..., phone: _Optional[str] = ..., role_id: _Optional[int] = ..., shift_group_id: _Optional[int] = ..., attendance_uom_id: _Optional[int] = ..., department_id: _Optional[int] = ..., payroll_group_id: _Optional[int] = ..., payroll_tax_group_id: _Optional[int] = ..., payroll_currency_id: _Optional[int] = ..., basic_pay_uom_id: _Optional[int] = ..., work_email: _Optional[str] = ..., vendor_id: _Optional[int] = ..., client_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class UsersServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "user_type", "status", "search_key", "vendor_id", "client_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -456,7 +456,7 @@ class UsersServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[USER_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., user_type: _Optional[_Union[USER_TYPE, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., search_key: _Optional[str] = ..., vendor_id: _Optional[int] = ..., client_id: _Optional[int] = ...) -> None: ...
 
 class UsersServiceRegisterMobileDeviceRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_id", "device_os", "device_token")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     DEVICE_OS_FIELD_NUMBER: _ClassVar[int]

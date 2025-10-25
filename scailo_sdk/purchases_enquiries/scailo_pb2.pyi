@@ -65,7 +65,7 @@ PURCHASE_ENQUIRY_SORT_KEY_FINAL_REF_NUMBER: PURCHASE_ENQUIRY_SORT_KEY
 PURCHASE_ENQUIRY_SORT_KEY_PRIORITY: PURCHASE_ENQUIRY_SORT_KEY
 
 class PurchasesEnquiriesServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "reference_id", "priority", "description", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -83,7 +83,7 @@ class PurchasesEnquiriesServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., priority: _Optional[str] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class PurchasesEnquiriesServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "reference_id", "priority", "description", "form_data")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -103,7 +103,7 @@ class PurchasesEnquiriesServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., priority: _Optional[str] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class PurchaseEnquiry(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "reference_id", "final_ref_number", "priority", "description", "list", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -133,7 +133,7 @@ class PurchaseEnquiry(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., priority: _Optional[str] = ..., description: _Optional[str] = ..., list: _Optional[_Iterable[_Union[PurchaseEnquiryItem, _Mapping]]] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class PurchasesEnquiriesServiceItemCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "purchase_enquiry_id", "name", "quantity", "uom_id", "required_by", "description")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     PURCHASE_ENQUIRY_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -151,7 +151,7 @@ class PurchasesEnquiriesServiceItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., purchase_enquiry_id: _Optional[int] = ..., name: _Optional[str] = ..., quantity: _Optional[int] = ..., uom_id: _Optional[int] = ..., required_by: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class PurchasesEnquiriesServiceItemUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "name", "quantity", "uom_id", "required_by", "description")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -169,7 +169,7 @@ class PurchasesEnquiriesServiceItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., name: _Optional[str] = ..., quantity: _Optional[int] = ..., uom_id: _Optional[int] = ..., required_by: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class PurchaseEnquiryItem(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "purchase_enquiry_id", "name", "quantity", "uom_id", "required_by", "description")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -195,19 +195,19 @@ class PurchaseEnquiryItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., purchase_enquiry_id: _Optional[int] = ..., name: _Optional[str] = ..., quantity: _Optional[int] = ..., uom_id: _Optional[int] = ..., required_by: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class PurchasesEnquiriesList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[PurchaseEnquiry]
     def __init__(self, list: _Optional[_Iterable[_Union[PurchaseEnquiry, _Mapping]]] = ...) -> None: ...
 
 class PurchasesEnquiriesItemsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[PurchaseEnquiryItem]
     def __init__(self, list: _Optional[_Iterable[_Union[PurchaseEnquiryItem, _Mapping]]] = ...) -> None: ...
 
 class PurchaseEnquiryItemHistoryRequest(_message.Message):
-    __slots__ = ("purchase_enquiry_id", "name")
+    __slots__ = ()
     PURCHASE_ENQUIRY_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     purchase_enquiry_id: int
@@ -215,7 +215,7 @@ class PurchaseEnquiryItemHistoryRequest(_message.Message):
     def __init__(self, purchase_enquiry_id: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
 
 class PurchaseEnquiryItemsSearchRequest(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "purchase_enquiry_id", "uom_id", "required_by_date_exact", "required_by_date_start", "required_by_date_end", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -253,7 +253,7 @@ class PurchaseEnquiryItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[PURCHASE_ENQUIRY_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[PURCHASE_ENQUIRY_ITEM_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., purchase_enquiry_id: _Optional[int] = ..., uom_id: _Optional[int] = ..., required_by_date_exact: _Optional[str] = ..., required_by_date_start: _Optional[str] = ..., required_by_date_end: _Optional[str] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class PurchaseEnquiriesServicePaginatedItemsResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -265,7 +265,7 @@ class PurchaseEnquiriesServicePaginatedItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[PurchaseEnquiryItem, _Mapping]]] = ...) -> None: ...
 
 class PurchasesEnquiriesServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -281,7 +281,7 @@ class PurchasesEnquiriesServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[PURCHASE_ENQUIRY_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class PurchasesEnquiriesServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -293,7 +293,7 @@ class PurchasesEnquiriesServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[PurchaseEnquiry, _Mapping]]] = ...) -> None: ...
 
 class PurchasesEnquiriesServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "priority", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -339,7 +339,7 @@ class PurchasesEnquiriesServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[PURCHASE_ENQUIRY_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., priority: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class PurchasesEnquiriesServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "priority", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -377,7 +377,7 @@ class PurchasesEnquiriesServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., priority: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class PurchasesEnquiriesServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

@@ -29,7 +29,7 @@ STORE_SORT_KEY_NAME: STORE_SORT_KEY
 STORE_SORT_KEY_CODE: STORE_SORT_KEY
 
 class StoresServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "location_id", "name", "code", "description", "incharge_username", "phone")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     LOCATION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -49,7 +49,7 @@ class StoresServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., location_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., incharge_username: _Optional[str] = ..., phone: _Optional[str] = ...) -> None: ...
 
 class StoresServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "name", "code", "description", "incharge_username", "phone")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -69,7 +69,7 @@ class StoresServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., incharge_username: _Optional[str] = ..., phone: _Optional[str] = ...) -> None: ...
 
 class Store(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "location_id", "name", "code", "description", "incharge_username", "phone")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -95,13 +95,13 @@ class Store(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., location_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., incharge_username: _Optional[str] = ..., phone: _Optional[str] = ...) -> None: ...
 
 class StoresList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[Store]
     def __init__(self, list: _Optional[_Iterable[_Union[Store, _Mapping]]] = ...) -> None: ...
 
 class StoresServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -117,7 +117,7 @@ class StoresServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[STORE_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class StoresServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -129,7 +129,7 @@ class StoresServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[Store, _Mapping]]] = ...) -> None: ...
 
 class StoresServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "name", "code", "location_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -169,7 +169,7 @@ class StoresServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[STORE_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., location_id: _Optional[int] = ...) -> None: ...
 
 class StoresServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "name", "code", "location_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -201,7 +201,7 @@ class StoresServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., location_id: _Optional[int] = ...) -> None: ...
 
 class StoresServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key", "location_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

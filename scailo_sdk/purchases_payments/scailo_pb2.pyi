@@ -34,7 +34,7 @@ PURCHASE_PAYMENT_SORT_KEY_FINAL_REF_NUMBER: PURCHASE_PAYMENT_SORT_KEY
 PURCHASE_PAYMENT_SORT_KEY_PAYMENT_TIMESTAMP: PURCHASE_PAYMENT_SORT_KEY
 
 class PurchasesPaymentsServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "reference_id", "ref_from", "ref_id", "bank_account_id", "currency_id", "transaction_type", "amount_base", "amount_net", "payment_timestamp", "description")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -64,7 +64,7 @@ class PurchasesPaymentsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[str] = ..., amount_base: _Optional[int] = ..., amount_net: _Optional[int] = ..., payment_timestamp: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
 class PurchasesPaymentsServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "reference_id", "bank_account_id", "currency_id", "transaction_type", "amount_base", "amount_net", "payment_timestamp", "description")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -92,7 +92,7 @@ class PurchasesPaymentsServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[str] = ..., amount_base: _Optional[int] = ..., amount_net: _Optional[int] = ..., payment_timestamp: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
 class PurchasePaymentAncillaryParameters(_message.Message):
-    __slots__ = ("ref_uuid", "vendor_uuid", "bank_account_uuid", "currency_uuid")
+    __slots__ = ()
     REF_UUID_FIELD_NUMBER: _ClassVar[int]
     VENDOR_UUID_FIELD_NUMBER: _ClassVar[int]
     BANK_ACCOUNT_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -104,7 +104,7 @@ class PurchasePaymentAncillaryParameters(_message.Message):
     def __init__(self, ref_uuid: _Optional[str] = ..., vendor_uuid: _Optional[str] = ..., bank_account_uuid: _Optional[str] = ..., currency_uuid: _Optional[str] = ...) -> None: ...
 
 class PurchasePayment(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "reference_id", "final_ref_number", "ref_from", "ref_id", "vendor_id", "bank_account_id", "currency_id", "transaction_type", "amount_base", "amount_net", "payment_timestamp", "description")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -146,13 +146,13 @@ class PurchasePayment(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., vendor_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[str] = ..., amount_base: _Optional[int] = ..., amount_net: _Optional[int] = ..., payment_timestamp: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
 class PurchasesPaymentsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[PurchasePayment]
     def __init__(self, list: _Optional[_Iterable[_Union[PurchasePayment, _Mapping]]] = ...) -> None: ...
 
 class PurchasesPaymentsServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -168,7 +168,7 @@ class PurchasesPaymentsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[PURCHASE_PAYMENT_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class PurchasesPaymentsServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -180,7 +180,7 @@ class PurchasesPaymentsServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[PurchasePayment, _Mapping]]] = ...) -> None: ...
 
 class PurchasesPaymentsServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "ref_from", "ref_id", "vendor_id", "bank_account_id", "currency_id", "transaction_type", "payment_timestamp_start", "payment_timestamp_end")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -238,7 +238,7 @@ class PurchasesPaymentsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[PURCHASE_PAYMENT_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., vendor_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[str] = ..., payment_timestamp_start: _Optional[int] = ..., payment_timestamp_end: _Optional[int] = ...) -> None: ...
 
 class PurchasesPaymentsServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "ref_from", "ref_id", "vendor_id", "bank_account_id", "currency_id", "transaction_type", "payment_timestamp_start", "payment_timestamp_end")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -288,7 +288,7 @@ class PurchasesPaymentsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., vendor_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[str] = ..., payment_timestamp_start: _Optional[int] = ..., payment_timestamp_end: _Optional[int] = ...) -> None: ...
 
 class PurchasesPaymentsServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key", "vendor_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

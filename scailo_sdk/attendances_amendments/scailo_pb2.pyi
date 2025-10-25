@@ -42,7 +42,7 @@ ATTENDANCE_AMENDMENT_SORT_KEY_AMENDMENT_ENTRY_TIMESTAMP: ATTENDANCE_AMENDMENT_SO
 ATTENDANCE_AMENDMENT_SORT_KEY_AMENDMENT_EXIT_TIMESTAMP: ATTENDANCE_AMENDMENT_SORT_KEY
 
 class AttendancesAmendmentsServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "reference_id", "user_id", "attendance_id", "amendment_entry_timestamp", "amendment_exit_timestamp", "description", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -66,7 +66,7 @@ class AttendancesAmendmentsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., user_id: _Optional[int] = ..., attendance_id: _Optional[int] = ..., amendment_entry_timestamp: _Optional[int] = ..., amendment_exit_timestamp: _Optional[int] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class AttendancesAmendmentsServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "reference_id", "amendment_entry_timestamp", "amendment_exit_timestamp", "description", "form_data")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -88,7 +88,7 @@ class AttendancesAmendmentsServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., amendment_entry_timestamp: _Optional[int] = ..., amendment_exit_timestamp: _Optional[int] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class AttendanceAmendment(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "reference_id", "final_ref_number", "user_id", "attendance_id", "attendance_entry_timestamp", "attendance_exit_timestamp", "amendment_entry_timestamp", "amendment_exit_timestamp", "description", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -126,13 +126,13 @@ class AttendanceAmendment(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., user_id: _Optional[int] = ..., attendance_id: _Optional[int] = ..., attendance_entry_timestamp: _Optional[int] = ..., attendance_exit_timestamp: _Optional[int] = ..., amendment_entry_timestamp: _Optional[int] = ..., amendment_exit_timestamp: _Optional[int] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class AttendancesAmendmentsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[AttendanceAmendment]
     def __init__(self, list: _Optional[_Iterable[_Union[AttendanceAmendment, _Mapping]]] = ...) -> None: ...
 
 class AttendancesAmendmentsServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -148,7 +148,7 @@ class AttendancesAmendmentsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[ATTENDANCE_AMENDMENT_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class AttendancesAmendmentsServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -160,7 +160,7 @@ class AttendancesAmendmentsServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[AttendanceAmendment, _Mapping]]] = ...) -> None: ...
 
 class AttendancesAmendmentsServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "user_id", "attendance_id", "attendance_entry_timestamp_start", "attendance_entry_timestamp_end", "attendance_exit_timestamp_start", "attendance_exit_timestamp_end", "amendment_entry_timestamp_start", "amendment_entry_timestamp_end", "amendment_exit_timestamp_start", "amendment_exit_timestamp_end", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -224,7 +224,7 @@ class AttendancesAmendmentsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[ATTENDANCE_AMENDMENT_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., user_id: _Optional[int] = ..., attendance_id: _Optional[int] = ..., attendance_entry_timestamp_start: _Optional[int] = ..., attendance_entry_timestamp_end: _Optional[int] = ..., attendance_exit_timestamp_start: _Optional[int] = ..., attendance_exit_timestamp_end: _Optional[int] = ..., amendment_entry_timestamp_start: _Optional[int] = ..., amendment_entry_timestamp_end: _Optional[int] = ..., amendment_exit_timestamp_start: _Optional[int] = ..., amendment_exit_timestamp_end: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class AttendancesAmendmentsServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "user_id", "attendance_id", "attendance_entry_timestamp_start", "attendance_entry_timestamp_end", "attendance_exit_timestamp_start", "attendance_exit_timestamp_end", "amendment_entry_timestamp_start", "amendment_entry_timestamp_end", "amendment_exit_timestamp_start", "amendment_exit_timestamp_end", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -280,7 +280,7 @@ class AttendancesAmendmentsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., user_id: _Optional[int] = ..., attendance_id: _Optional[int] = ..., attendance_entry_timestamp_start: _Optional[int] = ..., attendance_entry_timestamp_end: _Optional[int] = ..., attendance_exit_timestamp_start: _Optional[int] = ..., attendance_exit_timestamp_end: _Optional[int] = ..., amendment_entry_timestamp_start: _Optional[int] = ..., amendment_entry_timestamp_end: _Optional[int] = ..., amendment_exit_timestamp_start: _Optional[int] = ..., amendment_exit_timestamp_end: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class AttendancesAmendmentsServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key", "user_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

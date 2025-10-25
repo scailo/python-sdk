@@ -67,7 +67,7 @@ QUOTATION_RESPONSE_SORT_KEY_REFERENCE_ID: QUOTATION_RESPONSE_SORT_KEY
 QUOTATION_RESPONSE_SORT_KEY_FINAL_REF_NUMBER: QUOTATION_RESPONSE_SORT_KEY
 
 class QuotationsResponsesServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "reference_id", "quotation_request_id", "ref_from", "ref_id", "currency_id", "description", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -91,7 +91,7 @@ class QuotationsResponsesServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., quotation_request_id: _Optional[int] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class QuotationsResponsesServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "reference_id", "currency_id", "description", "form_data")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -111,7 +111,7 @@ class QuotationsResponsesServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., currency_id: _Optional[int] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class QuotationResponseAncillaryParameters(_message.Message):
-    __slots__ = ("quotation_request_uuid", "currency_uuid")
+    __slots__ = ()
     QUOTATION_REQUEST_UUID_FIELD_NUMBER: _ClassVar[int]
     CURRENCY_UUID_FIELD_NUMBER: _ClassVar[int]
     quotation_request_uuid: str
@@ -119,7 +119,7 @@ class QuotationResponseAncillaryParameters(_message.Message):
     def __init__(self, quotation_request_uuid: _Optional[str] = ..., currency_uuid: _Optional[str] = ...) -> None: ...
 
 class QuotationResponse(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "reference_id", "final_ref_number", "quotation_request_id", "ref_from", "ref_id", "currency_id", "description", "list", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -155,7 +155,7 @@ class QuotationResponse(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., quotation_request_id: _Optional[int] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., description: _Optional[str] = ..., list: _Optional[_Iterable[_Union[QuotationResponseItem, _Mapping]]] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class QuotationsResponsesServiceItemCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "vault_folder_id", "quotation_response_id", "quotation_request_item_id", "name", "hsn_sac_code", "uom_id", "internal_quantity", "vendor_uom_id", "vendor_quantity", "vendor_unit_price", "tax_group_id", "delivery_time_in_days", "specifications")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
     QUOTATION_RESPONSE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -187,7 +187,7 @@ class QuotationsResponsesServiceItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., quotation_response_id: _Optional[int] = ..., quotation_request_item_id: _Optional[int] = ..., name: _Optional[str] = ..., hsn_sac_code: _Optional[str] = ..., uom_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., vendor_uom_id: _Optional[int] = ..., vendor_quantity: _Optional[int] = ..., vendor_unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., delivery_time_in_days: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class QuotationsResponsesServiceItemUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "vault_folder_id", "name", "hsn_sac_code", "uom_id", "internal_quantity", "vendor_uom_id", "vendor_quantity", "vendor_unit_price", "tax_group_id", "delivery_time_in_days", "specifications")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -217,7 +217,7 @@ class QuotationsResponsesServiceItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., hsn_sac_code: _Optional[str] = ..., uom_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., vendor_uom_id: _Optional[int] = ..., vendor_quantity: _Optional[int] = ..., vendor_unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., delivery_time_in_days: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class QuotationResponseItem(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "vault_folder_id", "quotation_response_id", "quotation_request_item_id", "name", "hsn_sac_code", "uom_id", "internal_quantity", "vendor_uom_id", "vendor_quantity", "vendor_unit_price", "tax_group_id", "delivery_time_in_days", "specifications")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -257,19 +257,19 @@ class QuotationResponseItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., quotation_response_id: _Optional[int] = ..., quotation_request_item_id: _Optional[int] = ..., name: _Optional[str] = ..., hsn_sac_code: _Optional[str] = ..., uom_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., vendor_uom_id: _Optional[int] = ..., vendor_quantity: _Optional[int] = ..., vendor_unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., delivery_time_in_days: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class QuotationsResponsesList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[QuotationResponse]
     def __init__(self, list: _Optional[_Iterable[_Union[QuotationResponse, _Mapping]]] = ...) -> None: ...
 
 class QuotationsResponsesItemsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[QuotationResponseItem]
     def __init__(self, list: _Optional[_Iterable[_Union[QuotationResponseItem, _Mapping]]] = ...) -> None: ...
 
 class QuotationResponseItemHistoryRequest(_message.Message):
-    __slots__ = ("quotation_response_id", "name")
+    __slots__ = ()
     QUOTATION_RESPONSE_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     quotation_response_id: int
@@ -277,7 +277,7 @@ class QuotationResponseItemHistoryRequest(_message.Message):
     def __init__(self, quotation_response_id: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
 
 class QuotationResponseItemsSearchRequest(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "quotation_response_id", "quotation_request_item_id", "uom_id", "vendor_uom_id", "tax_group_id", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -315,7 +315,7 @@ class QuotationResponseItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[QUOTATION_RESPONSE_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[QUOTATION_RESPONSE_ITEM_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., quotation_response_id: _Optional[int] = ..., quotation_request_item_id: _Optional[int] = ..., uom_id: _Optional[int] = ..., vendor_uom_id: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class QuotationsResponsesServicePaginatedItemsResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -327,7 +327,7 @@ class QuotationsResponsesServicePaginatedItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[QuotationResponseItem, _Mapping]]] = ...) -> None: ...
 
 class QuotationsResponsesServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -343,7 +343,7 @@ class QuotationsResponsesServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[QUOTATION_RESPONSE_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class QuotationsResponsesServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -355,7 +355,7 @@ class QuotationsResponsesServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[QuotationResponse, _Mapping]]] = ...) -> None: ...
 
 class QuotationsResponsesServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "quotation_request_id", "currency_id", "vendor_id", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -405,7 +405,7 @@ class QuotationsResponsesServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[QUOTATION_RESPONSE_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., quotation_request_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., vendor_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class QuotationsResponsesServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "quotation_request_id", "currency_id", "vendor_id", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -447,7 +447,7 @@ class QuotationsResponsesServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., quotation_request_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., vendor_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class QuotationsResponsesServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -467,7 +467,7 @@ class QuotationsResponsesServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[QUOTATION_RESPONSE_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class QuotationsResponsesServiceItemsFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "quotation_response_id", "quotation_request_item_id", "name", "hsn_sac_code", "uom_id", "vendor_uom_id", "tax_group_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

@@ -71,7 +71,7 @@ VENDOR_STREAM_MESSAGE_SORT_KEY_CREATED_AT: VENDOR_STREAM_MESSAGE_SORT_KEY
 VENDOR_STREAM_MESSAGE_SORT_KEY_MODIFIED_AT: VENDOR_STREAM_MESSAGE_SORT_KEY
 
 class LogbookLogVendorStreamLC(_message.Message):
-    __slots__ = ("id", "is_active", "timestamp", "ref_uuid", "operation", "username", "name", "user_id", "app_comment", "user_comment")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -95,7 +95,7 @@ class LogbookLogVendorStreamLC(_message.Message):
     def __init__(self, id: _Optional[int] = ..., is_active: _Optional[bool] = ..., timestamp: _Optional[int] = ..., ref_uuid: _Optional[str] = ..., operation: _Optional[_Union[VENDOR_STREAM_LIFECYCLE, str]] = ..., username: _Optional[str] = ..., name: _Optional[str] = ..., user_id: _Optional[int] = ..., app_comment: _Optional[str] = ..., user_comment: _Optional[str] = ...) -> None: ...
 
 class VendorStreamsServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "title", "vendor_id", "ref_from", "ref_id", "assign_self_as_internal_subscriber", "assign_self_as_vendor_subscriber")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -117,7 +117,7 @@ class VendorStreamsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., title: _Optional[str] = ..., vendor_id: _Optional[int] = ..., ref_from: _Optional[_Union[VENDOR_STREAM_REF_FROM, str]] = ..., ref_id: _Optional[int] = ..., assign_self_as_internal_subscriber: _Optional[bool] = ..., assign_self_as_vendor_subscriber: _Optional[bool] = ...) -> None: ...
 
 class VendorStreamsServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "title")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -131,7 +131,7 @@ class VendorStreamsServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., title: _Optional[str] = ...) -> None: ...
 
 class VendorStream(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "status", "logs", "completed_on", "vault_folder_id", "vault_folder_uuid", "title", "vendor_id", "ref_from", "ref_id", "ref_uuid", "internal_ref", "unread_count", "message_count", "last_message_by")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -167,13 +167,13 @@ class VendorStream(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., status: _Optional[_Union[VENDOR_STREAM_LIFECYCLE, str]] = ..., logs: _Optional[_Iterable[_Union[LogbookLogVendorStreamLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., vault_folder_uuid: _Optional[str] = ..., title: _Optional[str] = ..., vendor_id: _Optional[int] = ..., ref_from: _Optional[_Union[VENDOR_STREAM_REF_FROM, str]] = ..., ref_id: _Optional[int] = ..., ref_uuid: _Optional[str] = ..., internal_ref: _Optional[str] = ..., unread_count: _Optional[int] = ..., message_count: _Optional[int] = ..., last_message_by: _Optional[str] = ...) -> None: ...
 
 class VendorStreamsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[VendorStream]
     def __init__(self, list: _Optional[_Iterable[_Union[VendorStream, _Mapping]]] = ...) -> None: ...
 
 class VendorStreamsServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -189,7 +189,7 @@ class VendorStreamsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[VENDOR_STREAM_SORT_KEY, str]] = ..., status: _Optional[_Union[VENDOR_STREAM_LIFECYCLE, str]] = ...) -> None: ...
 
 class VendorStreamsServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -201,7 +201,7 @@ class VendorStreamsServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[VendorStream, _Mapping]]] = ...) -> None: ...
 
 class VendorStreamsServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "completed_on_start", "completed_on_end", "internal_ref", "title", "vendor_id", "ref_from", "ref_id", "internal_subscriber_user_id", "vendor_subscriber_user_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -245,7 +245,7 @@ class VendorStreamsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[VENDOR_STREAM_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[VENDOR_STREAM_LIFECYCLE, str]] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., internal_ref: _Optional[str] = ..., title: _Optional[str] = ..., vendor_id: _Optional[int] = ..., ref_from: _Optional[_Union[VENDOR_STREAM_REF_FROM, str]] = ..., ref_id: _Optional[int] = ..., internal_subscriber_user_id: _Optional[int] = ..., vendor_subscriber_user_id: _Optional[int] = ...) -> None: ...
 
 class VendorStreamsServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "completed_on_start", "completed_on_end", "internal_ref", "title", "vendor_id", "ref_from", "ref_id", "internal_subscriber_user_id", "vendor_subscriber_user_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -281,7 +281,7 @@ class VendorStreamsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[VENDOR_STREAM_LIFECYCLE, str]] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., internal_ref: _Optional[str] = ..., title: _Optional[str] = ..., vendor_id: _Optional[int] = ..., ref_from: _Optional[_Union[VENDOR_STREAM_REF_FROM, str]] = ..., ref_id: _Optional[int] = ..., internal_subscriber_user_id: _Optional[int] = ..., vendor_subscriber_user_id: _Optional[int] = ...) -> None: ...
 
 class VendorStreamsServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key", "vendor_id", "internal_subscriber_user_id", "vendor_subscriber_user_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -307,7 +307,7 @@ class VendorStreamsServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[VENDOR_STREAM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[VENDOR_STREAM_LIFECYCLE, str]] = ..., search_key: _Optional[str] = ..., vendor_id: _Optional[int] = ..., internal_subscriber_user_id: _Optional[int] = ..., vendor_subscriber_user_id: _Optional[int] = ...) -> None: ...
 
 class VendorStreamsServiceMessageCreateRequest(_message.Message):
-    __slots__ = ("message_type", "vendor_stream_uuid", "response_to_message_uuid", "content")
+    __slots__ = ()
     MESSAGE_TYPE_FIELD_NUMBER: _ClassVar[int]
     VENDOR_STREAM_UUID_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_TO_MESSAGE_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -319,7 +319,7 @@ class VendorStreamsServiceMessageCreateRequest(_message.Message):
     def __init__(self, message_type: _Optional[_Union[VENDOR_STREAM_MESSAGE_TYPE, str]] = ..., vendor_stream_uuid: _Optional[str] = ..., response_to_message_uuid: _Optional[str] = ..., content: _Optional[str] = ...) -> None: ...
 
 class VendorStreamMessage(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "message_type", "vendor_stream_id", "response_to_message_uuid", "content", "internal_ref", "is_read")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -339,13 +339,13 @@ class VendorStreamMessage(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., message_type: _Optional[_Union[VENDOR_STREAM_MESSAGE_TYPE, str]] = ..., vendor_stream_id: _Optional[int] = ..., response_to_message_uuid: _Optional[str] = ..., content: _Optional[str] = ..., internal_ref: _Optional[str] = ..., is_read: _Optional[bool] = ...) -> None: ...
 
 class VendorStreamMessagesList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[VendorStreamMessage]
     def __init__(self, list: _Optional[_Iterable[_Union[VendorStreamMessage, _Mapping]]] = ...) -> None: ...
 
 class VendorStreamMessagesSearchRequest(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "message_type", "vendor_stream_id", "response_to_message_uuid", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -369,7 +369,7 @@ class VendorStreamMessagesSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[VENDOR_STREAM_MESSAGE_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., message_type: _Optional[_Union[VENDOR_STREAM_MESSAGE_TYPE, str]] = ..., vendor_stream_id: _Optional[int] = ..., response_to_message_uuid: _Optional[str] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class VendorStreamsServicePaginatedMessagesResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -381,7 +381,7 @@ class VendorStreamsServicePaginatedMessagesResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[VendorStreamMessage, _Mapping]]] = ...) -> None: ...
 
 class VendorStreamMessageReceipt(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "vendor_stream_message_uuid", "user_id", "is_read", "read_at")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     VENDOR_STREAM_MESSAGE_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -397,13 +397,13 @@ class VendorStreamMessageReceipt(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., vendor_stream_message_uuid: _Optional[str] = ..., user_id: _Optional[int] = ..., is_read: _Optional[bool] = ..., read_at: _Optional[int] = ...) -> None: ...
 
 class VendorStreamMessageReceiptsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[VendorStreamMessageReceipt]
     def __init__(self, list: _Optional[_Iterable[_Union[VendorStreamMessageReceipt, _Mapping]]] = ...) -> None: ...
 
 class VendorStreamsServiceInternalSubscriberCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "vendor_stream_id", "user_id")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VENDOR_STREAM_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -413,7 +413,7 @@ class VendorStreamsServiceInternalSubscriberCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., vendor_stream_id: _Optional[int] = ..., user_id: _Optional[int] = ...) -> None: ...
 
 class VendorStreamInternalSubscriber(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "user_comment", "vendor_stream_id", "user_id", "user_uuid")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
@@ -429,13 +429,13 @@ class VendorStreamInternalSubscriber(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., user_comment: _Optional[str] = ..., vendor_stream_id: _Optional[int] = ..., user_id: _Optional[int] = ..., user_uuid: _Optional[str] = ...) -> None: ...
 
 class VendorStreamInternalSubscribersList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[VendorStreamInternalSubscriber]
     def __init__(self, list: _Optional[_Iterable[_Union[VendorStreamInternalSubscriber, _Mapping]]] = ...) -> None: ...
 
 class VendorStreamsServiceImportInternalSubscribersRequest(_message.Message):
-    __slots__ = ("user_comment", "vendor_stream_id", "resource_id", "delete_existing")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VENDOR_STREAM_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -447,7 +447,7 @@ class VendorStreamsServiceImportInternalSubscribersRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., vendor_stream_id: _Optional[int] = ..., resource_id: _Optional[int] = ..., delete_existing: _Optional[bool] = ...) -> None: ...
 
 class VendorStreamsServiceVendorSubscriberCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "vendor_stream_id", "user_id")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VENDOR_STREAM_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -457,7 +457,7 @@ class VendorStreamsServiceVendorSubscriberCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., vendor_stream_id: _Optional[int] = ..., user_id: _Optional[int] = ...) -> None: ...
 
 class VendorStreamVendorSubscriber(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "user_comment", "vendor_stream_id", "user_id", "user_uuid")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
@@ -473,7 +473,7 @@ class VendorStreamVendorSubscriber(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., user_comment: _Optional[str] = ..., vendor_stream_id: _Optional[int] = ..., user_id: _Optional[int] = ..., user_uuid: _Optional[str] = ...) -> None: ...
 
 class VendorStreamVendorSubscribersList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[VendorStreamVendorSubscriber]
     def __init__(self, list: _Optional[_Iterable[_Union[VendorStreamVendorSubscriber, _Mapping]]] = ...) -> None: ...

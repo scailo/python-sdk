@@ -6,7 +6,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Duration(_message.Message, _well_known_types.Duration):
-    __slots__ = ("seconds", "nanos")
+    __slots__ = ()
     SECONDS_FIELD_NUMBER: _ClassVar[int]
     NANOS_FIELD_NUMBER: _ClassVar[int]
     seconds: int

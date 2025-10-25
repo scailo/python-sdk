@@ -112,7 +112,7 @@ INWARD_JOB_OUTWARD_ITEM_STATUS_APPROVED: INWARD_JOB_OUTWARD_ITEM_STATUS
 INWARD_JOB_OUTWARD_ITEM_STATUS_UNAPPROVED: INWARD_JOB_OUTWARD_ITEM_STATUS
 
 class InwardJobsServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "reference_id", "consignee_client_id", "buyer_client_id", "location_id", "project_id", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -134,7 +134,7 @@ class InwardJobsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., location_id: _Optional[int] = ..., project_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "reference_id", "consignee_client_id", "buyer_client_id", "project_id", "form_data")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -156,7 +156,7 @@ class InwardJobsServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., project_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsServiceAutofillRequest(_message.Message):
-    __slots__ = ("user_comment", "uuid")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     UUID_FIELD_NUMBER: _ClassVar[int]
     user_comment: str
@@ -164,7 +164,7 @@ class InwardJobsServiceAutofillRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., uuid: _Optional[str] = ...) -> None: ...
 
 class InwardJobAncillaryParameters(_message.Message):
-    __slots__ = ("consignee_client_uuid", "buyer_client_uuid", "location_uuid")
+    __slots__ = ()
     CONSIGNEE_CLIENT_UUID_FIELD_NUMBER: _ClassVar[int]
     BUYER_CLIENT_UUID_FIELD_NUMBER: _ClassVar[int]
     LOCATION_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -174,7 +174,7 @@ class InwardJobAncillaryParameters(_message.Message):
     def __init__(self, consignee_client_uuid: _Optional[str] = ..., buyer_client_uuid: _Optional[str] = ..., location_uuid: _Optional[str] = ...) -> None: ...
 
 class InwardJob(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "reference_id", "final_ref_number", "consignee_client_id", "buyer_client_id", "location_id", "project_id", "inward_items_list", "outward_items_list", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -210,7 +210,7 @@ class InwardJob(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., location_id: _Optional[int] = ..., project_id: _Optional[int] = ..., inward_items_list: _Optional[_Iterable[_Union[InwardJobInwardItem, _Mapping]]] = ..., outward_items_list: _Optional[_Iterable[_Union[InwardJobOutwardItem, _Mapping]]] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsServiceInwardItemCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "inward_job_id", "family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "specifications")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     INWARD_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
@@ -230,7 +230,7 @@ class InwardJobsServiceInwardItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., inward_job_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class InwardJobsServiceMultipleInwardItemsSingleton(_message.Message):
-    __slots__ = ("family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "specifications")
+    __slots__ = ()
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     CLIENT_UOM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -246,7 +246,7 @@ class InwardJobsServiceMultipleInwardItemsSingleton(_message.Message):
     def __init__(self, family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class InwardJobsServiceMultipleInwardItemsCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "inward_job_id", "list")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     INWARD_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     LIST_FIELD_NUMBER: _ClassVar[int]
@@ -256,7 +256,7 @@ class InwardJobsServiceMultipleInwardItemsCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., inward_job_id: _Optional[int] = ..., list: _Optional[_Iterable[_Union[InwardJobsServiceMultipleInwardItemsSingleton, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsServiceInwardItemUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "specifications")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -274,7 +274,7 @@ class InwardJobsServiceInwardItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class InwardJobInwardItem(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "inward_job_id", "family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "specifications")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -302,19 +302,19 @@ class InwardJobInwardItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., inward_job_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class InwardJobsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[InwardJob]
     def __init__(self, list: _Optional[_Iterable[_Union[InwardJob, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsInwardItemsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[InwardJobInwardItem]
     def __init__(self, list: _Optional[_Iterable[_Union[InwardJobInwardItem, _Mapping]]] = ...) -> None: ...
 
 class InwardJobInwardItemHistoryRequest(_message.Message):
-    __slots__ = ("inward_job_id", "family_id")
+    __slots__ = ()
     INWARD_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     inward_job_id: int
@@ -322,7 +322,7 @@ class InwardJobInwardItemHistoryRequest(_message.Message):
     def __init__(self, inward_job_id: _Optional[int] = ..., family_id: _Optional[int] = ...) -> None: ...
 
 class InwardJobInwardItemProspectiveInfoRequest(_message.Message):
-    __slots__ = ("inward_job_id", "family_id")
+    __slots__ = ()
     INWARD_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     inward_job_id: int
@@ -330,7 +330,7 @@ class InwardJobInwardItemProspectiveInfoRequest(_message.Message):
     def __init__(self, inward_job_id: _Optional[int] = ..., family_id: _Optional[int] = ...) -> None: ...
 
 class InwardJobsServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -346,7 +346,7 @@ class InwardJobsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[INWARD_JOB_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class InwardJobsServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -358,7 +358,7 @@ class InwardJobsServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[InwardJob, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "delivery_date_exact", "delivery_date_start", "delivery_date_end", "reference_id", "final_ref_number", "consignee_client_id", "buyer_client_id", "location_id", "project_id", "outward_family_id", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -418,7 +418,7 @@ class InwardJobsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[INWARD_JOB_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., delivery_date_exact: _Optional[str] = ..., delivery_date_start: _Optional[str] = ..., delivery_date_end: _Optional[str] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., location_id: _Optional[int] = ..., project_id: _Optional[int] = ..., outward_family_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "delivery_date_exact", "delivery_date_start", "delivery_date_end", "reference_id", "final_ref_number", "consignee_client_id", "buyer_client_id", "location_id", "project_id", "outward_family_id", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -470,7 +470,7 @@ class InwardJobsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., delivery_date_exact: _Optional[str] = ..., delivery_date_start: _Optional[str] = ..., delivery_date_end: _Optional[str] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., location_id: _Optional[int] = ..., project_id: _Optional[int] = ..., outward_family_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key", "consignee_client_id", "buyer_client_id", "location_id", "project_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -498,7 +498,7 @@ class InwardJobsServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[INWARD_JOB_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., search_key: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., location_id: _Optional[int] = ..., project_id: _Optional[int] = ...) -> None: ...
 
 class InwardJobInwardItemsSearchRequest(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "inward_job_id", "family_id", "client_uom_id", "client_family_code", "search_key", "buyer_client_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -536,7 +536,7 @@ class InwardJobInwardItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[INWARD_JOB_INWARD_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[INWARD_JOB_INWARD_ITEM_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., inward_job_id: _Optional[int] = ..., family_id: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_family_code: _Optional[str] = ..., search_key: _Optional[str] = ..., buyer_client_id: _Optional[int] = ...) -> None: ...
 
 class InwardJobsServicePaginatedInwardItemsResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -548,7 +548,7 @@ class InwardJobsServicePaginatedInwardItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[InwardJobInwardItem, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsServiceOutwardItemCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "inward_job_id", "family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "delivery_date", "specifications")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     INWARD_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
@@ -570,7 +570,7 @@ class InwardJobsServiceOutwardItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., inward_job_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class InwardJobsServiceMultipleOutwardItemsSingleton(_message.Message):
-    __slots__ = ("family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "delivery_date", "specifications")
+    __slots__ = ()
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     CLIENT_UOM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -588,7 +588,7 @@ class InwardJobsServiceMultipleOutwardItemsSingleton(_message.Message):
     def __init__(self, family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class InwardJobsServiceMultipleOutwardItemsCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "inward_job_id", "list")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     INWARD_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     LIST_FIELD_NUMBER: _ClassVar[int]
@@ -598,7 +598,7 @@ class InwardJobsServiceMultipleOutwardItemsCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., inward_job_id: _Optional[int] = ..., list: _Optional[_Iterable[_Union[InwardJobsServiceMultipleOutwardItemsSingleton, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsServiceOutwardItemUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "delivery_date", "specifications")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -618,7 +618,7 @@ class InwardJobsServiceOutwardItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class InwardJobOutwardItem(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "inward_job_id", "family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "delivery_date", "specifications")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -648,13 +648,13 @@ class InwardJobOutwardItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., inward_job_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class InwardJobsOutwardItemsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[InwardJobOutwardItem]
     def __init__(self, list: _Optional[_Iterable[_Union[InwardJobOutwardItem, _Mapping]]] = ...) -> None: ...
 
 class InwardJobOutwardItemHistoryRequest(_message.Message):
-    __slots__ = ("inward_job_id", "family_id")
+    __slots__ = ()
     INWARD_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     inward_job_id: int
@@ -662,7 +662,7 @@ class InwardJobOutwardItemHistoryRequest(_message.Message):
     def __init__(self, inward_job_id: _Optional[int] = ..., family_id: _Optional[int] = ...) -> None: ...
 
 class InwardJobOutwardItemProspectiveInfoRequest(_message.Message):
-    __slots__ = ("inward_job_id", "family_id")
+    __slots__ = ()
     INWARD_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     inward_job_id: int
@@ -670,7 +670,7 @@ class InwardJobOutwardItemProspectiveInfoRequest(_message.Message):
     def __init__(self, inward_job_id: _Optional[int] = ..., family_id: _Optional[int] = ...) -> None: ...
 
 class InwardJobOutwardItemsSearchRequest(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "inward_job_id", "family_id", "client_uom_id", "client_family_code", "delivery_date_exact", "delivery_date_start", "delivery_date_end", "search_key", "buyer_client_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -714,7 +714,7 @@ class InwardJobOutwardItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[INWARD_JOB_OUTWARD_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[INWARD_JOB_OUTWARD_ITEM_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., inward_job_id: _Optional[int] = ..., family_id: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_family_code: _Optional[str] = ..., delivery_date_exact: _Optional[str] = ..., delivery_date_start: _Optional[str] = ..., delivery_date_end: _Optional[str] = ..., search_key: _Optional[str] = ..., buyer_client_id: _Optional[int] = ...) -> None: ...
 
 class InwardJobsServicePaginatedOutwardItemsResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -726,7 +726,7 @@ class InwardJobsServicePaginatedOutwardItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[InwardJobOutwardItem, _Mapping]]] = ...) -> None: ...
 
 class InwardJobsServiceContactCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "inward_job_id", "associate_id")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     INWARD_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     ASSOCIATE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -736,7 +736,7 @@ class InwardJobsServiceContactCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., inward_job_id: _Optional[int] = ..., associate_id: _Optional[int] = ...) -> None: ...
 
 class InwardJobContact(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "inward_job_id", "associate_id", "associate_uuid")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -756,13 +756,13 @@ class InwardJobContact(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., inward_job_id: _Optional[int] = ..., associate_id: _Optional[int] = ..., associate_uuid: _Optional[str] = ...) -> None: ...
 
 class InwardJobContactsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[InwardJobContact]
     def __init__(self, list: _Optional[_Iterable[_Union[InwardJobContact, _Mapping]]] = ...) -> None: ...
 
 class InwardJobInwardInventoryMatch(_message.Message):
-    __slots__ = ("family_id", "job_qty_primary", "received_qty_primary", "returned_qty_primary")
+    __slots__ = ()
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     JOB_QTY_PRIMARY_FIELD_NUMBER: _ClassVar[int]
     RECEIVED_QTY_PRIMARY_FIELD_NUMBER: _ClassVar[int]
@@ -774,13 +774,13 @@ class InwardJobInwardInventoryMatch(_message.Message):
     def __init__(self, family_id: _Optional[int] = ..., job_qty_primary: _Optional[int] = ..., received_qty_primary: _Optional[int] = ..., returned_qty_primary: _Optional[int] = ...) -> None: ...
 
 class InwardJobInwardInventoryMatchList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[InwardJobInwardInventoryMatch]
     def __init__(self, list: _Optional[_Iterable[_Union[InwardJobInwardInventoryMatch, _Mapping]]] = ...) -> None: ...
 
 class InwardJobOutwardInventoryMatch(_message.Message):
-    __slots__ = ("family_id", "job_qty_primary", "ordered_qty_primary", "dispatched_qty_primary", "returned_qty_primary")
+    __slots__ = ()
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     JOB_QTY_PRIMARY_FIELD_NUMBER: _ClassVar[int]
     ORDERED_QTY_PRIMARY_FIELD_NUMBER: _ClassVar[int]
@@ -794,7 +794,7 @@ class InwardJobOutwardInventoryMatch(_message.Message):
     def __init__(self, family_id: _Optional[int] = ..., job_qty_primary: _Optional[int] = ..., ordered_qty_primary: _Optional[int] = ..., dispatched_qty_primary: _Optional[int] = ..., returned_qty_primary: _Optional[int] = ...) -> None: ...
 
 class InwardJobOutwardInventoryMatchList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[InwardJobOutwardInventoryMatch]
     def __init__(self, list: _Optional[_Iterable[_Union[InwardJobOutwardInventoryMatch, _Mapping]]] = ...) -> None: ...

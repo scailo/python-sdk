@@ -130,7 +130,7 @@ MAGIC_LINK_SORT_KEY_MODIFIED_AT: MAGIC_LINK_SORT_KEY
 MAGIC_LINK_SORT_KEY_EXPIRES_AT: MAGIC_LINK_SORT_KEY
 
 class MagicLink(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "resource_uuid", "resource_type", "expires_at", "description", "code", "url")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -150,13 +150,13 @@ class MagicLink(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., resource_uuid: _Optional[str] = ..., resource_type: _Optional[_Union[MAGIC_LINK_RESOURCE_TYPE, str]] = ..., expires_at: _Optional[int] = ..., description: _Optional[str] = ..., code: _Optional[str] = ..., url: _Optional[str] = ...) -> None: ...
 
 class MagicLinksList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[MagicLink]
     def __init__(self, list: _Optional[_Iterable[_Union[MagicLink, _Mapping]]] = ...) -> None: ...
 
 class MagicLinkPaginationResp(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -168,7 +168,7 @@ class MagicLinkPaginationResp(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[MagicLink, _Mapping]]] = ...) -> None: ...
 
 class MagicLinksServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "resource_uuid", "resource_type", "expires_at", "description")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -184,7 +184,7 @@ class MagicLinksServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., resource_uuid: _Optional[str] = ..., resource_type: _Optional[_Union[MAGIC_LINK_RESOURCE_TYPE, str]] = ..., expires_at: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
 class MagicLinksServiceCreateRequestForSpecificResource(_message.Message):
-    __slots__ = ("user_comment", "resource_uuid", "expires_at", "description")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_UUID_FIELD_NUMBER: _ClassVar[int]
     EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
@@ -196,7 +196,7 @@ class MagicLinksServiceCreateRequestForSpecificResource(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., resource_uuid: _Optional[str] = ..., expires_at: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
 class MagicLinksServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "expires_at", "description")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
@@ -208,7 +208,7 @@ class MagicLinksServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., expires_at: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
 class MagicLinksServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -222,7 +222,7 @@ class MagicLinksServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[MAGIC_LINK_SORT_KEY, str]] = ...) -> None: ...
 
 class MagicLinksServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "resource_type", "resource_uuid", "expires_at_start", "expires_at_end")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -254,7 +254,7 @@ class MagicLinksServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[MAGIC_LINK_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., resource_type: _Optional[_Union[MAGIC_LINK_RESOURCE_TYPE, str]] = ..., resource_uuid: _Optional[str] = ..., expires_at_start: _Optional[int] = ..., expires_at_end: _Optional[int] = ...) -> None: ...
 
 class MagicLinksServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "resource_type", "resource_uuid", "expires_at_start", "expires_at_end")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -278,7 +278,7 @@ class MagicLinksServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., resource_type: _Optional[_Union[MAGIC_LINK_RESOURCE_TYPE, str]] = ..., resource_uuid: _Optional[str] = ..., expires_at_start: _Optional[int] = ..., expires_at_end: _Optional[int] = ...) -> None: ...
 
 class MagicLinksServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "search_key", "resource_type")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -298,7 +298,7 @@ class MagicLinksServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[MAGIC_LINK_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., search_key: _Optional[str] = ..., resource_type: _Optional[_Union[MAGIC_LINK_RESOURCE_TYPE, str]] = ...) -> None: ...
 
 class MagicLinkServiceSearchByCodeReq(_message.Message):
-    __slots__ = ("code", "ip_address", "user_agent")
+    __slots__ = ()
     CODE_FIELD_NUMBER: _ClassVar[int]
     IP_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     USER_AGENT_FIELD_NUMBER: _ClassVar[int]
@@ -308,7 +308,7 @@ class MagicLinkServiceSearchByCodeReq(_message.Message):
     def __init__(self, code: _Optional[str] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ...) -> None: ...
 
 class MagicLinkAccessLog(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "magic_link_uuid", "ip_addr", "user_agent")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     MAGIC_LINK_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -322,7 +322,7 @@ class MagicLinkAccessLog(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., magic_link_uuid: _Optional[str] = ..., ip_addr: _Optional[str] = ..., user_agent: _Optional[str] = ...) -> None: ...
 
 class MagicLinkAccessLogsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[MagicLinkAccessLog]
     def __init__(self, list: _Optional[_Iterable[_Union[MagicLinkAccessLog, _Mapping]]] = ...) -> None: ...

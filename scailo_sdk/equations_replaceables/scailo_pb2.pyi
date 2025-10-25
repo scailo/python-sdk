@@ -60,7 +60,7 @@ EQUATION_REPLACEABLE_SORT_KEY_NAME: EQUATION_REPLACEABLE_SORT_KEY
 EQUATION_REPLACEABLE_SORT_KEY_FAMILY_ID: EQUATION_REPLACEABLE_SORT_KEY
 
 class EquationsReplaceablesServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "name", "family_id", "description")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -76,7 +76,7 @@ class EquationsReplaceablesServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., family_id: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
 class EquationsReplaceablesServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "name", "description")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -92,7 +92,7 @@ class EquationsReplaceablesServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class EquationReplaceable(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "name", "family_id", "description", "list", "total_price")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -120,7 +120,7 @@ class EquationReplaceable(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., family_id: _Optional[int] = ..., description: _Optional[str] = ..., list: _Optional[_Iterable[_Union[EquationReplaceableItem, _Mapping]]] = ..., total_price: _Optional[float] = ...) -> None: ...
 
 class EquationsReplaceablesServiceItemCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "equation_id", "replaceable_type", "replaceable_family_id", "unit_price", "specifications")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     EQUATION_ID_FIELD_NUMBER: _ClassVar[int]
     REPLACEABLE_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -136,7 +136,7 @@ class EquationsReplaceablesServiceItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., equation_id: _Optional[int] = ..., replaceable_type: _Optional[str] = ..., replaceable_family_id: _Optional[int] = ..., unit_price: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class EquationsReplaceablesServiceItemUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "replaceable_type", "unit_price", "specifications")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     REPLACEABLE_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -150,7 +150,7 @@ class EquationsReplaceablesServiceItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., replaceable_type: _Optional[str] = ..., unit_price: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class EquationReplaceableItem(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "equation_id", "replaceable_type", "replaceable_family_id", "unit_price", "specifications")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -174,19 +174,19 @@ class EquationReplaceableItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., equation_id: _Optional[int] = ..., replaceable_type: _Optional[str] = ..., replaceable_family_id: _Optional[int] = ..., unit_price: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class EquationsReplaceablesList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[EquationReplaceable]
     def __init__(self, list: _Optional[_Iterable[_Union[EquationReplaceable, _Mapping]]] = ...) -> None: ...
 
 class EquationsReplaceablesItemsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[EquationReplaceableItem]
     def __init__(self, list: _Optional[_Iterable[_Union[EquationReplaceableItem, _Mapping]]] = ...) -> None: ...
 
 class EquationReplaceableItemHistoryRequest(_message.Message):
-    __slots__ = ("equation_id", "replaceable_family_id")
+    __slots__ = ()
     EQUATION_ID_FIELD_NUMBER: _ClassVar[int]
     REPLACEABLE_FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     equation_id: int
@@ -194,7 +194,7 @@ class EquationReplaceableItemHistoryRequest(_message.Message):
     def __init__(self, equation_id: _Optional[int] = ..., replaceable_family_id: _Optional[int] = ...) -> None: ...
 
 class EquationReplaceableItemsSearchRequest(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "equation_id", "replaceable_family_id", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -226,7 +226,7 @@ class EquationReplaceableItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[EQUATION_REPLACEABLE_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[EQUATION_REPLACEABLE_ITEM_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., equation_id: _Optional[int] = ..., replaceable_family_id: _Optional[int] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class EquationsReplaceablesServicePaginatedItemsResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -238,7 +238,7 @@ class EquationsReplaceablesServicePaginatedItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[EquationReplaceableItem, _Mapping]]] = ...) -> None: ...
 
 class EquationsReplaceablesServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -254,7 +254,7 @@ class EquationsReplaceablesServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[EQUATION_REPLACEABLE_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class EquationsReplaceablesServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -266,7 +266,7 @@ class EquationsReplaceablesServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[EquationReplaceable, _Mapping]]] = ...) -> None: ...
 
 class EquationsReplaceablesServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "family_id", "constituent_family_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -310,7 +310,7 @@ class EquationsReplaceablesServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[EQUATION_REPLACEABLE_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., family_id: _Optional[int] = ..., constituent_family_id: _Optional[int] = ...) -> None: ...
 
 class EquationsReplaceablesServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "family_id", "constituent_family_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -346,7 +346,7 @@ class EquationsReplaceablesServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., family_id: _Optional[int] = ..., constituent_family_id: _Optional[int] = ...) -> None: ...
 
 class EquationsReplaceablesServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

@@ -40,7 +40,7 @@ ASSOCIATE_SORT_KEY_ORG_NAME: ASSOCIATE_SORT_KEY
 ASSOCIATE_SORT_KEY_JOB_TITLE: ASSOCIATE_SORT_KEY
 
 class Associate(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "vault_folder_id", "first_name", "middle_name", "last_name", "org_ref_from", "org_ref_id", "org_name", "job_title", "department", "work_phone", "work_email", "personal_phone", "personal_email", "birthday", "anniversary", "description")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -80,13 +80,13 @@ class Associate(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., vault_folder_id: _Optional[int] = ..., first_name: _Optional[str] = ..., middle_name: _Optional[str] = ..., last_name: _Optional[str] = ..., org_ref_from: _Optional[_Union[ASSOCIATE_ORG_REF_FROM, str]] = ..., org_ref_id: _Optional[int] = ..., org_name: _Optional[str] = ..., job_title: _Optional[str] = ..., department: _Optional[str] = ..., work_phone: _Optional[str] = ..., work_email: _Optional[str] = ..., personal_phone: _Optional[str] = ..., personal_email: _Optional[str] = ..., birthday: _Optional[str] = ..., anniversary: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class AssociatesList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[Associate]
     def __init__(self, list: _Optional[_Iterable[_Union[Associate, _Mapping]]] = ...) -> None: ...
 
 class AssociatePaginationResp(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -98,7 +98,7 @@ class AssociatePaginationResp(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[Associate, _Mapping]]] = ...) -> None: ...
 
 class AssociatesServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "first_name", "middle_name", "last_name", "org_ref_from", "org_ref_id", "org_name", "job_title", "department", "work_phone", "work_email", "personal_phone", "personal_email", "birthday", "anniversary", "description")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -138,7 +138,7 @@ class AssociatesServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., first_name: _Optional[str] = ..., middle_name: _Optional[str] = ..., last_name: _Optional[str] = ..., org_ref_from: _Optional[_Union[ASSOCIATE_ORG_REF_FROM, str]] = ..., org_ref_id: _Optional[int] = ..., org_name: _Optional[str] = ..., job_title: _Optional[str] = ..., department: _Optional[str] = ..., work_phone: _Optional[str] = ..., work_email: _Optional[str] = ..., personal_phone: _Optional[str] = ..., personal_email: _Optional[str] = ..., birthday: _Optional[str] = ..., anniversary: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class AssociatesServiceImportRequest(_message.Message):
-    __slots__ = ("user_comment", "list")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     LIST_FIELD_NUMBER: _ClassVar[int]
     user_comment: str
@@ -146,7 +146,7 @@ class AssociatesServiceImportRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., list: _Optional[_Iterable[_Union[AssociatesServiceCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class AssociatesServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "vault_folder_id", "first_name", "middle_name", "last_name", "org_ref_from", "org_ref_id", "org_name", "job_title", "department", "work_phone", "work_email", "personal_phone", "personal_email", "birthday", "anniversary", "description")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -186,7 +186,7 @@ class AssociatesServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., first_name: _Optional[str] = ..., middle_name: _Optional[str] = ..., last_name: _Optional[str] = ..., org_ref_from: _Optional[_Union[ASSOCIATE_ORG_REF_FROM, str]] = ..., org_ref_id: _Optional[int] = ..., org_name: _Optional[str] = ..., job_title: _Optional[str] = ..., department: _Optional[str] = ..., work_phone: _Optional[str] = ..., work_email: _Optional[str] = ..., personal_phone: _Optional[str] = ..., personal_email: _Optional[str] = ..., birthday: _Optional[str] = ..., anniversary: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class AssociatesServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -200,7 +200,7 @@ class AssociatesServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[ASSOCIATE_SORT_KEY, str]] = ...) -> None: ...
 
 class AssociatesServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "first_name", "middle_name", "last_name", "org_ref_from", "org_ref_id", "org_name", "job_title", "department", "work_phone", "work_email", "personal_phone", "personal_email", "vendor_id", "client_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -252,7 +252,7 @@ class AssociatesServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[ASSOCIATE_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., first_name: _Optional[str] = ..., middle_name: _Optional[str] = ..., last_name: _Optional[str] = ..., org_ref_from: _Optional[_Union[ASSOCIATE_ORG_REF_FROM, str]] = ..., org_ref_id: _Optional[int] = ..., org_name: _Optional[str] = ..., job_title: _Optional[str] = ..., department: _Optional[str] = ..., work_phone: _Optional[str] = ..., work_email: _Optional[str] = ..., personal_phone: _Optional[str] = ..., personal_email: _Optional[str] = ..., vendor_id: _Optional[int] = ..., client_id: _Optional[int] = ...) -> None: ...
 
 class AssociatesServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "first_name", "middle_name", "last_name", "org_ref_from", "org_ref_id", "org_name", "job_title", "department", "work_phone", "work_email", "personal_phone", "personal_email", "vendor_id", "client_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -296,7 +296,7 @@ class AssociatesServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., first_name: _Optional[str] = ..., middle_name: _Optional[str] = ..., last_name: _Optional[str] = ..., org_ref_from: _Optional[_Union[ASSOCIATE_ORG_REF_FROM, str]] = ..., org_ref_id: _Optional[int] = ..., org_name: _Optional[str] = ..., job_title: _Optional[str] = ..., department: _Optional[str] = ..., work_phone: _Optional[str] = ..., work_email: _Optional[str] = ..., personal_phone: _Optional[str] = ..., personal_email: _Optional[str] = ..., vendor_id: _Optional[int] = ..., client_id: _Optional[int] = ...) -> None: ...
 
 class AssociatesServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "search_key", "org_ref_from", "org_ref_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

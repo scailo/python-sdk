@@ -64,7 +64,7 @@ EQUATION_WORK_ORDER_SORT_KEY_WORK_ORDER_ID: EQUATION_WORK_ORDER_SORT_KEY
 EQUATION_WORK_ORDER_SORT_KEY_AMENDMENT_COUNT: EQUATION_WORK_ORDER_SORT_KEY
 
 class EquationsWorkOrdersServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "name", "work_order_id", "description")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -80,7 +80,7 @@ class EquationsWorkOrdersServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., work_order_id: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
 class EquationsWorkOrdersServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "name", "description")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -96,7 +96,7 @@ class EquationsWorkOrdersServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class EquationWorkOrder(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "name", "work_order_id", "description", "list", "total_price", "amendment_count")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -126,7 +126,7 @@ class EquationWorkOrder(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., work_order_id: _Optional[int] = ..., description: _Optional[str] = ..., list: _Optional[_Iterable[_Union[EquationWorkOrderItem, _Mapping]]] = ..., total_price: _Optional[float] = ..., amendment_count: _Optional[int] = ...) -> None: ...
 
 class EquationsWorkOrdersServiceItemCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "equation_id", "family_id", "quantity", "unit_price", "specifications")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     EQUATION_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
@@ -142,7 +142,7 @@ class EquationsWorkOrdersServiceItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., equation_id: _Optional[int] = ..., family_id: _Optional[int] = ..., quantity: _Optional[int] = ..., unit_price: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class EquationsWorkOrdersServiceItemUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "quantity", "unit_price", "specifications")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -156,7 +156,7 @@ class EquationsWorkOrdersServiceItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., quantity: _Optional[int] = ..., unit_price: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class EquationWorkOrderItem(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "equation_id", "family_id", "quantity", "unit_price", "specifications")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -180,19 +180,19 @@ class EquationWorkOrderItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., equation_id: _Optional[int] = ..., family_id: _Optional[int] = ..., quantity: _Optional[int] = ..., unit_price: _Optional[int] = ..., specifications: _Optional[str] = ...) -> None: ...
 
 class EquationsWorkOrdersList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[EquationWorkOrder]
     def __init__(self, list: _Optional[_Iterable[_Union[EquationWorkOrder, _Mapping]]] = ...) -> None: ...
 
 class EquationsWorkOrdersItemsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[EquationWorkOrderItem]
     def __init__(self, list: _Optional[_Iterable[_Union[EquationWorkOrderItem, _Mapping]]] = ...) -> None: ...
 
 class EquationWorkOrderItemHistoryRequest(_message.Message):
-    __slots__ = ("equation_id", "family_id")
+    __slots__ = ()
     EQUATION_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     equation_id: int
@@ -200,7 +200,7 @@ class EquationWorkOrderItemHistoryRequest(_message.Message):
     def __init__(self, equation_id: _Optional[int] = ..., family_id: _Optional[int] = ...) -> None: ...
 
 class EquationWorkOrderItemsSearchRequest(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "equation_id", "family_id", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -232,7 +232,7 @@ class EquationWorkOrderItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[EQUATION_WORK_ORDER_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[EQUATION_WORK_ORDER_ITEM_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., equation_id: _Optional[int] = ..., family_id: _Optional[int] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class EquationsWorkOrdersServicePaginatedItemsResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -244,7 +244,7 @@ class EquationsWorkOrdersServicePaginatedItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[EquationWorkOrderItem, _Mapping]]] = ...) -> None: ...
 
 class EquationsWorkOrdersServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -260,7 +260,7 @@ class EquationsWorkOrdersServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[EQUATION_WORK_ORDER_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class EquationsWorkOrdersServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -272,7 +272,7 @@ class EquationsWorkOrdersServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[EquationWorkOrder, _Mapping]]] = ...) -> None: ...
 
 class EquationsWorkOrdersServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "work_order_id", "constituent_family_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -316,7 +316,7 @@ class EquationsWorkOrdersServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[EQUATION_WORK_ORDER_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., work_order_id: _Optional[int] = ..., constituent_family_id: _Optional[int] = ...) -> None: ...
 
 class EquationsWorkOrdersServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "work_order_id", "constituent_family_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -352,7 +352,7 @@ class EquationsWorkOrdersServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., work_order_id: _Optional[int] = ..., constituent_family_id: _Optional[int] = ...) -> None: ...
 
 class EquationsWorkOrdersServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

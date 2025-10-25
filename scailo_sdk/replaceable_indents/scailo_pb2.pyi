@@ -64,7 +64,7 @@ REPLACEABLE_INDENT_ITEM_STATUS_APPROVED: REPLACEABLE_INDENT_ITEM_STATUS
 REPLACEABLE_INDENT_ITEM_STATUS_UNAPPROVED: REPLACEABLE_INDENT_ITEM_STATUS
 
 class ReplaceableIndentsServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "reference_id", "location_id", "supervisor", "family_id", "item_hash", "description", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -88,7 +88,7 @@ class ReplaceableIndentsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., location_id: _Optional[int] = ..., supervisor: _Optional[str] = ..., family_id: _Optional[int] = ..., item_hash: _Optional[str] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class ReplaceableIndentsServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "reference_id", "supervisor", "description", "form_data")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -108,7 +108,7 @@ class ReplaceableIndentsServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., supervisor: _Optional[str] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class ReplaceableIndentsServiceAutofillRequest(_message.Message):
-    __slots__ = ("user_comment", "uuid", "populate_using_equation_dependencies")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     UUID_FIELD_NUMBER: _ClassVar[int]
     POPULATE_USING_EQUATION_DEPENDENCIES_FIELD_NUMBER: _ClassVar[int]
@@ -118,7 +118,7 @@ class ReplaceableIndentsServiceAutofillRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., uuid: _Optional[str] = ..., populate_using_equation_dependencies: _Optional[bool] = ...) -> None: ...
 
 class ReplaceableIndent(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "reference_id", "final_ref_number", "location_id", "supervisor", "family_id", "item_hash", "description", "list", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -154,7 +154,7 @@ class ReplaceableIndent(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., location_id: _Optional[int] = ..., supervisor: _Optional[str] = ..., family_id: _Optional[int] = ..., item_hash: _Optional[str] = ..., description: _Optional[str] = ..., list: _Optional[_Iterable[_Union[ReplaceableIndentItem, _Mapping]]] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class ReplaceableIndentsServiceItemCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "replaceable_indent_id", "family_id", "internal_quantity")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     REPLACEABLE_INDENT_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
@@ -166,7 +166,7 @@ class ReplaceableIndentsServiceItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., replaceable_indent_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ...) -> None: ...
 
 class ReplaceableIndentsServiceItemUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "internal_quantity")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -176,7 +176,7 @@ class ReplaceableIndentsServiceItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., internal_quantity: _Optional[int] = ...) -> None: ...
 
 class ReplaceableIndentItem(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "replaceable_indent_id", "family_id", "internal_quantity")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -196,19 +196,19 @@ class ReplaceableIndentItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., replaceable_indent_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ...) -> None: ...
 
 class ReplaceableIndentsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[ReplaceableIndent]
     def __init__(self, list: _Optional[_Iterable[_Union[ReplaceableIndent, _Mapping]]] = ...) -> None: ...
 
 class ReplaceableIndentsItemsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[ReplaceableIndentItem]
     def __init__(self, list: _Optional[_Iterable[_Union[ReplaceableIndentItem, _Mapping]]] = ...) -> None: ...
 
 class ReplaceableIndentItemHistoryRequest(_message.Message):
-    __slots__ = ("replaceable_indent_id", "family_id")
+    __slots__ = ()
     REPLACEABLE_INDENT_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     replaceable_indent_id: int
@@ -216,7 +216,7 @@ class ReplaceableIndentItemHistoryRequest(_message.Message):
     def __init__(self, replaceable_indent_id: _Optional[int] = ..., family_id: _Optional[int] = ...) -> None: ...
 
 class ReplaceableIndentItemProspectiveInfoRequest(_message.Message):
-    __slots__ = ("replaceable_indent_id", "family_id")
+    __slots__ = ()
     REPLACEABLE_INDENT_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     replaceable_indent_id: int
@@ -224,7 +224,7 @@ class ReplaceableIndentItemProspectiveInfoRequest(_message.Message):
     def __init__(self, replaceable_indent_id: _Optional[int] = ..., family_id: _Optional[int] = ...) -> None: ...
 
 class ReplaceableIndentsServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -240,7 +240,7 @@ class ReplaceableIndentsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[REPLACEABLE_INDENT_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class ReplaceableIndentsServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -252,7 +252,7 @@ class ReplaceableIndentsServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[ReplaceableIndent, _Mapping]]] = ...) -> None: ...
 
 class ReplaceableIndentsServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "location_id", "supervisor", "family_id", "item_hash", "constituent_family_id", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -306,7 +306,7 @@ class ReplaceableIndentsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[REPLACEABLE_INDENT_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., location_id: _Optional[int] = ..., supervisor: _Optional[str] = ..., family_id: _Optional[int] = ..., item_hash: _Optional[str] = ..., constituent_family_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class ReplaceableIndentsServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "location_id", "supervisor", "family_id", "item_hash", "constituent_family_id", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -352,7 +352,7 @@ class ReplaceableIndentsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., location_id: _Optional[int] = ..., supervisor: _Optional[str] = ..., family_id: _Optional[int] = ..., item_hash: _Optional[str] = ..., constituent_family_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class ReplaceableIndentsServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key", "location_id", "supervisor", "family_id", "item_hash")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -380,7 +380,7 @@ class ReplaceableIndentsServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[REPLACEABLE_INDENT_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., search_key: _Optional[str] = ..., location_id: _Optional[int] = ..., supervisor: _Optional[str] = ..., family_id: _Optional[int] = ..., item_hash: _Optional[str] = ...) -> None: ...
 
 class ReplaceableIndentItemsSearchRequest(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "replaceable_indent_id", "family_id", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -412,7 +412,7 @@ class ReplaceableIndentItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[REPLACEABLE_INDENT_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[REPLACEABLE_INDENT_ITEM_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., replaceable_indent_id: _Optional[int] = ..., family_id: _Optional[int] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class ReplaceableIndentsServicePaginatedItemsResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -424,7 +424,7 @@ class ReplaceableIndentsServicePaginatedItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[ReplaceableIndentItem, _Mapping]]] = ...) -> None: ...
 
 class ReplaceableIndentIssuedStatistics(_message.Message):
-    __slots__ = ("family_id", "indented_quantity", "unapproved_issued_quantity", "approved_issued_quantity")
+    __slots__ = ()
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     INDENTED_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     UNAPPROVED_ISSUED_QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -436,7 +436,7 @@ class ReplaceableIndentIssuedStatistics(_message.Message):
     def __init__(self, family_id: _Optional[int] = ..., indented_quantity: _Optional[int] = ..., unapproved_issued_quantity: _Optional[int] = ..., approved_issued_quantity: _Optional[int] = ...) -> None: ...
 
 class ReplaceableIndentIssuedStatisticsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[ReplaceableIndentIssuedStatistics]
     def __init__(self, list: _Optional[_Iterable[_Union[ReplaceableIndentIssuedStatistics, _Mapping]]] = ...) -> None: ...

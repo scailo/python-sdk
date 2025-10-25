@@ -110,7 +110,7 @@ SALES_ORDER_ITEM_STATUS_APPROVED: SALES_ORDER_ITEM_STATUS
 SALES_ORDER_ITEM_STATUS_UNAPPROVED: SALES_ORDER_ITEM_STATUS
 
 class SalesOrdersServiceCreateRequest(_message.Message):
-    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "reference_id", "consignee_client_id", "buyer_client_id", "location_id", "currency_id", "project_id", "miscellaneous_cost", "overall_discount", "round_off", "payment_advance", "payment_cycle_in_days", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -144,7 +144,7 @@ class SalesOrdersServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., location_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., project_id: _Optional[int] = ..., miscellaneous_cost: _Optional[int] = ..., overall_discount: _Optional[int] = ..., round_off: _Optional[int] = ..., payment_advance: _Optional[int] = ..., payment_cycle_in_days: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class SalesOrdersServiceUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "reference_id", "consignee_client_id", "buyer_client_id", "currency_id", "project_id", "miscellaneous_cost", "overall_discount", "round_off", "payment_advance", "payment_cycle_in_days", "form_data")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -178,7 +178,7 @@ class SalesOrdersServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., project_id: _Optional[int] = ..., miscellaneous_cost: _Optional[int] = ..., overall_discount: _Optional[int] = ..., round_off: _Optional[int] = ..., payment_advance: _Optional[int] = ..., payment_cycle_in_days: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class SalesOrdersServiceAutofillRequest(_message.Message):
-    __slots__ = ("user_comment", "uuid")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     UUID_FIELD_NUMBER: _ClassVar[int]
     user_comment: str
@@ -186,7 +186,7 @@ class SalesOrdersServiceAutofillRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., uuid: _Optional[str] = ...) -> None: ...
 
 class SalesOrderAncillaryParameters(_message.Message):
-    __slots__ = ("consignee_client_uuid", "buyer_client_uuid", "location_uuid", "currency_uuid")
+    __slots__ = ()
     CONSIGNEE_CLIENT_UUID_FIELD_NUMBER: _ClassVar[int]
     BUYER_CLIENT_UUID_FIELD_NUMBER: _ClassVar[int]
     LOCATION_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -198,7 +198,7 @@ class SalesOrderAncillaryParameters(_message.Message):
     def __init__(self, consignee_client_uuid: _Optional[str] = ..., buyer_client_uuid: _Optional[str] = ..., location_uuid: _Optional[str] = ..., currency_uuid: _Optional[str] = ...) -> None: ...
 
 class SalesOrder(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "reference_id", "final_ref_number", "consignee_client_id", "buyer_client_id", "location_id", "currency_id", "project_id", "miscellaneous_cost", "overall_discount", "round_off", "payment_advance", "payment_cycle_in_days", "amendment_count", "total_value", "list", "form_data")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -248,7 +248,7 @@ class SalesOrder(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., location_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., project_id: _Optional[int] = ..., miscellaneous_cost: _Optional[int] = ..., overall_discount: _Optional[int] = ..., round_off: _Optional[int] = ..., payment_advance: _Optional[int] = ..., payment_cycle_in_days: _Optional[int] = ..., amendment_count: _Optional[int] = ..., total_value: _Optional[float] = ..., list: _Optional[_Iterable[_Union[SalesOrderItem, _Mapping]]] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class SalesOrdersServiceItemCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "sales_order_id", "family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "unit_price", "tax_group_id", "discount", "delivery_date", "specifications", "is_invoiceable")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     SALES_ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
@@ -278,7 +278,7 @@ class SalesOrdersServiceItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., sales_order_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., discount: _Optional[int] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ..., is_invoiceable: _Optional[bool] = ...) -> None: ...
 
 class SalesOrdersServiceMultipleItemsSingleton(_message.Message):
-    __slots__ = ("family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "unit_price", "tax_group_id", "discount", "delivery_date", "specifications", "is_invoiceable")
+    __slots__ = ()
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     CLIENT_UOM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -304,7 +304,7 @@ class SalesOrdersServiceMultipleItemsSingleton(_message.Message):
     def __init__(self, family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., discount: _Optional[int] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ..., is_invoiceable: _Optional[bool] = ...) -> None: ...
 
 class SalesOrdersServiceMultipleItemsCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "sales_order_id", "list")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     SALES_ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     LIST_FIELD_NUMBER: _ClassVar[int]
@@ -314,7 +314,7 @@ class SalesOrdersServiceMultipleItemsCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., sales_order_id: _Optional[int] = ..., list: _Optional[_Iterable[_Union[SalesOrdersServiceMultipleItemsSingleton, _Mapping]]] = ...) -> None: ...
 
 class SalesOrdersServiceItemUpdateRequest(_message.Message):
-    __slots__ = ("user_comment", "id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "unit_price", "tax_group_id", "discount", "delivery_date", "specifications", "is_invoiceable")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -342,7 +342,7 @@ class SalesOrdersServiceItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., discount: _Optional[int] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ..., is_invoiceable: _Optional[bool] = ...) -> None: ...
 
 class SalesOrderItem(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "sales_order_id", "bundled_with_id", "family_id", "internal_quantity", "client_uom_id", "client_quantity", "client_family_code", "unit_price", "tax_group_id", "discount", "delivery_date", "specifications", "is_invoiceable", "discounted_unit_price")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -384,19 +384,19 @@ class SalesOrderItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., sales_order_id: _Optional[int] = ..., bundled_with_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., discount: _Optional[int] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ..., is_invoiceable: _Optional[bool] = ..., discounted_unit_price: _Optional[int] = ...) -> None: ...
 
 class SalesOrdersList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[SalesOrder]
     def __init__(self, list: _Optional[_Iterable[_Union[SalesOrder, _Mapping]]] = ...) -> None: ...
 
 class SalesOrderItemsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[SalesOrderItem]
     def __init__(self, list: _Optional[_Iterable[_Union[SalesOrderItem, _Mapping]]] = ...) -> None: ...
 
 class SalesOrderItemHistoryRequest(_message.Message):
-    __slots__ = ("sales_order_id", "family_id")
+    __slots__ = ()
     SALES_ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     sales_order_id: int
@@ -404,7 +404,7 @@ class SalesOrderItemHistoryRequest(_message.Message):
     def __init__(self, sales_order_id: _Optional[int] = ..., family_id: _Optional[int] = ...) -> None: ...
 
 class SalesOrderItemProspectiveInfoRequest(_message.Message):
-    __slots__ = ("sales_order_id", "family_id", "client_uom_id")
+    __slots__ = ()
     SALES_ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_UOM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -414,7 +414,7 @@ class SalesOrderItemProspectiveInfoRequest(_message.Message):
     def __init__(self, sales_order_id: _Optional[int] = ..., family_id: _Optional[int] = ..., client_uom_id: _Optional[int] = ...) -> None: ...
 
 class SalesOrdersServicePaginationReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -430,7 +430,7 @@ class SalesOrdersServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SALES_ORDER_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class SalesOrdersServicePaginationResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -442,7 +442,7 @@ class SalesOrdersServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[SalesOrder, _Mapping]]] = ...) -> None: ...
 
 class SalesOrdersServiceFilterReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "consignee_client_id", "buyer_client_id", "location_id", "currency_id", "project_id", "family_id", "delivery_date_exact", "delivery_date_start", "delivery_date_end", "total_value_min", "total_value_max", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -508,7 +508,7 @@ class SalesOrdersServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SALES_ORDER_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., location_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., project_id: _Optional[int] = ..., family_id: _Optional[int] = ..., delivery_date_exact: _Optional[str] = ..., delivery_date_start: _Optional[str] = ..., delivery_date_end: _Optional[str] = ..., total_value_min: _Optional[int] = ..., total_value_max: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class SalesOrdersServiceCountReq(_message.Message):
-    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "consignee_client_id", "buyer_client_id", "location_id", "currency_id", "project_id", "family_id", "delivery_date_exact", "delivery_date_start", "delivery_date_end", "total_value_min", "total_value_max", "form_data")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -566,7 +566,7 @@ class SalesOrdersServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., location_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., project_id: _Optional[int] = ..., family_id: _Optional[int] = ..., delivery_date_exact: _Optional[str] = ..., delivery_date_start: _Optional[str] = ..., delivery_date_end: _Optional[str] = ..., total_value_min: _Optional[int] = ..., total_value_max: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class SalesOrdersServiceSearchAllReq(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key", "consignee_client_id", "buyer_client_id", "location_id", "currency_id", "project_id")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -596,7 +596,7 @@ class SalesOrdersServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SALES_ORDER_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., search_key: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ..., location_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., project_id: _Optional[int] = ...) -> None: ...
 
 class SalesOrdersServiceReferenceCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "sales_order_id", "context", "ref_from", "ref_id")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     SALES_ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -610,7 +610,7 @@ class SalesOrdersServiceReferenceCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., sales_order_id: _Optional[int] = ..., context: _Optional[_Union[SALES_ORDER_REFERENCE_CONTEXT, str]] = ..., ref_from: _Optional[_Union[SALES_ORDER_REFERENCE_REF_FROM, str]] = ..., ref_id: _Optional[int] = ...) -> None: ...
 
 class SalesOrderReference(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "sales_order_id", "context", "ref_from", "ref_id")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -632,13 +632,13 @@ class SalesOrderReference(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., sales_order_id: _Optional[int] = ..., context: _Optional[_Union[SALES_ORDER_REFERENCE_CONTEXT, str]] = ..., ref_from: _Optional[_Union[SALES_ORDER_REFERENCE_REF_FROM, str]] = ..., ref_id: _Optional[int] = ...) -> None: ...
 
 class SalesOrderReferencesList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[SalesOrderReference]
     def __init__(self, list: _Optional[_Iterable[_Union[SalesOrderReference, _Mapping]]] = ...) -> None: ...
 
 class SalesOrderItemsSearchRequest(_message.Message):
-    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "sales_order_id", "bundled_with_id", "family_id", "client_uom_id", "client_family_code", "tax_group_id", "delivery_date_exact", "delivery_date_start", "delivery_date_end", "search_key")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -684,7 +684,7 @@ class SalesOrderItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SALES_ORDER_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[SALES_ORDER_ITEM_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., sales_order_id: _Optional[int] = ..., bundled_with_id: _Optional[int] = ..., family_id: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_family_code: _Optional[str] = ..., tax_group_id: _Optional[int] = ..., delivery_date_exact: _Optional[str] = ..., delivery_date_start: _Optional[str] = ..., delivery_date_end: _Optional[str] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class SalesOrdersServicePaginatedItemsResponse(_message.Message):
-    __slots__ = ("count", "offset", "total", "payload")
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -696,7 +696,7 @@ class SalesOrdersServicePaginatedItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[SalesOrderItem, _Mapping]]] = ...) -> None: ...
 
 class SalesOrdersServiceContactCreateRequest(_message.Message):
-    __slots__ = ("user_comment", "sales_order_id", "associate_id")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     SALES_ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     ASSOCIATE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -706,7 +706,7 @@ class SalesOrdersServiceContactCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., sales_order_id: _Optional[int] = ..., associate_id: _Optional[int] = ...) -> None: ...
 
 class SalesOrderContact(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "sales_order_id", "associate_id", "associate_uuid")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -726,13 +726,13 @@ class SalesOrderContact(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., sales_order_id: _Optional[int] = ..., associate_id: _Optional[int] = ..., associate_uuid: _Optional[str] = ...) -> None: ...
 
 class SalesOrderContactsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[SalesOrderContact]
     def __init__(self, list: _Optional[_Iterable[_Union[SalesOrderContact, _Mapping]]] = ...) -> None: ...
 
 class SalesOrderInventoryStatistics(_message.Message):
-    __slots__ = ("ordered", "dispatched", "returned")
+    __slots__ = ()
     ORDERED_FIELD_NUMBER: _ClassVar[int]
     DISPATCHED_FIELD_NUMBER: _ClassVar[int]
     RETURNED_FIELD_NUMBER: _ClassVar[int]
@@ -742,7 +742,7 @@ class SalesOrderInventoryStatistics(_message.Message):
     def __init__(self, ordered: _Optional[int] = ..., dispatched: _Optional[int] = ..., returned: _Optional[int] = ...) -> None: ...
 
 class SalesOrderBillingStatistics(_message.Message):
-    __slots__ = ("ordered", "invoiced", "credited")
+    __slots__ = ()
     ORDERED_FIELD_NUMBER: _ClassVar[int]
     INVOICED_FIELD_NUMBER: _ClassVar[int]
     CREDITED_FIELD_NUMBER: _ClassVar[int]
@@ -752,7 +752,7 @@ class SalesOrderBillingStatistics(_message.Message):
     def __init__(self, ordered: _Optional[int] = ..., invoiced: _Optional[int] = ..., credited: _Optional[int] = ...) -> None: ...
 
 class SalesOrderInventoryMatch(_message.Message):
-    __slots__ = ("family_id", "client_uom_id", "ordered_primary", "ordered_secondary", "dispatched_primary", "dispatched_secondary", "invoiced_primary", "invoiced_secondary", "returned_primary", "returned_secondary", "credited_primary", "credited_secondary")
+    __slots__ = ()
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_UOM_ID_FIELD_NUMBER: _ClassVar[int]
     ORDERED_PRIMARY_FIELD_NUMBER: _ClassVar[int]
@@ -780,13 +780,13 @@ class SalesOrderInventoryMatch(_message.Message):
     def __init__(self, family_id: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., ordered_primary: _Optional[int] = ..., ordered_secondary: _Optional[int] = ..., dispatched_primary: _Optional[int] = ..., dispatched_secondary: _Optional[int] = ..., invoiced_primary: _Optional[int] = ..., invoiced_secondary: _Optional[int] = ..., returned_primary: _Optional[int] = ..., returned_secondary: _Optional[int] = ..., credited_primary: _Optional[int] = ..., credited_secondary: _Optional[int] = ...) -> None: ...
 
 class SalesOrderInventoryMatchList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[SalesOrderInventoryMatch]
     def __init__(self, list: _Optional[_Iterable[_Union[SalesOrderInventoryMatch, _Mapping]]] = ...) -> None: ...
 
 class SalesOrderPriceMatch(_message.Message):
-    __slots__ = ("family_id", "client_uom_id", "ordered_primary", "ordered_secondary", "ordered_total_value", "invoiced_primary", "invoiced_secondary", "invoiced_total_value", "credited_primary", "credited_secondary", "credited_total_value")
+    __slots__ = ()
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_UOM_ID_FIELD_NUMBER: _ClassVar[int]
     ORDERED_PRIMARY_FIELD_NUMBER: _ClassVar[int]
@@ -812,7 +812,7 @@ class SalesOrderPriceMatch(_message.Message):
     def __init__(self, family_id: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., ordered_primary: _Optional[int] = ..., ordered_secondary: _Optional[int] = ..., ordered_total_value: _Optional[int] = ..., invoiced_primary: _Optional[int] = ..., invoiced_secondary: _Optional[int] = ..., invoiced_total_value: _Optional[int] = ..., credited_primary: _Optional[int] = ..., credited_secondary: _Optional[int] = ..., credited_total_value: _Optional[int] = ...) -> None: ...
 
 class SalesOrderPriceMatchList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[SalesOrderPriceMatch]
     def __init__(self, list: _Optional[_Iterable[_Union[SalesOrderPriceMatch, _Mapping]]] = ...) -> None: ...

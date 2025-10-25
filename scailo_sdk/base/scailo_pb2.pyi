@@ -326,31 +326,31 @@ class Empty(_message.Message):
     def __init__(self) -> None: ...
 
 class BooleanResponse(_message.Message):
-    __slots__ = ("value",)
+    __slots__ = ()
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: bool
     def __init__(self, value: _Optional[bool] = ...) -> None: ...
 
 class BytesResponse(_message.Message):
-    __slots__ = ("value",)
+    __slots__ = ()
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: bytes
     def __init__(self, value: _Optional[bytes] = ...) -> None: ...
 
 class StringResponse(_message.Message):
-    __slots__ = ("value",)
+    __slots__ = ()
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: str
     def __init__(self, value: _Optional[str] = ...) -> None: ...
 
 class PriceResponse(_message.Message):
-    __slots__ = ("value",)
+    __slots__ = ()
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: int
     def __init__(self, value: _Optional[int] = ...) -> None: ...
 
 class ImageResponse(_message.Message):
-    __slots__ = ("image", "mime_type", "timestamp")
+    __slots__ = ()
     IMAGE_FIELD_NUMBER: _ClassVar[int]
     MIME_TYPE_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -360,13 +360,13 @@ class ImageResponse(_message.Message):
     def __init__(self, image: _Optional[bytes] = ..., mime_type: _Optional[str] = ..., timestamp: _Optional[int] = ...) -> None: ...
 
 class Base64String(_message.Message):
-    __slots__ = ("image",)
+    __slots__ = ()
     IMAGE_FIELD_NUMBER: _ClassVar[int]
     image: str
     def __init__(self, image: _Optional[str] = ...) -> None: ...
 
 class MonthAndDayFilter(_message.Message):
-    __slots__ = ("month", "day")
+    __slots__ = ()
     MONTH_FIELD_NUMBER: _ClassVar[int]
     DAY_FIELD_NUMBER: _ClassVar[int]
     month: int
@@ -374,7 +374,7 @@ class MonthAndDayFilter(_message.Message):
     def __init__(self, month: _Optional[int] = ..., day: _Optional[int] = ...) -> None: ...
 
 class GPSCoordinatesResponse(_message.Message):
-    __slots__ = ("latitude", "longitude")
+    __slots__ = ()
     LATITUDE_FIELD_NUMBER: _ClassVar[int]
     LONGITUDE_FIELD_NUMBER: _ClassVar[int]
     latitude: float
@@ -382,7 +382,7 @@ class GPSCoordinatesResponse(_message.Message):
     def __init__(self, latitude: _Optional[float] = ..., longitude: _Optional[float] = ...) -> None: ...
 
 class CountInSLCStatusRequest(_message.Message):
-    __slots__ = ("is_active", "status")
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     is_active: BOOL_FILTER
@@ -390,25 +390,25 @@ class CountInSLCStatusRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[BOOL_FILTER, str]] = ..., status: _Optional[_Union[STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class CountResponse(_message.Message):
-    __slots__ = ("count",)
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     count: int
     def __init__(self, count: _Optional[int] = ...) -> None: ...
 
 class SumResponse(_message.Message):
-    __slots__ = ("sum",)
+    __slots__ = ()
     SUM_FIELD_NUMBER: _ClassVar[int]
     sum: float
     def __init__(self, sum: _Optional[float] = ...) -> None: ...
 
 class QuantityResponse(_message.Message):
-    __slots__ = ("quantity",)
+    __slots__ = ()
     QUANTITY_FIELD_NUMBER: _ClassVar[int]
     quantity: int
     def __init__(self, quantity: _Optional[int] = ...) -> None: ...
 
 class DualQuantitiesResponse(_message.Message):
-    __slots__ = ("primary_quantity", "secondary_quantity")
+    __slots__ = ()
     PRIMARY_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     SECONDARY_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     primary_quantity: int
@@ -416,7 +416,7 @@ class DualQuantitiesResponse(_message.Message):
     def __init__(self, primary_quantity: _Optional[int] = ..., secondary_quantity: _Optional[int] = ...) -> None: ...
 
 class EmployeeMetadata(_message.Message):
-    __slots__ = ("id", "uuid", "added_by", "is_active", "created_at", "modified_at")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     UUID_FIELD_NUMBER: _ClassVar[int]
     ADDED_BY_FIELD_NUMBER: _ClassVar[int]
@@ -432,7 +432,7 @@ class EmployeeMetadata(_message.Message):
     def __init__(self, id: _Optional[int] = ..., uuid: _Optional[str] = ..., added_by: _Optional[str] = ..., is_active: _Optional[bool] = ..., created_at: _Optional[int] = ..., modified_at: _Optional[int] = ...) -> None: ...
 
 class ApprovalMetadata(_message.Message):
-    __slots__ = ("approved_on", "approved_by_user_id", "approver_role_id")
+    __slots__ = ()
     APPROVED_ON_FIELD_NUMBER: _ClassVar[int]
     APPROVED_BY_USER_ID_FIELD_NUMBER: _ClassVar[int]
     APPROVER_ROLE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -442,13 +442,13 @@ class ApprovalMetadata(_message.Message):
     def __init__(self, approved_on: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ...) -> None: ...
 
 class ActiveStatus(_message.Message):
-    __slots__ = ("is_active",)
+    __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     is_active: BOOL_FILTER
     def __init__(self, is_active: _Optional[_Union[BOOL_FILTER, str]] = ...) -> None: ...
 
 class UpdatePasswordReq(_message.Message):
-    __slots__ = ("user_comment", "id", "plain_text_password")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     PLAIN_TEXT_PASSWORD_FIELD_NUMBER: _ClassVar[int]
@@ -458,7 +458,7 @@ class UpdatePasswordReq(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., plain_text_password: _Optional[str] = ...) -> None: ...
 
 class UpdateOwnPasswordReq(_message.Message):
-    __slots__ = ("user_comment", "old_plain_text_password", "plain_text_password")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     OLD_PLAIN_TEXT_PASSWORD_FIELD_NUMBER: _ClassVar[int]
     PLAIN_TEXT_PASSWORD_FIELD_NUMBER: _ClassVar[int]
@@ -468,7 +468,7 @@ class UpdateOwnPasswordReq(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., old_plain_text_password: _Optional[str] = ..., plain_text_password: _Optional[str] = ...) -> None: ...
 
 class UploadPictureReq(_message.Message):
-    __slots__ = ("user_comment", "id", "img", "mime_type")
+    __slots__ = ()
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     IMG_FIELD_NUMBER: _ClassVar[int]
@@ -480,13 +480,13 @@ class UploadPictureReq(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., img: _Optional[str] = ..., mime_type: _Optional[str] = ...) -> None: ...
 
 class SimpleSearchReq(_message.Message):
-    __slots__ = ("search_key",)
+    __slots__ = ()
     SEARCH_KEY_FIELD_NUMBER: _ClassVar[int]
     search_key: str
     def __init__(self, search_key: _Optional[str] = ...) -> None: ...
 
 class RepeatWithDeliveryDate(_message.Message):
-    __slots__ = ("uuid", "user_comment", "reference_id", "delivery_date")
+    __slots__ = ()
     UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -498,13 +498,13 @@ class RepeatWithDeliveryDate(_message.Message):
     def __init__(self, uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., reference_id: _Optional[str] = ..., delivery_date: _Optional[str] = ...) -> None: ...
 
 class Identifier(_message.Message):
-    __slots__ = ("id",)
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     id: int
     def __init__(self, id: _Optional[int] = ...) -> None: ...
 
 class IdentifierResponse(_message.Message):
-    __slots__ = ("id", "uuid")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     UUID_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -512,25 +512,25 @@ class IdentifierResponse(_message.Message):
     def __init__(self, id: _Optional[int] = ..., uuid: _Optional[str] = ...) -> None: ...
 
 class IdentifierZeroable(_message.Message):
-    __slots__ = ("id",)
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     id: int
     def __init__(self, id: _Optional[int] = ...) -> None: ...
 
 class IdentifiersList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedScalarFieldContainer[int]
     def __init__(self, list: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class StringsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, list: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class IdentifierWithUserComment(_message.Message):
-    __slots__ = ("id", "user_comment")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -538,7 +538,7 @@ class IdentifierWithUserComment(_message.Message):
     def __init__(self, id: _Optional[int] = ..., user_comment: _Optional[str] = ...) -> None: ...
 
 class IdentifierWithEmailAttributes(_message.Message):
-    __slots__ = ("id", "subject", "recipients", "body")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     SUBJECT_FIELD_NUMBER: _ClassVar[int]
     RECIPIENTS_FIELD_NUMBER: _ClassVar[int]
@@ -550,7 +550,7 @@ class IdentifierWithEmailAttributes(_message.Message):
     def __init__(self, id: _Optional[int] = ..., subject: _Optional[str] = ..., recipients: _Optional[_Iterable[str]] = ..., body: _Optional[str] = ...) -> None: ...
 
 class IdentifierWithSearchKey(_message.Message):
-    __slots__ = ("id", "search_key")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     SEARCH_KEY_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -558,7 +558,7 @@ class IdentifierWithSearchKey(_message.Message):
     def __init__(self, id: _Optional[int] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class IdentifierWithFile(_message.Message):
-    __slots__ = ("id", "file_content")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     FILE_CONTENT_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -566,7 +566,7 @@ class IdentifierWithFile(_message.Message):
     def __init__(self, id: _Optional[int] = ..., file_content: _Optional[bytes] = ...) -> None: ...
 
 class IdentifierUUIDWithFile(_message.Message):
-    __slots__ = ("uuid", "file_content")
+    __slots__ = ()
     UUID_FIELD_NUMBER: _ClassVar[int]
     FILE_CONTENT_FIELD_NUMBER: _ClassVar[int]
     uuid: str
@@ -574,13 +574,13 @@ class IdentifierUUIDWithFile(_message.Message):
     def __init__(self, uuid: _Optional[str] = ..., file_content: _Optional[bytes] = ...) -> None: ...
 
 class IdentifierUUID(_message.Message):
-    __slots__ = ("uuid",)
+    __slots__ = ()
     UUID_FIELD_NUMBER: _ClassVar[int]
     uuid: str
     def __init__(self, uuid: _Optional[str] = ...) -> None: ...
 
 class IdentifierUUIDWithUserComment(_message.Message):
-    __slots__ = ("uuid", "user_comment")
+    __slots__ = ()
     UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     uuid: str
@@ -588,13 +588,13 @@ class IdentifierUUIDWithUserComment(_message.Message):
     def __init__(self, uuid: _Optional[str] = ..., user_comment: _Optional[str] = ...) -> None: ...
 
 class IdentifierUUIDsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[IdentifierUUID]
     def __init__(self, list: _Optional[_Iterable[_Union[IdentifierUUID, _Mapping]]] = ...) -> None: ...
 
 class LogbookLogConciseSLC(_message.Message):
-    __slots__ = ("id", "is_active", "timestamp", "ref_uuid", "operation", "username", "name", "user_id", "app_comment", "user_comment")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -618,7 +618,7 @@ class LogbookLogConciseSLC(_message.Message):
     def __init__(self, id: _Optional[int] = ..., is_active: _Optional[bool] = ..., timestamp: _Optional[int] = ..., ref_uuid: _Optional[str] = ..., operation: _Optional[_Union[STANDARD_LIFECYCLE_STATUS, str]] = ..., username: _Optional[str] = ..., name: _Optional[str] = ..., user_id: _Optional[int] = ..., app_comment: _Optional[str] = ..., user_comment: _Optional[str] = ...) -> None: ...
 
 class LogbookLogConciseSLCCreateRequest(_message.Message):
-    __slots__ = ("timestamp", "ref_uuid", "operation", "username", "app_comment", "user_comment")
+    __slots__ = ()
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     REF_UUID_FIELD_NUMBER: _ClassVar[int]
     OPERATION_FIELD_NUMBER: _ClassVar[int]
@@ -634,7 +634,7 @@ class LogbookLogConciseSLCCreateRequest(_message.Message):
     def __init__(self, timestamp: _Optional[int] = ..., ref_uuid: _Optional[str] = ..., operation: _Optional[_Union[STANDARD_LIFECYCLE_STATUS, str]] = ..., username: _Optional[str] = ..., app_comment: _Optional[str] = ..., user_comment: _Optional[str] = ...) -> None: ...
 
 class LogbookLogConciseGenericCreateRequest(_message.Message):
-    __slots__ = ("timestamp", "ref_uuid", "operation", "username", "app_comment", "user_comment")
+    __slots__ = ()
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     REF_UUID_FIELD_NUMBER: _ClassVar[int]
     OPERATION_FIELD_NUMBER: _ClassVar[int]
@@ -650,7 +650,7 @@ class LogbookLogConciseGenericCreateRequest(_message.Message):
     def __init__(self, timestamp: _Optional[int] = ..., ref_uuid: _Optional[str] = ..., operation: _Optional[str] = ..., username: _Optional[str] = ..., app_comment: _Optional[str] = ..., user_comment: _Optional[str] = ...) -> None: ...
 
 class LogbookLogComplete(_message.Message):
-    __slots__ = ("metadata", "ref_uuid", "operation", "username", "app_comment", "user_comment", "previous_data")
+    __slots__ = ()
     METADATA_FIELD_NUMBER: _ClassVar[int]
     REF_UUID_FIELD_NUMBER: _ClassVar[int]
     OPERATION_FIELD_NUMBER: _ClassVar[int]
@@ -668,7 +668,7 @@ class LogbookLogComplete(_message.Message):
     def __init__(self, metadata: _Optional[_Union[EmployeeMetadata, _Mapping]] = ..., ref_uuid: _Optional[str] = ..., operation: _Optional[_Union[LOGBOOK_OPERATION, str]] = ..., username: _Optional[str] = ..., app_comment: _Optional[str] = ..., user_comment: _Optional[str] = ..., previous_data: _Optional[bytes] = ...) -> None: ...
 
 class ReorderItemsRequest(_message.Message):
-    __slots__ = ("id", "sequence")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     SEQUENCE_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -676,7 +676,7 @@ class ReorderItemsRequest(_message.Message):
     def __init__(self, id: _Optional[int] = ..., sequence: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class CloneRequest(_message.Message):
-    __slots__ = ("source_id", "target_id", "delete_existing", "user_comment")
+    __slots__ = ()
     SOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     TARGET_ID_FIELD_NUMBER: _ClassVar[int]
     DELETE_EXISTING_FIELD_NUMBER: _ClassVar[int]
@@ -688,7 +688,7 @@ class CloneRequest(_message.Message):
     def __init__(self, source_id: _Optional[int] = ..., target_id: _Optional[int] = ..., delete_existing: _Optional[bool] = ..., user_comment: _Optional[str] = ...) -> None: ...
 
 class StandardFile(_message.Message):
-    __slots__ = ("name", "mime_type", "content")
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     MIME_TYPE_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
@@ -698,7 +698,7 @@ class StandardFile(_message.Message):
     def __init__(self, name: _Optional[str] = ..., mime_type: _Optional[str] = ..., content: _Optional[bytes] = ...) -> None: ...
 
 class LogbookLogInventoryLC(_message.Message):
-    __slots__ = ("id", "is_active", "timestamp", "ref_uuid", "operation", "username", "name", "user_id", "app_comment", "user_comment")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -722,7 +722,7 @@ class LogbookLogInventoryLC(_message.Message):
     def __init__(self, id: _Optional[int] = ..., is_active: _Optional[bool] = ..., timestamp: _Optional[int] = ..., ref_uuid: _Optional[str] = ..., operation: _Optional[_Union[INVENTORY_LIFECYCLE, str]] = ..., username: _Optional[str] = ..., name: _Optional[str] = ..., user_id: _Optional[int] = ..., app_comment: _Optional[str] = ..., user_comment: _Optional[str] = ...) -> None: ...
 
 class InventoryPartitionRequest(_message.Message):
-    __slots__ = ("id", "user_comment", "partition_quantity", "partition_secondary_quantity")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     PARTITION_QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -734,7 +734,7 @@ class InventoryPartitionRequest(_message.Message):
     def __init__(self, id: _Optional[int] = ..., user_comment: _Optional[str] = ..., partition_quantity: _Optional[int] = ..., partition_secondary_quantity: _Optional[int] = ...) -> None: ...
 
 class InventoryInteraction(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "category", "inventory_ref_uuid", "issued_inventory_hash", "issued_ref_purpose", "issued_ref_id", "internal_quantity")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_FIELD_NUMBER: _ClassVar[int]
@@ -754,13 +754,13 @@ class InventoryInteraction(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[EmployeeMetadata, _Mapping]] = ..., category: _Optional[_Union[INVENTORY_INTERACTION_CATEGORY, str]] = ..., inventory_ref_uuid: _Optional[str] = ..., issued_inventory_hash: _Optional[str] = ..., issued_ref_purpose: _Optional[_Union[INVENTORY_ISSUED_PURPOSE, str]] = ..., issued_ref_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ...) -> None: ...
 
 class InventoryInteractionsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[InventoryInteraction]
     def __init__(self, list: _Optional[_Iterable[_Union[InventoryInteraction, _Mapping]]] = ...) -> None: ...
 
 class AmendmentLog(_message.Message):
-    __slots__ = ("entity_uuid", "metadata", "ref_for", "ref_id", "comment")
+    __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     REF_FOR_FIELD_NUMBER: _ClassVar[int]
@@ -774,7 +774,7 @@ class AmendmentLog(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[EmployeeMetadata, _Mapping]] = ..., ref_for: _Optional[_Union[AMENDMENT_LOG_REF_FOR, str]] = ..., ref_id: _Optional[int] = ..., comment: _Optional[str] = ...) -> None: ...
 
 class AmendmentLogsList(_message.Message):
-    __slots__ = ("list",)
+    __slots__ = ()
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[AmendmentLog]
     def __init__(self, list: _Optional[_Iterable[_Union[AmendmentLog, _Mapping]]] = ...) -> None: ...
