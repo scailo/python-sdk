@@ -37,8 +37,9 @@ class FormField(_message.Message):
     PLACEHOLDER_FIELD_NUMBER: _ClassVar[int]
     REGEX_FIELD_NUMBER: _ClassVar[int]
     DEFINED_VALUES_FIELD_NUMBER: _ClassVar[int]
-    PRINTABLE_FIELD_NUMBER: _ClassVar[int]
-    HIGHLIGHTABLE_FIELD_NUMBER: _ClassVar[int]
+    IS_READONLY_FIELD_NUMBER: _ClassVar[int]
+    IS_HIDDEN_FIELD_NUMBER: _ClassVar[int]
+    IS_SEARCHABLE_FIELD_NUMBER: _ClassVar[int]
     entity_uuid: str
     metadata: _scailo_pb2.EmployeeMetadata
     name: str
@@ -50,9 +51,10 @@ class FormField(_message.Message):
     placeholder: str
     regex: str
     defined_values: _containers.RepeatedScalarFieldContainer[str]
-    printable: bool
-    highlightable: bool
-    def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., type: _Optional[_Union[_scailo_pb2.FORM_TYPE, str]] = ..., section_id: _Optional[int] = ..., width: _Optional[str] = ..., element: _Optional[_Union[_scailo_pb2.FORM_FIELD_ELEMENT, str]] = ..., placeholder: _Optional[str] = ..., regex: _Optional[str] = ..., defined_values: _Optional[_Iterable[str]] = ..., printable: _Optional[bool] = ..., highlightable: _Optional[bool] = ...) -> None: ...
+    is_readonly: bool
+    is_hidden: bool
+    is_searchable: bool
+    def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., type: _Optional[_Union[_scailo_pb2.FORM_TYPE, str]] = ..., section_id: _Optional[int] = ..., width: _Optional[str] = ..., element: _Optional[_Union[_scailo_pb2.FORM_FIELD_ELEMENT, str]] = ..., placeholder: _Optional[str] = ..., regex: _Optional[str] = ..., defined_values: _Optional[_Iterable[str]] = ..., is_readonly: _Optional[bool] = ..., is_hidden: _Optional[bool] = ..., is_searchable: _Optional[bool] = ...) -> None: ...
 
 class FormsFieldsList(_message.Message):
     __slots__ = ()
@@ -85,8 +87,9 @@ class FormsFieldsServiceCreateRequest(_message.Message):
     PLACEHOLDER_FIELD_NUMBER: _ClassVar[int]
     REGEX_FIELD_NUMBER: _ClassVar[int]
     DEFINED_VALUES_FIELD_NUMBER: _ClassVar[int]
-    PRINTABLE_FIELD_NUMBER: _ClassVar[int]
-    HIGHLIGHTABLE_FIELD_NUMBER: _ClassVar[int]
+    IS_READONLY_FIELD_NUMBER: _ClassVar[int]
+    IS_HIDDEN_FIELD_NUMBER: _ClassVar[int]
+    IS_SEARCHABLE_FIELD_NUMBER: _ClassVar[int]
     entity_uuid: str
     user_comment: str
     name: str
@@ -98,9 +101,10 @@ class FormsFieldsServiceCreateRequest(_message.Message):
     placeholder: str
     regex: str
     defined_values: _containers.RepeatedScalarFieldContainer[str]
-    printable: bool
-    highlightable: bool
-    def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., type: _Optional[_Union[_scailo_pb2.FORM_TYPE, str]] = ..., section_id: _Optional[int] = ..., width: _Optional[str] = ..., element: _Optional[_Union[_scailo_pb2.FORM_FIELD_ELEMENT, str]] = ..., placeholder: _Optional[str] = ..., regex: _Optional[str] = ..., defined_values: _Optional[_Iterable[str]] = ..., printable: _Optional[bool] = ..., highlightable: _Optional[bool] = ...) -> None: ...
+    is_readonly: bool
+    is_hidden: bool
+    is_searchable: bool
+    def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., type: _Optional[_Union[_scailo_pb2.FORM_TYPE, str]] = ..., section_id: _Optional[int] = ..., width: _Optional[str] = ..., element: _Optional[_Union[_scailo_pb2.FORM_FIELD_ELEMENT, str]] = ..., placeholder: _Optional[str] = ..., regex: _Optional[str] = ..., defined_values: _Optional[_Iterable[str]] = ..., is_readonly: _Optional[bool] = ..., is_hidden: _Optional[bool] = ..., is_searchable: _Optional[bool] = ...) -> None: ...
 
 class FormsFieldsServiceUpdateRequest(_message.Message):
     __slots__ = ()
@@ -113,8 +117,9 @@ class FormsFieldsServiceUpdateRequest(_message.Message):
     PLACEHOLDER_FIELD_NUMBER: _ClassVar[int]
     REGEX_FIELD_NUMBER: _ClassVar[int]
     DEFINED_VALUES_FIELD_NUMBER: _ClassVar[int]
-    PRINTABLE_FIELD_NUMBER: _ClassVar[int]
-    HIGHLIGHTABLE_FIELD_NUMBER: _ClassVar[int]
+    IS_READONLY_FIELD_NUMBER: _ClassVar[int]
+    IS_HIDDEN_FIELD_NUMBER: _ClassVar[int]
+    IS_SEARCHABLE_FIELD_NUMBER: _ClassVar[int]
     user_comment: str
     id: int
     name: str
@@ -124,9 +129,10 @@ class FormsFieldsServiceUpdateRequest(_message.Message):
     placeholder: str
     regex: str
     defined_values: _containers.RepeatedScalarFieldContainer[str]
-    printable: bool
-    highlightable: bool
-    def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., section_id: _Optional[int] = ..., width: _Optional[str] = ..., placeholder: _Optional[str] = ..., regex: _Optional[str] = ..., defined_values: _Optional[_Iterable[str]] = ..., printable: _Optional[bool] = ..., highlightable: _Optional[bool] = ...) -> None: ...
+    is_readonly: bool
+    is_hidden: bool
+    is_searchable: bool
+    def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., section_id: _Optional[int] = ..., width: _Optional[str] = ..., placeholder: _Optional[str] = ..., regex: _Optional[str] = ..., defined_values: _Optional[_Iterable[str]] = ..., is_readonly: _Optional[bool] = ..., is_hidden: _Optional[bool] = ..., is_searchable: _Optional[bool] = ...) -> None: ...
 
 class FormsFieldsServicePaginationReq(_message.Message):
     __slots__ = ()
