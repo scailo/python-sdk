@@ -483,6 +483,26 @@ class SalesQuotationsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_update_sales_quotation_item_specifications(
+        self, req: sales_quotations.scailo_pb2.SalesQuotationsServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdateSalesQuotationItemSpecifications, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.SalesQuotationsService/UpdateSalesQuotationItemSpecifications"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def update_sales_quotation_item_specifications(
+        self, req: sales_quotations.scailo_pb2.SalesQuotationsServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_update_sales_quotation_item_specifications(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_approve_sales_quotation_item(
         self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1812,6 +1832,25 @@ class AsyncSalesQuotationsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_update_sales_quotation_item_specifications(
+        self, req: sales_quotations.scailo_pb2.SalesQuotationsServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdateSalesQuotationItemSpecifications, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.SalesQuotationsService/UpdateSalesQuotationItemSpecifications"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def update_sales_quotation_item_specifications(
+        self, req: sales_quotations.scailo_pb2.SalesQuotationsServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_update_sales_quotation_item_specifications(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_approve_sales_quotation_item(
         self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2714,6 +2753,8 @@ class SalesQuotationsServiceProtocol(typing.Protocol):
         ...
     def modify_sales_quotation_item(self, req: ClientRequest[sales_quotations.scailo_pb2.SalesQuotationsServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifiersList]:
         ...
+    def update_sales_quotation_item_specifications(self, req: ClientRequest[sales_quotations.scailo_pb2.SalesQuotationsServiceItemSpecificationsUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def approve_sales_quotation_item(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def delete_sales_quotation_item(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2831,6 +2872,7 @@ def wsgi_sales_quotations_service(implementation: SalesQuotationsServiceProtocol
     app.register_unary_rpc("/Scailo.SalesQuotationsService/AddMultipleSalesQuotationItems", implementation.add_multiple_sales_quotation_items, sales_quotations.scailo_pb2.SalesQuotationsServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.SalesQuotationsService/AddSalesQuotationItem", implementation.add_sales_quotation_item, sales_quotations.scailo_pb2.SalesQuotationsServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.SalesQuotationsService/ModifySalesQuotationItem", implementation.modify_sales_quotation_item, sales_quotations.scailo_pb2.SalesQuotationsServiceItemUpdateRequest)
+    app.register_unary_rpc("/Scailo.SalesQuotationsService/UpdateSalesQuotationItemSpecifications", implementation.update_sales_quotation_item_specifications, sales_quotations.scailo_pb2.SalesQuotationsServiceItemSpecificationsUpdateRequest)
     app.register_unary_rpc("/Scailo.SalesQuotationsService/ApproveSalesQuotationItem", implementation.approve_sales_quotation_item, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.SalesQuotationsService/DeleteSalesQuotationItem", implementation.delete_sales_quotation_item, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.SalesQuotationsService/ReorderSalesQuotationItems", implementation.reorder_sales_quotation_items, base.scailo_pb2.ReorderItemsRequest)

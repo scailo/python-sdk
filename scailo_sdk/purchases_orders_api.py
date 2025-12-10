@@ -483,6 +483,26 @@ class PurchasesOrdersServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_update_purchase_order_item_specifications(
+        self, req: purchases_orders.scailo_pb2.PurchasesOrdersServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdatePurchaseOrderItemSpecifications, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesOrdersService/UpdatePurchaseOrderItemSpecifications"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def update_purchase_order_item_specifications(
+        self, req: purchases_orders.scailo_pb2.PurchasesOrdersServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_update_purchase_order_item_specifications(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_approve_purchase_order_item(
         self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1912,6 +1932,25 @@ class AsyncPurchasesOrdersServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_update_purchase_order_item_specifications(
+        self, req: purchases_orders.scailo_pb2.PurchasesOrdersServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdatePurchaseOrderItemSpecifications, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesOrdersService/UpdatePurchaseOrderItemSpecifications"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def update_purchase_order_item_specifications(
+        self, req: purchases_orders.scailo_pb2.PurchasesOrdersServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_update_purchase_order_item_specifications(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_approve_purchase_order_item(
         self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2909,6 +2948,8 @@ class PurchasesOrdersServiceProtocol(typing.Protocol):
         ...
     def modify_purchase_order_item(self, req: ClientRequest[purchases_orders.scailo_pb2.PurchasesOrdersServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
+    def update_purchase_order_item_specifications(self, req: ClientRequest[purchases_orders.scailo_pb2.PurchasesOrdersServiceItemSpecificationsUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def approve_purchase_order_item(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def delete_purchase_order_item(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -3036,6 +3077,7 @@ def wsgi_purchases_orders_service(implementation: PurchasesOrdersServiceProtocol
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/AddMultiplePurchaseOrderItems", implementation.add_multiple_purchase_order_items, purchases_orders.scailo_pb2.PurchasesOrdersServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/AddPurchaseOrderItem", implementation.add_purchase_order_item, purchases_orders.scailo_pb2.PurchasesOrdersServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/ModifyPurchaseOrderItem", implementation.modify_purchase_order_item, purchases_orders.scailo_pb2.PurchasesOrdersServiceItemUpdateRequest)
+    app.register_unary_rpc("/Scailo.PurchasesOrdersService/UpdatePurchaseOrderItemSpecifications", implementation.update_purchase_order_item_specifications, purchases_orders.scailo_pb2.PurchasesOrdersServiceItemSpecificationsUpdateRequest)
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/ApprovePurchaseOrderItem", implementation.approve_purchase_order_item, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/DeletePurchaseOrderItem", implementation.delete_purchase_order_item, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.PurchasesOrdersService/ReorderPurchaseOrderItems", implementation.reorder_purchase_order_items, base.scailo_pb2.ReorderItemsRequest)

@@ -483,6 +483,26 @@ class ProformaInvoicesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_update_proforma_invoice_item_specifications(
+        self, req: proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdateProformaInvoiceItemSpecifications, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.ProformaInvoicesService/UpdateProformaInvoiceItemSpecifications"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def update_proforma_invoice_item_specifications(
+        self, req: proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_update_proforma_invoice_item_specifications(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_approve_proforma_invoice_item(
         self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1672,6 +1692,25 @@ class AsyncProformaInvoicesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_update_proforma_invoice_item_specifications(
+        self, req: proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdateProformaInvoiceItemSpecifications, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.ProformaInvoicesService/UpdateProformaInvoiceItemSpecifications"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def update_proforma_invoice_item_specifications(
+        self, req: proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_update_proforma_invoice_item_specifications(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_approve_proforma_invoice_item(
         self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2441,6 +2480,8 @@ class ProformaInvoicesServiceProtocol(typing.Protocol):
         ...
     def modify_proforma_invoice_item(self, req: ClientRequest[proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
+    def update_proforma_invoice_item_specifications(self, req: ClientRequest[proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemSpecificationsUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def approve_proforma_invoice_item(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def delete_proforma_invoice_item(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2544,6 +2585,7 @@ def wsgi_proforma_invoices_service(implementation: ProformaInvoicesServiceProtoc
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/AddMultipleProformaInvoiceItems", implementation.add_multiple_proforma_invoice_items, proforma_invoices.scailo_pb2.ProformaInvoicesServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/AddProformaInvoiceItem", implementation.add_proforma_invoice_item, proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/ModifyProformaInvoiceItem", implementation.modify_proforma_invoice_item, proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemUpdateRequest)
+    app.register_unary_rpc("/Scailo.ProformaInvoicesService/UpdateProformaInvoiceItemSpecifications", implementation.update_proforma_invoice_item_specifications, proforma_invoices.scailo_pb2.ProformaInvoicesServiceItemSpecificationsUpdateRequest)
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/ApproveProformaInvoiceItem", implementation.approve_proforma_invoice_item, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/DeleteProformaInvoiceItem", implementation.delete_proforma_invoice_item, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.ProformaInvoicesService/ReorderProformaInvoiceItems", implementation.reorder_proforma_invoice_items, base.scailo_pb2.ReorderItemsRequest)

@@ -483,6 +483,26 @@ class PurchasesIndentsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_update_purchase_indent_item_specifications(
+        self, req: purchases_indents.scailo_pb2.PurchasesIndentsServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdatePurchaseIndentItemSpecifications, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesIndentsService/UpdatePurchaseIndentItemSpecifications"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def update_purchase_indent_item_specifications(
+        self, req: purchases_indents.scailo_pb2.PurchasesIndentsServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_update_purchase_indent_item_specifications(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_approve_purchase_indent_item(
         self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1592,6 +1612,25 @@ class AsyncPurchasesIndentsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_update_purchase_indent_item_specifications(
+        self, req: purchases_indents.scailo_pb2.PurchasesIndentsServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdatePurchaseIndentItemSpecifications, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesIndentsService/UpdatePurchaseIndentItemSpecifications"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def update_purchase_indent_item_specifications(
+        self, req: purchases_indents.scailo_pb2.PurchasesIndentsServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_update_purchase_indent_item_specifications(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_approve_purchase_indent_item(
         self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2285,6 +2324,8 @@ class PurchasesIndentsServiceProtocol(typing.Protocol):
         ...
     def modify_purchase_indent_item(self, req: ClientRequest[purchases_indents.scailo_pb2.PurchasesIndentsServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
+    def update_purchase_indent_item_specifications(self, req: ClientRequest[purchases_indents.scailo_pb2.PurchasesIndentsServiceItemSpecificationsUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def approve_purchase_indent_item(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def delete_purchase_indent_item(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2380,6 +2421,7 @@ def wsgi_purchases_indents_service(implementation: PurchasesIndentsServiceProtoc
     app.register_unary_rpc("/Scailo.PurchasesIndentsService/AddMultiplePurchaseIndentItems", implementation.add_multiple_purchase_indent_items, purchases_indents.scailo_pb2.PurchasesIndentsServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.PurchasesIndentsService/AddPurchaseIndentItem", implementation.add_purchase_indent_item, purchases_indents.scailo_pb2.PurchasesIndentsServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.PurchasesIndentsService/ModifyPurchaseIndentItem", implementation.modify_purchase_indent_item, purchases_indents.scailo_pb2.PurchasesIndentsServiceItemUpdateRequest)
+    app.register_unary_rpc("/Scailo.PurchasesIndentsService/UpdatePurchaseIndentItemSpecifications", implementation.update_purchase_indent_item_specifications, purchases_indents.scailo_pb2.PurchasesIndentsServiceItemSpecificationsUpdateRequest)
     app.register_unary_rpc("/Scailo.PurchasesIndentsService/ApprovePurchaseIndentItem", implementation.approve_purchase_indent_item, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.PurchasesIndentsService/DeletePurchaseIndentItem", implementation.delete_purchase_indent_item, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.PurchasesIndentsService/ReorderPurchaseIndentItems", implementation.reorder_purchase_indent_items, base.scailo_pb2.ReorderItemsRequest)

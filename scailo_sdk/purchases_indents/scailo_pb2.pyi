@@ -185,6 +185,16 @@ class PurchasesIndentsServiceItemUpdateRequest(_message.Message):
     specifications: str
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
 
+class PurchasesIndentsServiceItemSpecificationsUpdateRequest(_message.Message):
+    __slots__ = ()
+    USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    UUID_FIELD_NUMBER: _ClassVar[int]
+    SPECIFICATIONS_FIELD_NUMBER: _ClassVar[int]
+    user_comment: str
+    uuid: str
+    specifications: str
+    def __init__(self, user_comment: _Optional[str] = ..., uuid: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
+
 class PurchaseIndentItem(_message.Message):
     __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]

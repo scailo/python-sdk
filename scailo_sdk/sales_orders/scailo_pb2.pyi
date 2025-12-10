@@ -341,6 +341,16 @@ class SalesOrdersServiceItemUpdateRequest(_message.Message):
     is_invoiceable: bool
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., client_uom_id: _Optional[int] = ..., client_quantity: _Optional[int] = ..., client_family_code: _Optional[str] = ..., unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., discount: _Optional[int] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ..., is_invoiceable: _Optional[bool] = ...) -> None: ...
 
+class SalesOrdersServiceItemSpecificationsUpdateRequest(_message.Message):
+    __slots__ = ()
+    USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    UUID_FIELD_NUMBER: _ClassVar[int]
+    SPECIFICATIONS_FIELD_NUMBER: _ClassVar[int]
+    user_comment: str
+    uuid: str
+    specifications: str
+    def __init__(self, user_comment: _Optional[str] = ..., uuid: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
+
 class SalesOrderItem(_message.Message):
     __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]

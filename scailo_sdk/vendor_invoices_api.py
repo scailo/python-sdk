@@ -483,6 +483,26 @@ class VendorInvoicesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_update_vendor_invoice_item_specifications(
+        self, req: vendor_invoices.scailo_pb2.VendorInvoicesServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdateVendorInvoiceItemSpecifications, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VendorInvoicesService/UpdateVendorInvoiceItemSpecifications"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def update_vendor_invoice_item_specifications(
+        self, req: vendor_invoices.scailo_pb2.VendorInvoicesServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_update_vendor_invoice_item_specifications(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_approve_vendor_invoice_item(
         self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1732,6 +1752,25 @@ class AsyncVendorInvoicesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_update_vendor_invoice_item_specifications(
+        self, req: vendor_invoices.scailo_pb2.VendorInvoicesServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdateVendorInvoiceItemSpecifications, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VendorInvoicesService/UpdateVendorInvoiceItemSpecifications"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def update_vendor_invoice_item_specifications(
+        self, req: vendor_invoices.scailo_pb2.VendorInvoicesServiceItemSpecificationsUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_update_vendor_invoice_item_specifications(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_approve_vendor_invoice_item(
         self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2558,6 +2597,8 @@ class VendorInvoicesServiceProtocol(typing.Protocol):
         ...
     def modify_vendor_invoice_item(self, req: ClientRequest[vendor_invoices.scailo_pb2.VendorInvoicesServiceItemUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
+    def update_vendor_invoice_item_specifications(self, req: ClientRequest[vendor_invoices.scailo_pb2.VendorInvoicesServiceItemSpecificationsUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def approve_vendor_invoice_item(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def delete_vendor_invoice_item(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2667,6 +2708,7 @@ def wsgi_vendor_invoices_service(implementation: VendorInvoicesServiceProtocol) 
     app.register_unary_rpc("/Scailo.VendorInvoicesService/AddMultipleVendorInvoiceItems", implementation.add_multiple_vendor_invoice_items, vendor_invoices.scailo_pb2.VendorInvoicesServiceMultipleItemsCreateRequest)
     app.register_unary_rpc("/Scailo.VendorInvoicesService/AddVendorInvoiceItem", implementation.add_vendor_invoice_item, vendor_invoices.scailo_pb2.VendorInvoicesServiceItemCreateRequest)
     app.register_unary_rpc("/Scailo.VendorInvoicesService/ModifyVendorInvoiceItem", implementation.modify_vendor_invoice_item, vendor_invoices.scailo_pb2.VendorInvoicesServiceItemUpdateRequest)
+    app.register_unary_rpc("/Scailo.VendorInvoicesService/UpdateVendorInvoiceItemSpecifications", implementation.update_vendor_invoice_item_specifications, vendor_invoices.scailo_pb2.VendorInvoicesServiceItemSpecificationsUpdateRequest)
     app.register_unary_rpc("/Scailo.VendorInvoicesService/ApproveVendorInvoiceItem", implementation.approve_vendor_invoice_item, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.VendorInvoicesService/DeleteVendorInvoiceItem", implementation.delete_vendor_invoice_item, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.VendorInvoicesService/ReorderVendorInvoiceItems", implementation.reorder_vendor_invoice_items, base.scailo_pb2.ReorderItemsRequest)

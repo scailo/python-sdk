@@ -339,6 +339,16 @@ class PurchasesOrdersServiceItemUpdateRequest(_message.Message):
     specifications: str
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., internal_quantity: _Optional[int] = ..., vendor_uom_id: _Optional[int] = ..., vendor_quantity: _Optional[int] = ..., vendor_unit_price: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., discount: _Optional[int] = ..., delivery_date: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
 
+class PurchasesOrdersServiceItemSpecificationsUpdateRequest(_message.Message):
+    __slots__ = ()
+    USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    UUID_FIELD_NUMBER: _ClassVar[int]
+    SPECIFICATIONS_FIELD_NUMBER: _ClassVar[int]
+    user_comment: str
+    uuid: str
+    specifications: str
+    def __init__(self, user_comment: _Optional[str] = ..., uuid: _Optional[str] = ..., specifications: _Optional[str] = ...) -> None: ...
+
 class PurchaseOrderItem(_message.Message):
     __slots__ = ()
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
