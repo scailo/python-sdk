@@ -1063,6 +1063,206 @@ class VaultServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_reconfigure_enclave(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierUUID]:
+        """Low-level method to call ReconfigureEnclave, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/ReconfigureEnclave"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierUUID,extra_headers, timeout_seconds)
+
+
+    def reconfigure_enclave(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierUUID:
+        response = self.call_reconfigure_enclave(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_setup_enclave_ingress(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveIngress]:
+        """Low-level method to call SetupEnclaveIngress, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/SetupEnclaveIngress"
+        return self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveIngress,extra_headers, timeout_seconds)
+
+
+    def setup_enclave_ingress(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveIngress:
+        response = self.call_setup_enclave_ingress(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_filter_enclave_ingresses(
+        self, req: vault_commons.scailo_pb2.EnclaveIngressFilterReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveIngressesList]:
+        """Low-level method to call FilterEnclaveIngresses, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/FilterEnclaveIngresses"
+        return self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveIngressesList,extra_headers, timeout_seconds)
+
+
+    def filter_enclave_ingresses(
+        self, req: vault_commons.scailo_pb2.EnclaveIngressFilterReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveIngressesList:
+        response = self.call_filter_enclave_ingresses(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_count_enclave_ingresses(
+        self, req: vault_commons.scailo_pb2.EnclaveIngressCountReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.CountResponse]:
+        """Low-level method to call CountEnclaveIngresses, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/CountEnclaveIngresses"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.CountResponse,extra_headers, timeout_seconds)
+
+
+    def count_enclave_ingresses(
+        self, req: vault_commons.scailo_pb2.EnclaveIngressCountReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.CountResponse:
+        response = self.call_count_enclave_ingresses(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_verify_enclave_ingress(
+        self, req: vault_commons.scailo_pb2.VerifyEnclaveIngressRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.VerifyEnclaveIngressResponse]:
+        """Low-level method to call VerifyEnclaveIngress, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/VerifyEnclaveIngress"
+        return self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.VerifyEnclaveIngressResponse,extra_headers, timeout_seconds)
+
+
+    def verify_enclave_ingress(
+        self, req: vault_commons.scailo_pb2.VerifyEnclaveIngressRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.VerifyEnclaveIngressResponse:
+        response = self.call_verify_enclave_ingress(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_add_enclave_environment_variable(
+        self, req: vault_commons.scailo_pb2.EnclaveEnvironmentVariableAddRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveEnvironmentVariable]:
+        """Low-level method to call AddEnclaveEnvironmentVariable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/AddEnclaveEnvironmentVariable"
+        return self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveEnvironmentVariable,extra_headers, timeout_seconds)
+
+
+    def add_enclave_environment_variable(
+        self, req: vault_commons.scailo_pb2.EnclaveEnvironmentVariableAddRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveEnvironmentVariable:
+        response = self.call_add_enclave_environment_variable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_update_enclave_environment_variable(
+        self, req: vault_commons.scailo_pb2.EnclaveEnvironmentVariableUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveEnvironmentVariable]:
+        """Low-level method to call UpdateEnclaveEnvironmentVariable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/UpdateEnclaveEnvironmentVariable"
+        return self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveEnvironmentVariable,extra_headers, timeout_seconds)
+
+
+    def update_enclave_environment_variable(
+        self, req: vault_commons.scailo_pb2.EnclaveEnvironmentVariableUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveEnvironmentVariable:
+        response = self.call_update_enclave_environment_variable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_delete_enclave_environment_variable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call DeleteEnclaveEnvironmentVariable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/DeleteEnclaveEnvironmentVariable"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def delete_enclave_environment_variable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_delete_enclave_environment_variable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_view_enclave_environment_variable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveEnvironmentVariable]:
+        """Low-level method to call ViewEnclaveEnvironmentVariable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/ViewEnclaveEnvironmentVariable"
+        return self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveEnvironmentVariable,extra_headers, timeout_seconds)
+
+
+    def view_enclave_environment_variable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveEnvironmentVariable:
+        response = self.call_view_enclave_environment_variable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_view_all_enclave_environment_variables(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveEnvironmentVariablesList]:
+        """Low-level method to call ViewAllEnclaveEnvironmentVariables, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/ViewAllEnclaveEnvironmentVariables"
+        return self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveEnvironmentVariablesList,extra_headers, timeout_seconds)
+
+
+    def view_all_enclave_environment_variables(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveEnvironmentVariablesList:
+        response = self.call_view_all_enclave_environment_variables(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
 
 class AsyncVaultServiceClient:
     def __init__(
@@ -2043,6 +2243,196 @@ class AsyncVaultServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_reconfigure_enclave(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierUUID]:
+        """Low-level method to call ReconfigureEnclave, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/ReconfigureEnclave"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierUUID,extra_headers, timeout_seconds)
+
+    async def reconfigure_enclave(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierUUID:
+        response = await self.call_reconfigure_enclave(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_setup_enclave_ingress(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveIngress]:
+        """Low-level method to call SetupEnclaveIngress, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/SetupEnclaveIngress"
+        return await self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveIngress,extra_headers, timeout_seconds)
+
+    async def setup_enclave_ingress(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveIngress:
+        response = await self.call_setup_enclave_ingress(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_filter_enclave_ingresses(
+        self, req: vault_commons.scailo_pb2.EnclaveIngressFilterReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveIngressesList]:
+        """Low-level method to call FilterEnclaveIngresses, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/FilterEnclaveIngresses"
+        return await self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveIngressesList,extra_headers, timeout_seconds)
+
+    async def filter_enclave_ingresses(
+        self, req: vault_commons.scailo_pb2.EnclaveIngressFilterReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveIngressesList:
+        response = await self.call_filter_enclave_ingresses(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_count_enclave_ingresses(
+        self, req: vault_commons.scailo_pb2.EnclaveIngressCountReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.CountResponse]:
+        """Low-level method to call CountEnclaveIngresses, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/CountEnclaveIngresses"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.CountResponse,extra_headers, timeout_seconds)
+
+    async def count_enclave_ingresses(
+        self, req: vault_commons.scailo_pb2.EnclaveIngressCountReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.CountResponse:
+        response = await self.call_count_enclave_ingresses(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_verify_enclave_ingress(
+        self, req: vault_commons.scailo_pb2.VerifyEnclaveIngressRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.VerifyEnclaveIngressResponse]:
+        """Low-level method to call VerifyEnclaveIngress, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/VerifyEnclaveIngress"
+        return await self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.VerifyEnclaveIngressResponse,extra_headers, timeout_seconds)
+
+    async def verify_enclave_ingress(
+        self, req: vault_commons.scailo_pb2.VerifyEnclaveIngressRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.VerifyEnclaveIngressResponse:
+        response = await self.call_verify_enclave_ingress(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_add_enclave_environment_variable(
+        self, req: vault_commons.scailo_pb2.EnclaveEnvironmentVariableAddRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveEnvironmentVariable]:
+        """Low-level method to call AddEnclaveEnvironmentVariable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/AddEnclaveEnvironmentVariable"
+        return await self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveEnvironmentVariable,extra_headers, timeout_seconds)
+
+    async def add_enclave_environment_variable(
+        self, req: vault_commons.scailo_pb2.EnclaveEnvironmentVariableAddRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveEnvironmentVariable:
+        response = await self.call_add_enclave_environment_variable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_update_enclave_environment_variable(
+        self, req: vault_commons.scailo_pb2.EnclaveEnvironmentVariableUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveEnvironmentVariable]:
+        """Low-level method to call UpdateEnclaveEnvironmentVariable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/UpdateEnclaveEnvironmentVariable"
+        return await self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveEnvironmentVariable,extra_headers, timeout_seconds)
+
+    async def update_enclave_environment_variable(
+        self, req: vault_commons.scailo_pb2.EnclaveEnvironmentVariableUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveEnvironmentVariable:
+        response = await self.call_update_enclave_environment_variable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_delete_enclave_environment_variable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call DeleteEnclaveEnvironmentVariable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/DeleteEnclaveEnvironmentVariable"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def delete_enclave_environment_variable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_delete_enclave_environment_variable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_view_enclave_environment_variable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveEnvironmentVariable]:
+        """Low-level method to call ViewEnclaveEnvironmentVariable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/ViewEnclaveEnvironmentVariable"
+        return await self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveEnvironmentVariable,extra_headers, timeout_seconds)
+
+    async def view_enclave_environment_variable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveEnvironmentVariable:
+        response = await self.call_view_enclave_environment_variable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_view_all_enclave_environment_variables(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[vault_commons.scailo_pb2.EnclaveEnvironmentVariablesList]:
+        """Low-level method to call ViewAllEnclaveEnvironmentVariables, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.VaultService/ViewAllEnclaveEnvironmentVariables"
+        return await self._connect_client.call_unary(url, req, vault_commons.scailo_pb2.EnclaveEnvironmentVariablesList,extra_headers, timeout_seconds)
+
+    async def view_all_enclave_environment_variables(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> vault_commons.scailo_pb2.EnclaveEnvironmentVariablesList:
+        response = await self.call_view_all_enclave_environment_variables(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
 
 @typing.runtime_checkable
 class VaultServiceProtocol(typing.Protocol):
@@ -2148,6 +2538,26 @@ class VaultServiceProtocol(typing.Protocol):
         ...
     def gi_x_count(self, req: ClientRequest[vault_commons.scailo_pb2.GiXAppRunCountReq]) -> ServerResponse[base.scailo_pb2.CountResponse]:
         ...
+    def reconfigure_enclave(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[base.scailo_pb2.IdentifierUUID]:
+        ...
+    def setup_enclave_ingress(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[vault_commons.scailo_pb2.EnclaveIngress]:
+        ...
+    def filter_enclave_ingresses(self, req: ClientRequest[vault_commons.scailo_pb2.EnclaveIngressFilterReq]) -> ServerResponse[vault_commons.scailo_pb2.EnclaveIngressesList]:
+        ...
+    def count_enclave_ingresses(self, req: ClientRequest[vault_commons.scailo_pb2.EnclaveIngressCountReq]) -> ServerResponse[base.scailo_pb2.CountResponse]:
+        ...
+    def verify_enclave_ingress(self, req: ClientRequest[vault_commons.scailo_pb2.VerifyEnclaveIngressRequest]) -> ServerResponse[vault_commons.scailo_pb2.VerifyEnclaveIngressResponse]:
+        ...
+    def add_enclave_environment_variable(self, req: ClientRequest[vault_commons.scailo_pb2.EnclaveEnvironmentVariableAddRequest]) -> ServerResponse[vault_commons.scailo_pb2.EnclaveEnvironmentVariable]:
+        ...
+    def update_enclave_environment_variable(self, req: ClientRequest[vault_commons.scailo_pb2.EnclaveEnvironmentVariableUpdateRequest]) -> ServerResponse[vault_commons.scailo_pb2.EnclaveEnvironmentVariable]:
+        ...
+    def delete_enclave_environment_variable(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
+    def view_enclave_environment_variable(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[vault_commons.scailo_pb2.EnclaveEnvironmentVariable]:
+        ...
+    def view_all_enclave_environment_variables(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[vault_commons.scailo_pb2.EnclaveEnvironmentVariablesList]:
+        ...
 
 VAULT_SERVICE_PATH_PREFIX = "/Scailo.VaultService"
 
@@ -2204,4 +2614,14 @@ def wsgi_vault_service(implementation: VaultServiceProtocol) -> WSGIApplication:
     app.register_unary_rpc("/Scailo.VaultService/GiXRelayPUT", implementation.gi_x_relay_put, vault.scailo_pb2.GiXRelayReqWithBody)
     app.register_unary_rpc("/Scailo.VaultService/GiXFilter", implementation.gi_x_filter, vault_commons.scailo_pb2.GiXAppRunFilterReq)
     app.register_unary_rpc("/Scailo.VaultService/GiXCount", implementation.gi_x_count, vault_commons.scailo_pb2.GiXAppRunCountReq)
+    app.register_unary_rpc("/Scailo.VaultService/ReconfigureEnclave", implementation.reconfigure_enclave, base.scailo_pb2.IdentifierUUID)
+    app.register_unary_rpc("/Scailo.VaultService/SetupEnclaveIngress", implementation.setup_enclave_ingress, base.scailo_pb2.IdentifierUUID)
+    app.register_unary_rpc("/Scailo.VaultService/FilterEnclaveIngresses", implementation.filter_enclave_ingresses, vault_commons.scailo_pb2.EnclaveIngressFilterReq)
+    app.register_unary_rpc("/Scailo.VaultService/CountEnclaveIngresses", implementation.count_enclave_ingresses, vault_commons.scailo_pb2.EnclaveIngressCountReq)
+    app.register_unary_rpc("/Scailo.VaultService/VerifyEnclaveIngress", implementation.verify_enclave_ingress, vault_commons.scailo_pb2.VerifyEnclaveIngressRequest)
+    app.register_unary_rpc("/Scailo.VaultService/AddEnclaveEnvironmentVariable", implementation.add_enclave_environment_variable, vault_commons.scailo_pb2.EnclaveEnvironmentVariableAddRequest)
+    app.register_unary_rpc("/Scailo.VaultService/UpdateEnclaveEnvironmentVariable", implementation.update_enclave_environment_variable, vault_commons.scailo_pb2.EnclaveEnvironmentVariableUpdateRequest)
+    app.register_unary_rpc("/Scailo.VaultService/DeleteEnclaveEnvironmentVariable", implementation.delete_enclave_environment_variable, base.scailo_pb2.IdentifierUUID)
+    app.register_unary_rpc("/Scailo.VaultService/ViewEnclaveEnvironmentVariable", implementation.view_enclave_environment_variable, base.scailo_pb2.IdentifierUUID)
+    app.register_unary_rpc("/Scailo.VaultService/ViewAllEnclaveEnvironmentVariables", implementation.view_all_enclave_environment_variables, base.scailo_pb2.IdentifierUUID)
     return app

@@ -219,6 +219,178 @@ class GiXAppRunFilterReq(_message.Message):
     run_by: str
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., vault_file_uuid: _Optional[str] = ..., vault_file_version_uuid: _Optional[str] = ..., run_by: _Optional[str] = ...) -> None: ...
 
+class EnclaveResources(_message.Message):
+    __slots__ = ()
+    LOGOS_FIELD_NUMBER: _ClassVar[int]
+    FOLDERS_FIELD_NUMBER: _ClassVar[int]
+    FILES_FIELD_NUMBER: _ClassVar[int]
+    logos: _containers.RepeatedScalarFieldContainer[str]
+    folders: _containers.RepeatedScalarFieldContainer[str]
+    files: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, logos: _Optional[_Iterable[str]] = ..., folders: _Optional[_Iterable[str]] = ..., files: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class EnclaveManifest(_message.Message):
+    __slots__ = ()
+    MANIFEST_VERSION_FIELD_NUMBER: _ClassVar[int]
+    ENCLAVE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    APP_VERSION_FIELD_NUMBER: _ClassVar[int]
+    APP_NAME_FIELD_NUMBER: _ClassVar[int]
+    ENCLAVE_NAME_FIELD_NUMBER: _ClassVar[int]
+    APP_UNIQUE_IDENTIFIER_FIELD_NUMBER: _ClassVar[int]
+    START_EXEC_FIELD_NUMBER: _ClassVar[int]
+    RESOURCES_FIELD_NUMBER: _ClassVar[int]
+    manifest_version: str
+    enclave_type: str
+    app_version: str
+    app_name: str
+    enclave_name: str
+    app_unique_identifier: str
+    start_exec: str
+    resources: EnclaveResources
+    def __init__(self, manifest_version: _Optional[str] = ..., enclave_type: _Optional[str] = ..., app_version: _Optional[str] = ..., app_name: _Optional[str] = ..., enclave_name: _Optional[str] = ..., app_unique_identifier: _Optional[str] = ..., start_exec: _Optional[str] = ..., resources: _Optional[_Union[EnclaveResources, _Mapping]] = ...) -> None: ...
+
+class EnclaveIngress(_message.Message):
+    __slots__ = ()
+    ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
+    METADATA_FIELD_NUMBER: _ClassVar[int]
+    TOKEN_FIELD_NUMBER: _ClassVar[int]
+    EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
+    VAULT_FILE_ID_FIELD_NUMBER: _ClassVar[int]
+    VAULT_FILE_VERSION_ID_FIELD_NUMBER: _ClassVar[int]
+    ENCLAVE_NAME_FIELD_NUMBER: _ClassVar[int]
+    IP_ADDR_FIELD_NUMBER: _ClassVar[int]
+    RUNNER_USER_ID_FIELD_NUMBER: _ClassVar[int]
+    RUNNER_ROLE_ID_FIELD_NUMBER: _ClassVar[int]
+    APP_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
+    entity_uuid: str
+    metadata: _scailo_pb2.EmployeeMetadata
+    token: str
+    expires_at: int
+    vault_file_id: int
+    vault_file_version_id: int
+    enclave_name: str
+    ip_addr: str
+    runner_user_id: int
+    runner_role_id: int
+    app_endpoint: str
+    def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., token: _Optional[str] = ..., expires_at: _Optional[int] = ..., vault_file_id: _Optional[int] = ..., vault_file_version_id: _Optional[int] = ..., enclave_name: _Optional[str] = ..., ip_addr: _Optional[str] = ..., runner_user_id: _Optional[int] = ..., runner_role_id: _Optional[int] = ..., app_endpoint: _Optional[str] = ...) -> None: ...
+
+class EnclaveIngressesList(_message.Message):
+    __slots__ = ()
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    list: _containers.RepeatedCompositeFieldContainer[EnclaveIngress]
+    def __init__(self, list: _Optional[_Iterable[_Union[EnclaveIngress, _Mapping]]] = ...) -> None: ...
+
+class EnclaveIngressCountReq(_message.Message):
+    __slots__ = ()
+    IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
+    CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
+    MODIFICATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
+    MODIFICATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
+    VAULT_FILE_UUID_FIELD_NUMBER: _ClassVar[int]
+    VAULT_FILE_VERSION_UUID_FIELD_NUMBER: _ClassVar[int]
+    RUNNER_USER_ID_FIELD_NUMBER: _ClassVar[int]
+    RUNNER_ROLE_ID_FIELD_NUMBER: _ClassVar[int]
+    is_active: _scailo_pb2.BOOL_FILTER
+    creation_timestamp_start: int
+    creation_timestamp_end: int
+    modification_timestamp_start: int
+    modification_timestamp_end: int
+    vault_file_uuid: str
+    vault_file_version_uuid: str
+    runner_user_id: int
+    runner_role_id: int
+    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., vault_file_uuid: _Optional[str] = ..., vault_file_version_uuid: _Optional[str] = ..., runner_user_id: _Optional[int] = ..., runner_role_id: _Optional[int] = ...) -> None: ...
+
+class EnclaveIngressFilterReq(_message.Message):
+    __slots__ = ()
+    IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    COUNT_FIELD_NUMBER: _ClassVar[int]
+    OFFSET_FIELD_NUMBER: _ClassVar[int]
+    CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
+    CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
+    MODIFICATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
+    MODIFICATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
+    VAULT_FILE_UUID_FIELD_NUMBER: _ClassVar[int]
+    VAULT_FILE_VERSION_UUID_FIELD_NUMBER: _ClassVar[int]
+    RUNNER_USER_ID_FIELD_NUMBER: _ClassVar[int]
+    RUNNER_ROLE_ID_FIELD_NUMBER: _ClassVar[int]
+    is_active: _scailo_pb2.BOOL_FILTER
+    count: int
+    offset: int
+    creation_timestamp_start: int
+    creation_timestamp_end: int
+    modification_timestamp_start: int
+    modification_timestamp_end: int
+    vault_file_uuid: str
+    vault_file_version_uuid: str
+    runner_user_id: int
+    runner_role_id: int
+    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., vault_file_uuid: _Optional[str] = ..., vault_file_version_uuid: _Optional[str] = ..., runner_user_id: _Optional[int] = ..., runner_role_id: _Optional[int] = ...) -> None: ...
+
+class VerifyEnclaveIngressRequest(_message.Message):
+    __slots__ = ()
+    TOKEN_FIELD_NUMBER: _ClassVar[int]
+    token: str
+    def __init__(self, token: _Optional[str] = ...) -> None: ...
+
+class VerifyEnclaveIngressResponse(_message.Message):
+    __slots__ = ()
+    ENCLAVE_NAME_FIELD_NUMBER: _ClassVar[int]
+    USER_UUID_FIELD_NUMBER: _ClassVar[int]
+    ROLE_UUID_FIELD_NUMBER: _ClassVar[int]
+    AUTH_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
+    enclave_name: str
+    user_uuid: str
+    role_uuid: str
+    auth_token: str
+    expires_at: int
+    def __init__(self, enclave_name: _Optional[str] = ..., user_uuid: _Optional[str] = ..., role_uuid: _Optional[str] = ..., auth_token: _Optional[str] = ..., expires_at: _Optional[int] = ...) -> None: ...
+
+class EnclaveEnvironmentVariableAddRequest(_message.Message):
+    __slots__ = ()
+    FILE_UUID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    IS_SECRET_FIELD_NUMBER: _ClassVar[int]
+    file_uuid: str
+    name: str
+    value: str
+    is_secret: bool
+    def __init__(self, file_uuid: _Optional[str] = ..., name: _Optional[str] = ..., value: _Optional[str] = ..., is_secret: _Optional[bool] = ...) -> None: ...
+
+class EnclaveEnvironmentVariableUpdateRequest(_message.Message):
+    __slots__ = ()
+    UUID_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    uuid: str
+    value: str
+    def __init__(self, uuid: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+
+class EnclaveEnvironmentVariable(_message.Message):
+    __slots__ = ()
+    ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
+    METADATA_FIELD_NUMBER: _ClassVar[int]
+    VAULT_FILE_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    IS_SECRET_FIELD_NUMBER: _ClassVar[int]
+    entity_uuid: str
+    metadata: _scailo_pb2.EmployeeMetadata
+    vault_file_id: int
+    name: str
+    value: str
+    is_secret: bool
+    def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., vault_file_id: _Optional[int] = ..., name: _Optional[str] = ..., value: _Optional[str] = ..., is_secret: _Optional[bool] = ...) -> None: ...
+
+class EnclaveEnvironmentVariablesList(_message.Message):
+    __slots__ = ()
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    list: _containers.RepeatedCompositeFieldContainer[EnclaveEnvironmentVariable]
+    def __init__(self, list: _Optional[_Iterable[_Union[EnclaveEnvironmentVariable, _Mapping]]] = ...) -> None: ...
+
 class VaultSearchReq(_message.Message):
     __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
