@@ -26,6 +26,12 @@ class VAULT_PERMISSION_CODE(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VAULT_PERMISSION_CODE_EXECUTE: _ClassVar[VAULT_PERMISSION_CODE]
     VAULT_PERMISSION_CODE_ALL: _ClassVar[VAULT_PERMISSION_CODE]
 
+class ENCLAVE_DOMAIN_SORT_KEY(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    ENCLAVE_DOMAIN_SORT_KEY_ID_UNSPECIFIED: _ClassVar[ENCLAVE_DOMAIN_SORT_KEY]
+    ENCLAVE_DOMAIN_SORT_KEY_CREATED_AT: _ClassVar[ENCLAVE_DOMAIN_SORT_KEY]
+    ENCLAVE_DOMAIN_SORT_KEY_DOMAIN: _ClassVar[ENCLAVE_DOMAIN_SORT_KEY]
+
 class VAULT_SORT_KEY(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     VAULT_SORT_KEY_ID_UNSPECIFIED: _ClassVar[VAULT_SORT_KEY]
@@ -57,6 +63,9 @@ VAULT_PERMISSION_CODE_ADD: VAULT_PERMISSION_CODE
 VAULT_PERMISSION_CODE_DELETE: VAULT_PERMISSION_CODE
 VAULT_PERMISSION_CODE_EXECUTE: VAULT_PERMISSION_CODE
 VAULT_PERMISSION_CODE_ALL: VAULT_PERMISSION_CODE
+ENCLAVE_DOMAIN_SORT_KEY_ID_UNSPECIFIED: ENCLAVE_DOMAIN_SORT_KEY
+ENCLAVE_DOMAIN_SORT_KEY_CREATED_AT: ENCLAVE_DOMAIN_SORT_KEY
+ENCLAVE_DOMAIN_SORT_KEY_DOMAIN: ENCLAVE_DOMAIN_SORT_KEY
 VAULT_SORT_KEY_ID_UNSPECIFIED: VAULT_SORT_KEY
 VAULT_SORT_KEY_CREATED_AT: VAULT_SORT_KEY
 VAULT_SORT_KEY_MODIFIED_AT: VAULT_SORT_KEY
@@ -390,6 +399,70 @@ class EnclaveEnvironmentVariablesList(_message.Message):
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[EnclaveEnvironmentVariable]
     def __init__(self, list: _Optional[_Iterable[_Union[EnclaveEnvironmentVariable, _Mapping]]] = ...) -> None: ...
+
+class EnclaveDomainAddRequest(_message.Message):
+    __slots__ = ()
+    FILE_UUID_FIELD_NUMBER: _ClassVar[int]
+    DOMAIN_FIELD_NUMBER: _ClassVar[int]
+    file_uuid: str
+    domain: str
+    def __init__(self, file_uuid: _Optional[str] = ..., domain: _Optional[str] = ...) -> None: ...
+
+class EnclaveDomain(_message.Message):
+    __slots__ = ()
+    ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
+    METADATA_FIELD_NUMBER: _ClassVar[int]
+    VAULT_FILE_ID_FIELD_NUMBER: _ClassVar[int]
+    DOMAIN_FIELD_NUMBER: _ClassVar[int]
+    SERVICE_ADDR_FIELD_NUMBER: _ClassVar[int]
+    entity_uuid: str
+    metadata: _scailo_pb2.EmployeeMetadata
+    vault_file_id: int
+    domain: str
+    service_addr: str
+    def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., vault_file_id: _Optional[int] = ..., domain: _Optional[str] = ..., service_addr: _Optional[str] = ...) -> None: ...
+
+class EnclaveDomainsFilterReq(_message.Message):
+    __slots__ = ()
+    IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    COUNT_FIELD_NUMBER: _ClassVar[int]
+    OFFSET_FIELD_NUMBER: _ClassVar[int]
+    SORT_ORDER_FIELD_NUMBER: _ClassVar[int]
+    SORT_KEY_FIELD_NUMBER: _ClassVar[int]
+    CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
+    CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
+    MODIFICATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
+    MODIFICATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
+    ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
+    DOMAIN_FIELD_NUMBER: _ClassVar[int]
+    SERVICE_ADDR_FIELD_NUMBER: _ClassVar[int]
+    is_active: _scailo_pb2.BOOL_FILTER
+    count: int
+    offset: int
+    sort_order: _scailo_pb2.SORT_ORDER
+    sort_key: ENCLAVE_DOMAIN_SORT_KEY
+    creation_timestamp_start: int
+    creation_timestamp_end: int
+    modification_timestamp_start: int
+    modification_timestamp_end: int
+    entity_uuid: str
+    domain: str
+    service_addr: str
+    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[ENCLAVE_DOMAIN_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., domain: _Optional[str] = ..., service_addr: _Optional[str] = ...) -> None: ...
+
+class EnclaveDomainsList(_message.Message):
+    __slots__ = ()
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    list: _containers.RepeatedCompositeFieldContainer[EnclaveDomain]
+    def __init__(self, list: _Optional[_Iterable[_Union[EnclaveDomain, _Mapping]]] = ...) -> None: ...
+
+class EnclaveDomainSuffixResp(_message.Message):
+    __slots__ = ()
+    SUFFIX_FIELD_NUMBER: _ClassVar[int]
+    RELAY_FIELD_NUMBER: _ClassVar[int]
+    suffix: str
+    relay: str
+    def __init__(self, suffix: _Optional[str] = ..., relay: _Optional[str] = ...) -> None: ...
 
 class VaultSearchReq(_message.Message):
     __slots__ = ()

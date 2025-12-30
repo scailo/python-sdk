@@ -623,6 +623,26 @@ class FamiliesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_view_labels_for_family_i_ds(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[families.scailo_pb2.FamilyLabelsList]:
+        """Low-level method to call ViewLabelsForFamilyIDs, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/ViewLabelsForFamilyIDs"
+        return self._connect_client.call_unary(url, req, families.scailo_pb2.FamilyLabelsList,extra_headers, timeout_seconds)
+
+
+    def view_labels_for_family_i_ds(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> families.scailo_pb2.FamilyLabelsList:
+        response = self.call_view_labels_for_family_i_ds(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_add_unit_conversion(
         self, req: families.scailo_pb2.FamiliesServiceUnitConversionCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -1845,6 +1865,25 @@ class AsyncFamiliesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_view_labels_for_family_i_ds(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[families.scailo_pb2.FamilyLabelsList]:
+        """Low-level method to call ViewLabelsForFamilyIDs, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/ViewLabelsForFamilyIDs"
+        return await self._connect_client.call_unary(url, req, families.scailo_pb2.FamilyLabelsList,extra_headers, timeout_seconds)
+
+    async def view_labels_for_family_i_ds(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> families.scailo_pb2.FamilyLabelsList:
+        response = await self.call_view_labels_for_family_i_ds(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_add_unit_conversion(
         self, req: families.scailo_pb2.FamiliesServiceUnitConversionCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
@@ -2533,6 +2572,8 @@ class FamiliesServiceProtocol(typing.Protocol):
         ...
     def view_labels(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[families.scailo_pb2.FamilyLabelsList]:
         ...
+    def view_labels_for_family_i_ds(self, req: ClientRequest[base.scailo_pb2.IdentifiersList]) -> ServerResponse[families.scailo_pb2.FamilyLabelsList]:
+        ...
     def add_unit_conversion(self, req: ClientRequest[families.scailo_pb2.FamiliesServiceUnitConversionCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
     def approve_unit_conversion(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
@@ -2633,6 +2674,7 @@ def wsgi_families_service(implementation: FamiliesServiceProtocol) -> WSGIApplic
     app.register_unary_rpc("/Scailo.FamiliesService/DeleteLabel", implementation.delete_label, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.FamiliesService/ViewLabelByID", implementation.view_label_by_id, base.scailo_pb2.Identifier)
     app.register_unary_rpc("/Scailo.FamiliesService/ViewLabels", implementation.view_labels, base.scailo_pb2.Identifier)
+    app.register_unary_rpc("/Scailo.FamiliesService/ViewLabelsForFamilyIDs", implementation.view_labels_for_family_i_ds, base.scailo_pb2.IdentifiersList)
     app.register_unary_rpc("/Scailo.FamiliesService/AddUnitConversion", implementation.add_unit_conversion, families.scailo_pb2.FamiliesServiceUnitConversionCreateRequest)
     app.register_unary_rpc("/Scailo.FamiliesService/ApproveUnitConversion", implementation.approve_unit_conversion, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.FamiliesService/DeleteUnitConversion", implementation.delete_unit_conversion, base.scailo_pb2.IdentifierWithUserComment)
