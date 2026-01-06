@@ -238,25 +238,39 @@ class EnclaveResources(_message.Message):
     files: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, logos: _Optional[_Iterable[str]] = ..., folders: _Optional[_Iterable[str]] = ..., files: _Optional[_Iterable[str]] = ...) -> None: ...
 
+class EnclaveManifestEnvVariable(_message.Message):
+    __slots__ = ()
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    IS_SECRET_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    value: str
+    is_secret: bool
+    def __init__(self, name: _Optional[str] = ..., value: _Optional[str] = ..., is_secret: _Optional[bool] = ...) -> None: ...
+
 class EnclaveManifest(_message.Message):
     __slots__ = ()
     MANIFEST_VERSION_FIELD_NUMBER: _ClassVar[int]
-    ENCLAVE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ENCLAVE_RUNTIME_FIELD_NUMBER: _ClassVar[int]
     APP_VERSION_FIELD_NUMBER: _ClassVar[int]
     APP_NAME_FIELD_NUMBER: _ClassVar[int]
     ENCLAVE_NAME_FIELD_NUMBER: _ClassVar[int]
     APP_UNIQUE_IDENTIFIER_FIELD_NUMBER: _ClassVar[int]
     START_EXEC_FIELD_NUMBER: _ClassVar[int]
+    ENTRY_POINT_MANAGEMENT_FIELD_NUMBER: _ClassVar[int]
+    ENV_VARIABLES_FIELD_NUMBER: _ClassVar[int]
     RESOURCES_FIELD_NUMBER: _ClassVar[int]
     manifest_version: str
-    enclave_type: str
+    enclave_runtime: str
     app_version: str
     app_name: str
     enclave_name: str
     app_unique_identifier: str
     start_exec: str
+    entry_point_management: str
+    env_variables: _containers.RepeatedCompositeFieldContainer[EnclaveManifestEnvVariable]
     resources: EnclaveResources
-    def __init__(self, manifest_version: _Optional[str] = ..., enclave_type: _Optional[str] = ..., app_version: _Optional[str] = ..., app_name: _Optional[str] = ..., enclave_name: _Optional[str] = ..., app_unique_identifier: _Optional[str] = ..., start_exec: _Optional[str] = ..., resources: _Optional[_Union[EnclaveResources, _Mapping]] = ...) -> None: ...
+    def __init__(self, manifest_version: _Optional[str] = ..., enclave_runtime: _Optional[str] = ..., app_version: _Optional[str] = ..., app_name: _Optional[str] = ..., enclave_name: _Optional[str] = ..., app_unique_identifier: _Optional[str] = ..., start_exec: _Optional[str] = ..., entry_point_management: _Optional[str] = ..., env_variables: _Optional[_Iterable[_Union[EnclaveManifestEnvVariable, _Mapping]]] = ..., resources: _Optional[_Union[EnclaveResources, _Mapping]] = ...) -> None: ...
 
 class EnclaveIngress(_message.Message):
     __slots__ = ()
