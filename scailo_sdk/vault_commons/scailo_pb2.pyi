@@ -478,6 +478,82 @@ class EnclaveDomainSuffixResp(_message.Message):
     relay: str
     def __init__(self, suffix: _Optional[str] = ..., relay: _Optional[str] = ...) -> None: ...
 
+class EnclaveFrameAddRequest(_message.Message):
+    __slots__ = ()
+    FILE_UUID_FIELD_NUMBER: _ClassVar[int]
+    SEQUENCE_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    AUTO_REFRESH_INTERVAL_FIELD_NUMBER: _ClassVar[int]
+    WIDTH_FIELD_NUMBER: _ClassVar[int]
+    HEIGHT_FIELD_NUMBER: _ClassVar[int]
+    file_uuid: str
+    sequence_number: int
+    auto_refresh_interval: int
+    width: int
+    height: int
+    def __init__(self, file_uuid: _Optional[str] = ..., sequence_number: _Optional[int] = ..., auto_refresh_interval: _Optional[int] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
+
+class EnclaveFrameUpdateRequest(_message.Message):
+    __slots__ = ()
+    UUID_FIELD_NUMBER: _ClassVar[int]
+    SEQUENCE_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    AUTO_REFRESH_INTERVAL_FIELD_NUMBER: _ClassVar[int]
+    WIDTH_FIELD_NUMBER: _ClassVar[int]
+    HEIGHT_FIELD_NUMBER: _ClassVar[int]
+    uuid: str
+    sequence_number: int
+    auto_refresh_interval: int
+    width: int
+    height: int
+    def __init__(self, uuid: _Optional[str] = ..., sequence_number: _Optional[int] = ..., auto_refresh_interval: _Optional[int] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
+
+class EnclaveFrame(_message.Message):
+    __slots__ = ()
+    ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
+    METADATA_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    VAULT_FILE_ID_FIELD_NUMBER: _ClassVar[int]
+    SEQUENCE_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    AUTO_REFRESH_INTERVAL_FIELD_NUMBER: _ClassVar[int]
+    WIDTH_FIELD_NUMBER: _ClassVar[int]
+    HEIGHT_FIELD_NUMBER: _ClassVar[int]
+    entity_uuid: str
+    metadata: _scailo_pb2.EmployeeMetadata
+    user_id: int
+    vault_file_id: int
+    sequence_number: int
+    auto_refresh_interval: int
+    width: int
+    height: int
+    def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., user_id: _Optional[int] = ..., vault_file_id: _Optional[int] = ..., sequence_number: _Optional[int] = ..., auto_refresh_interval: _Optional[int] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
+
+class EnclaveFrameSetup(_message.Message):
+    __slots__ = ()
+    ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
+    EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
+    ENCLAVE_NAME_FIELD_NUMBER: _ClassVar[int]
+    APP_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
+    ENCLAVE_FRAME_UUID_FIELD_NUMBER: _ClassVar[int]
+    SEQUENCE_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    AUTO_REFRESH_INTERVAL_FIELD_NUMBER: _ClassVar[int]
+    WIDTH_FIELD_NUMBER: _ClassVar[int]
+    HEIGHT_FIELD_NUMBER: _ClassVar[int]
+    entity_uuid: str
+    expires_at: int
+    enclave_name: str
+    app_endpoint: str
+    enclave_frame_uuid: str
+    sequence_number: int
+    auto_refresh_interval: int
+    width: int
+    height: int
+    def __init__(self, entity_uuid: _Optional[str] = ..., expires_at: _Optional[int] = ..., enclave_name: _Optional[str] = ..., app_endpoint: _Optional[str] = ..., enclave_frame_uuid: _Optional[str] = ..., sequence_number: _Optional[int] = ..., auto_refresh_interval: _Optional[int] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
+
+class EnclaveFrameSetupList(_message.Message):
+    __slots__ = ()
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    list: _containers.RepeatedCompositeFieldContainer[EnclaveFrameSetup]
+    def __init__(self, list: _Optional[_Iterable[_Union[EnclaveFrameSetup, _Mapping]]] = ...) -> None: ...
+
 class VaultSearchReq(_message.Message):
     __slots__ = ()
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
