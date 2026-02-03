@@ -463,6 +463,26 @@ class InventoryServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_view_consolidated_statistics_for_families(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[inventory.scailo_pb2.ConsolidatedInventoryStatisticsList]:
+        """Low-level method to call ViewConsolidatedStatisticsForFamilies, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.InventoryService/ViewConsolidatedStatisticsForFamilies"
+        return self._connect_client.call_unary(url, req, inventory.scailo_pb2.ConsolidatedInventoryStatisticsList,extra_headers, timeout_seconds)
+
+
+    def view_consolidated_statistics_for_families(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> inventory.scailo_pb2.ConsolidatedInventoryStatisticsList:
+        response = self.call_view_consolidated_statistics_for_families(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_view_in_storage(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[inventory.scailo_pb2.GenericInventoryList]:
@@ -973,6 +993,25 @@ class AsyncInventoryServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_view_consolidated_statistics_for_families(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[inventory.scailo_pb2.ConsolidatedInventoryStatisticsList]:
+        """Low-level method to call ViewConsolidatedStatisticsForFamilies, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.InventoryService/ViewConsolidatedStatisticsForFamilies"
+        return await self._connect_client.call_unary(url, req, inventory.scailo_pb2.ConsolidatedInventoryStatisticsList,extra_headers, timeout_seconds)
+
+    async def view_consolidated_statistics_for_families(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> inventory.scailo_pb2.ConsolidatedInventoryStatisticsList:
+        response = await self.call_view_consolidated_statistics_for_families(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_view_in_storage(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[inventory.scailo_pb2.GenericInventoryList]:
@@ -1113,6 +1152,8 @@ class InventoryServiceProtocol(typing.Protocol):
         ...
     def view_consolidated_statistics(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[inventory.scailo_pb2.ConsolidatedInventoryStatistics]:
         ...
+    def view_consolidated_statistics_for_families(self, req: ClientRequest[base.scailo_pb2.IdentifiersList]) -> ServerResponse[inventory.scailo_pb2.ConsolidatedInventoryStatisticsList]:
+        ...
     def view_in_storage(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[inventory.scailo_pb2.GenericInventoryList]:
         ...
     def view_work_in_progress_statistics(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[inventory.scailo_pb2.InventoryWorkInProgressStatistics]:
@@ -1149,6 +1190,7 @@ def wsgi_inventory_service(implementation: InventoryServiceProtocol) -> WSGIAppl
     app.register_unary_rpc("/Scailo.InventoryService/ViewAdjustedDemandQuantity", implementation.view_adjusted_demand_quantity, base.scailo_pb2.Identifier)
     app.register_unary_rpc("/Scailo.InventoryService/ViewRequiredQuantity", implementation.view_required_quantity, base.scailo_pb2.Identifier)
     app.register_unary_rpc("/Scailo.InventoryService/ViewConsolidatedStatistics", implementation.view_consolidated_statistics, base.scailo_pb2.Identifier)
+    app.register_unary_rpc("/Scailo.InventoryService/ViewConsolidatedStatisticsForFamilies", implementation.view_consolidated_statistics_for_families, base.scailo_pb2.IdentifiersList)
     app.register_unary_rpc("/Scailo.InventoryService/ViewInStorage", implementation.view_in_storage, base.scailo_pb2.Identifier)
     app.register_unary_rpc("/Scailo.InventoryService/ViewWorkInProgressStatistics", implementation.view_work_in_progress_statistics, base.scailo_pb2.Identifier)
     app.register_unary_rpc("/Scailo.InventoryService/ViewIndentedStatistics", implementation.view_indented_statistics, base.scailo_pb2.Identifier)

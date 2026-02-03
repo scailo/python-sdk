@@ -323,6 +323,26 @@ class PurchasesPaymentsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_send_email(
+        self, req: base.scailo_pb2.IdentifierWithEmailAttributes,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call SendEmail, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesPaymentsService/SendEmail"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def send_email(
+        self, req: base.scailo_pb2.IdentifierWithEmailAttributes,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_send_email(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_create_magic_link(
         self, req: magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[magic_links.scailo_pb2.MagicLink]:
@@ -515,6 +535,46 @@ class PurchasesPaymentsServiceClient:
         self, req: purchases_payments.scailo_pb2.PurchasesPaymentsServicePaginationReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> purchases_payments.scailo_pb2.PurchasesPaymentsServicePaginationResponse:
         response = self.call_view_with_pagination(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_is_downloadable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.BooleanResponse]:
+        """Low-level method to call IsDownloadable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesPaymentsService/IsDownloadable"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.BooleanResponse,extra_headers, timeout_seconds)
+
+
+    def is_downloadable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.BooleanResponse:
+        response = self.call_is_downloadable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_download_by_uuid(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.StandardFile]:
+        """Low-level method to call DownloadByUUID, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesPaymentsService/DownloadByUUID"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.StandardFile,extra_headers, timeout_seconds)
+
+
+    def download_by_uuid(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.StandardFile:
+        response = self.call_download_by_uuid(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
             raise err
@@ -900,6 +960,25 @@ class AsyncPurchasesPaymentsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_send_email(
+        self, req: base.scailo_pb2.IdentifierWithEmailAttributes,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call SendEmail, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesPaymentsService/SendEmail"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def send_email(
+        self, req: base.scailo_pb2.IdentifierWithEmailAttributes,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_send_email(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_create_magic_link(
         self, req: magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[magic_links.scailo_pb2.MagicLink]:
@@ -1090,6 +1169,44 @@ class AsyncPurchasesPaymentsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_is_downloadable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.BooleanResponse]:
+        """Low-level method to call IsDownloadable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesPaymentsService/IsDownloadable"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.BooleanResponse,extra_headers, timeout_seconds)
+
+    async def is_downloadable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.BooleanResponse:
+        response = await self.call_is_downloadable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_download_by_uuid(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.StandardFile]:
+        """Low-level method to call DownloadByUUID, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.PurchasesPaymentsService/DownloadByUUID"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.StandardFile,extra_headers, timeout_seconds)
+
+    async def download_by_uuid(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.StandardFile:
+        response = await self.call_download_by_uuid(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_search_all(
         self, req: purchases_payments.scailo_pb2.PurchasesPaymentsServiceSearchAllReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[purchases_payments.scailo_pb2.PurchasesPaymentsList]:
@@ -1216,6 +1333,8 @@ class PurchasesPaymentsServiceProtocol(typing.Protocol):
         ...
     def comment_add(self, req: ClientRequest[base.scailo_pb2.IdentifierUUIDWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
+    def send_email(self, req: ClientRequest[base.scailo_pb2.IdentifierWithEmailAttributes]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def create_magic_link(self, req: ClientRequest[magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource]) -> ServerResponse[magic_links.scailo_pb2.MagicLink]:
         ...
     def view_by_id(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[purchases_payments.scailo_pb2.PurchasePayment]:
@@ -1235,6 +1354,10 @@ class PurchasesPaymentsServiceProtocol(typing.Protocol):
     def view_all_for_entity_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[purchases_payments.scailo_pb2.PurchasesPaymentsList]:
         ...
     def view_with_pagination(self, req: ClientRequest[purchases_payments.scailo_pb2.PurchasesPaymentsServicePaginationReq]) -> ServerResponse[purchases_payments.scailo_pb2.PurchasesPaymentsServicePaginationResponse]:
+        ...
+    def is_downloadable(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[base.scailo_pb2.BooleanResponse]:
+        ...
+    def download_by_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[base.scailo_pb2.StandardFile]:
         ...
     def search_all(self, req: ClientRequest[purchases_payments.scailo_pb2.PurchasesPaymentsServiceSearchAllReq]) -> ServerResponse[purchases_payments.scailo_pb2.PurchasesPaymentsList]:
         ...
@@ -1265,6 +1388,7 @@ def wsgi_purchases_payments_service(implementation: PurchasesPaymentsServiceProt
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/Complete", implementation.complete, base.scailo_pb2.IdentifierUUIDWithUserComment)
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/Repeat", implementation.repeat, base.scailo_pb2.IdentifierUUIDWithUserComment)
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/CommentAdd", implementation.comment_add, base.scailo_pb2.IdentifierUUIDWithUserComment)
+    app.register_unary_rpc("/Scailo.PurchasesPaymentsService/SendEmail", implementation.send_email, base.scailo_pb2.IdentifierWithEmailAttributes)
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/CreateMagicLink", implementation.create_magic_link, magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource)
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/ViewByID", implementation.view_by_id, base.scailo_pb2.Identifier)
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/ViewByUUID", implementation.view_by_uuid, base.scailo_pb2.IdentifierUUID)
@@ -1275,6 +1399,8 @@ def wsgi_purchases_payments_service(implementation: PurchasesPaymentsServiceProt
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/ViewAll", implementation.view_all, base.scailo_pb2.ActiveStatus)
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/ViewAllForEntityUUID", implementation.view_all_for_entity_uuid, base.scailo_pb2.IdentifierUUID)
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/ViewWithPagination", implementation.view_with_pagination, purchases_payments.scailo_pb2.PurchasesPaymentsServicePaginationReq)
+    app.register_unary_rpc("/Scailo.PurchasesPaymentsService/IsDownloadable", implementation.is_downloadable, base.scailo_pb2.IdentifierUUID)
+    app.register_unary_rpc("/Scailo.PurchasesPaymentsService/DownloadByUUID", implementation.download_by_uuid, base.scailo_pb2.IdentifierUUID)
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/SearchAll", implementation.search_all, purchases_payments.scailo_pb2.PurchasesPaymentsServiceSearchAllReq)
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/Filter", implementation.filter, purchases_payments.scailo_pb2.PurchasesPaymentsServiceFilterReq)
     app.register_unary_rpc("/Scailo.PurchasesPaymentsService/CountInStatus", implementation.count_in_status, base.scailo_pb2.CountInSLCStatusRequest)

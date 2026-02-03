@@ -29,7 +29,7 @@ LEAVE_LOG_SORT_KEY_QUANTITY: LEAVE_LOG_SORT_KEY
 LEAVE_LOG_SORT_KEY_REF_FROM: LEAVE_LOG_SORT_KEY
 
 class LeavesLogsServiceCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_id", "uom_id", "ref_from", "ref_id", "leave_type_id", "quantity")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     UOM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -47,7 +47,7 @@ class LeavesLogsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_id: _Optional[int] = ..., uom_id: _Optional[int] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., leave_type_id: _Optional[int] = ..., quantity: _Optional[int] = ...) -> None: ...
 
 class LeaveLog(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "user_id", "uom_id", "ref_from", "ref_id", "leave_type_id", "quantity")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -67,7 +67,7 @@ class LeaveLog(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., user_id: _Optional[int] = ..., uom_id: _Optional[int] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., leave_type_id: _Optional[int] = ..., quantity: _Optional[int] = ...) -> None: ...
 
 class LeavesLogsCountEmployeeLeavesRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "leave_type_id")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     LEAVE_TYPE_ID_FIELD_NUMBER: _ClassVar[int]
     user_id: int
@@ -75,13 +75,13 @@ class LeavesLogsCountEmployeeLeavesRequest(_message.Message):
     def __init__(self, user_id: _Optional[int] = ..., leave_type_id: _Optional[int] = ...) -> None: ...
 
 class LeavesLogsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[LeaveLog]
     def __init__(self, list: _Optional[_Iterable[_Union[LeaveLog, _Mapping]]] = ...) -> None: ...
 
 class LeavesLogsServiceFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "user_id", "uom_id", "ref_from", "ref_id", "leave_type_id", "quantity_min", "quantity_max")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -119,7 +119,7 @@ class LeavesLogsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[LEAVE_LOG_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., user_id: _Optional[int] = ..., uom_id: _Optional[int] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., leave_type_id: _Optional[int] = ..., quantity_min: _Optional[int] = ..., quantity_max: _Optional[int] = ...) -> None: ...
 
 class LeavesLogsServiceCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "user_id", "uom_id", "ref_from", "ref_id", "leave_type_id", "quantity_min", "quantity_max")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]

@@ -73,7 +73,7 @@ QC_GROUP_SORT_KEY_COMPLETED_ON: QC_GROUP_SORT_KEY
 QC_GROUP_SORT_KEY_NAME: QC_GROUP_SORT_KEY
 
 class QCGroupsServiceCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "name", "code", "description", "form_data")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -91,7 +91,7 @@ class QCGroupsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class QCGroupsServiceUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "name", "code", "description", "form_data")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -111,7 +111,7 @@ class QCGroupsServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class QCGroup(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "name", "code", "description", "list", "form_data")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -139,7 +139,7 @@ class QCGroup(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., list: _Optional[_Iterable[_Union[QCGroupItem, _Mapping]]] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class QCGroupsServiceItemCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "qc_group_id", "qc_param_id", "uom_id", "is_internal", "acceptable_value_type", "number_acceptable_value", "number_relative_lower_bound", "number_relative_upper_bound", "text_acceptable_values", "text_acceptable_values_with_deviation", "text_unacceptable_values", "description")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     QC_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     QC_PARAM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -169,7 +169,7 @@ class QCGroupsServiceItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., qc_group_id: _Optional[int] = ..., qc_param_id: _Optional[int] = ..., uom_id: _Optional[int] = ..., is_internal: _Optional[bool] = ..., acceptable_value_type: _Optional[_Union[QC_GROUP_ITEM_ACCEPTABLE_VALUE_TYPE, str]] = ..., number_acceptable_value: _Optional[int] = ..., number_relative_lower_bound: _Optional[int] = ..., number_relative_upper_bound: _Optional[int] = ..., text_acceptable_values: _Optional[_Iterable[str]] = ..., text_acceptable_values_with_deviation: _Optional[_Iterable[str]] = ..., text_unacceptable_values: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ...) -> None: ...
 
 class QCGroupsServiceItemUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "is_internal", "acceptable_value_type", "number_acceptable_value", "number_relative_lower_bound", "number_relative_upper_bound", "text_acceptable_values", "text_acceptable_values_with_deviation", "text_unacceptable_values", "description")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     IS_INTERNAL_FIELD_NUMBER: _ClassVar[int]
@@ -195,7 +195,7 @@ class QCGroupsServiceItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., is_internal: _Optional[bool] = ..., acceptable_value_type: _Optional[_Union[QC_GROUP_ITEM_ACCEPTABLE_VALUE_TYPE, str]] = ..., number_acceptable_value: _Optional[int] = ..., number_relative_lower_bound: _Optional[int] = ..., number_relative_upper_bound: _Optional[int] = ..., text_acceptable_values: _Optional[_Iterable[str]] = ..., text_acceptable_values_with_deviation: _Optional[_Iterable[str]] = ..., text_unacceptable_values: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ...) -> None: ...
 
 class QCGroupItem(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "qc_group_id", "qc_param_id", "uom_id", "is_internal", "acceptable_value_type", "number_acceptable_value", "number_relative_lower_bound", "number_relative_upper_bound", "text_acceptable_values", "text_acceptable_values_with_deviation", "text_unacceptable_values", "description")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -233,19 +233,19 @@ class QCGroupItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., qc_group_id: _Optional[int] = ..., qc_param_id: _Optional[int] = ..., uom_id: _Optional[int] = ..., is_internal: _Optional[bool] = ..., acceptable_value_type: _Optional[_Union[QC_GROUP_ITEM_ACCEPTABLE_VALUE_TYPE, str]] = ..., number_acceptable_value: _Optional[int] = ..., number_relative_lower_bound: _Optional[int] = ..., number_relative_upper_bound: _Optional[int] = ..., text_acceptable_values: _Optional[_Iterable[str]] = ..., text_acceptable_values_with_deviation: _Optional[_Iterable[str]] = ..., text_unacceptable_values: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ...) -> None: ...
 
 class QCGroupsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[QCGroup]
     def __init__(self, list: _Optional[_Iterable[_Union[QCGroup, _Mapping]]] = ...) -> None: ...
 
 class QCGroupsItemsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[QCGroupItem]
     def __init__(self, list: _Optional[_Iterable[_Union[QCGroupItem, _Mapping]]] = ...) -> None: ...
 
 class QCGroupItemHistoryRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("qc_group_id", "qc_param_id")
     QC_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     QC_PARAM_ID_FIELD_NUMBER: _ClassVar[int]
     qc_group_id: int
@@ -253,7 +253,7 @@ class QCGroupItemHistoryRequest(_message.Message):
     def __init__(self, qc_group_id: _Optional[int] = ..., qc_param_id: _Optional[int] = ...) -> None: ...
 
 class QCGroupItemsSearchRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "qc_group_id", "qc_param_id", "uom_id", "is_internal", "acceptable_value_type", "search_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -291,7 +291,7 @@ class QCGroupItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[QC_GROUP_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[QC_GROUP_ITEM_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., qc_group_id: _Optional[int] = ..., qc_param_id: _Optional[int] = ..., uom_id: _Optional[int] = ..., is_internal: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., acceptable_value_type: _Optional[_Union[QC_GROUP_ITEM_ACCEPTABLE_VALUE_TYPE, str]] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class QCGroupsServicePaginatedItemsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -303,7 +303,7 @@ class QCGroupsServicePaginatedItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[QCGroupItem, _Mapping]]] = ...) -> None: ...
 
 class QCGroupsServicePaginationReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -319,7 +319,7 @@ class QCGroupsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[QC_GROUP_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class QCGroupsServicePaginationResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -331,7 +331,7 @@ class QCGroupsServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[QCGroup, _Mapping]]] = ...) -> None: ...
 
 class QCGroupsServiceFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "code", "family_id", "form_data")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -377,7 +377,7 @@ class QCGroupsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[QC_GROUP_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., family_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class QCGroupsServiceCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "code", "family_id", "form_data")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -415,7 +415,7 @@ class QCGroupsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., family_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class QCGroupsServiceSearchAllReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key", "family_id")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

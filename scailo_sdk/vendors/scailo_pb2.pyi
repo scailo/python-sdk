@@ -93,7 +93,7 @@ VENDOR_USER_STATUS_APPROVED: VENDOR_USER_STATUS
 VENDOR_USER_STATUS_UNAPPROVED: VENDOR_USER_STATUS
 
 class VendorsServiceCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "name", "code", "email", "phone", "form_data")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -113,7 +113,7 @@ class VendorsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., email: _Optional[str] = ..., phone: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class VendorsServiceUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "name", "code", "email", "phone", "form_data")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -135,7 +135,7 @@ class VendorsServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., email: _Optional[str] = ..., phone: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class Vendor(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "vault_folder_id", "name", "code", "email", "phone", "form_data")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -161,7 +161,7 @@ class Vendor(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., email: _Optional[str] = ..., phone: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class VendorsServiceItemCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "vendor_id", "family_id", "vendor_family_code", "uom_id", "tax_group_id", "price", "price_deviation_rel_lower_limit_type", "price_deviation_rel_lower_limit_value", "price_deviation_rel_upper_limit_type", "price_deviation_rel_upper_limit_value", "min_order_qty", "max_order_qty", "step_interval")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VENDOR_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
@@ -193,7 +193,7 @@ class VendorsServiceItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., vendor_id: _Optional[int] = ..., family_id: _Optional[int] = ..., vendor_family_code: _Optional[str] = ..., uom_id: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., price: _Optional[int] = ..., price_deviation_rel_lower_limit_type: _Optional[_Union[VENDOR_ITEM_PRICE_DEVIATION_LIMIT_TYPE, str]] = ..., price_deviation_rel_lower_limit_value: _Optional[int] = ..., price_deviation_rel_upper_limit_type: _Optional[_Union[VENDOR_ITEM_PRICE_DEVIATION_LIMIT_TYPE, str]] = ..., price_deviation_rel_upper_limit_value: _Optional[int] = ..., min_order_qty: _Optional[int] = ..., max_order_qty: _Optional[int] = ..., step_interval: _Optional[int] = ...) -> None: ...
 
 class VendorsServiceItemUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "vendor_family_code", "uom_id", "tax_group_id", "price", "price_deviation_rel_lower_limit_type", "price_deviation_rel_lower_limit_value", "price_deviation_rel_upper_limit_type", "price_deviation_rel_upper_limit_value", "min_order_qty", "max_order_qty", "step_interval")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     VENDOR_FAMILY_CODE_FIELD_NUMBER: _ClassVar[int]
@@ -223,7 +223,7 @@ class VendorsServiceItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., vendor_family_code: _Optional[str] = ..., uom_id: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., price: _Optional[int] = ..., price_deviation_rel_lower_limit_type: _Optional[_Union[VENDOR_ITEM_PRICE_DEVIATION_LIMIT_TYPE, str]] = ..., price_deviation_rel_lower_limit_value: _Optional[int] = ..., price_deviation_rel_upper_limit_type: _Optional[_Union[VENDOR_ITEM_PRICE_DEVIATION_LIMIT_TYPE, str]] = ..., price_deviation_rel_upper_limit_value: _Optional[int] = ..., min_order_qty: _Optional[int] = ..., max_order_qty: _Optional[int] = ..., step_interval: _Optional[int] = ...) -> None: ...
 
 class VendorItem(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "vendor_id", "family_id", "vendor_family_code", "uom_id", "tax_group_id", "price", "price_deviation_rel_lower_limit_type", "price_deviation_rel_lower_limit_value", "price_deviation_rel_upper_limit_type", "price_deviation_rel_upper_limit_value", "min_order_qty", "max_order_qty", "step_interval")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -263,19 +263,19 @@ class VendorItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., vendor_id: _Optional[int] = ..., family_id: _Optional[int] = ..., vendor_family_code: _Optional[str] = ..., uom_id: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., price: _Optional[int] = ..., price_deviation_rel_lower_limit_type: _Optional[_Union[VENDOR_ITEM_PRICE_DEVIATION_LIMIT_TYPE, str]] = ..., price_deviation_rel_lower_limit_value: _Optional[int] = ..., price_deviation_rel_upper_limit_type: _Optional[_Union[VENDOR_ITEM_PRICE_DEVIATION_LIMIT_TYPE, str]] = ..., price_deviation_rel_upper_limit_value: _Optional[int] = ..., min_order_qty: _Optional[int] = ..., max_order_qty: _Optional[int] = ..., step_interval: _Optional[int] = ...) -> None: ...
 
 class VendorsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[Vendor]
     def __init__(self, list: _Optional[_Iterable[_Union[Vendor, _Mapping]]] = ...) -> None: ...
 
 class VendorItemsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[VendorItem]
     def __init__(self, list: _Optional[_Iterable[_Union[VendorItem, _Mapping]]] = ...) -> None: ...
 
 class VendorItemHistoryRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("vendor_id", "family_id", "uom_id")
     VENDOR_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     UOM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -285,7 +285,7 @@ class VendorItemHistoryRequest(_message.Message):
     def __init__(self, vendor_id: _Optional[int] = ..., family_id: _Optional[int] = ..., uom_id: _Optional[int] = ...) -> None: ...
 
 class VendorsServicePaginationReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -301,7 +301,7 @@ class VendorsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[VENDOR_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class VendorsServicePaginationResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -313,7 +313,7 @@ class VendorsServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[Vendor, _Mapping]]] = ...) -> None: ...
 
 class VendorsServiceFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "name", "code", "email", "phone", "family_id", "form_data")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -359,7 +359,7 @@ class VendorsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[VENDOR_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., email: _Optional[str] = ..., phone: _Optional[str] = ..., family_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class VendorsServiceCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "name", "code", "email", "phone", "family_id", "form_data")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -397,7 +397,7 @@ class VendorsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., email: _Optional[str] = ..., phone: _Optional[str] = ..., family_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class VendorsServiceSearchAllReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -417,7 +417,7 @@ class VendorsServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[VENDOR_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class VendorItemsSearchRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "vendor_id", "family_id", "vendor_family_code", "uom_id", "tax_group_id", "search_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -447,7 +447,7 @@ class VendorItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[VENDOR_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[VENDOR_ITEM_STATUS, str]] = ..., vendor_id: _Optional[int] = ..., family_id: _Optional[int] = ..., vendor_family_code: _Optional[str] = ..., uom_id: _Optional[int] = ..., tax_group_id: _Optional[int] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class VendorsServicePaginatedItemsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -459,7 +459,7 @@ class VendorsServicePaginatedItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[VendorItem, _Mapping]]] = ...) -> None: ...
 
 class VendorItemRequired(_message.Message):
-    __slots__ = ()
+    __slots__ = ("item", "required_qty")
     ITEM_FIELD_NUMBER: _ClassVar[int]
     REQUIRED_QTY_FIELD_NUMBER: _ClassVar[int]
     item: VendorItem
@@ -467,7 +467,7 @@ class VendorItemRequired(_message.Message):
     def __init__(self, item: _Optional[_Union[VendorItem, _Mapping]] = ..., required_qty: _Optional[int] = ...) -> None: ...
 
 class VendorsServicePaginatedRequiredItemsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -479,7 +479,7 @@ class VendorsServicePaginatedRequiredItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[VendorItemRequired, _Mapping]]] = ...) -> None: ...
 
 class VendorsServiceUserCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "vendor_id", "user_id", "associate_id")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VENDOR_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -491,7 +491,7 @@ class VendorsServiceUserCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., vendor_id: _Optional[int] = ..., user_id: _Optional[int] = ..., associate_id: _Optional[int] = ...) -> None: ...
 
 class VendorUser(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "vendor_id", "user_id", "associate_id")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -511,13 +511,13 @@ class VendorUser(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., vendor_id: _Optional[int] = ..., user_id: _Optional[int] = ..., associate_id: _Optional[int] = ...) -> None: ...
 
 class VendorUsersList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[VendorUser]
     def __init__(self, list: _Optional[_Iterable[_Union[VendorUser, _Mapping]]] = ...) -> None: ...
 
 class VendorUsersSearchRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "entity_uuid", "status", "vendor_id", "user_id", "associate_id", "search_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -539,7 +539,7 @@ class VendorUsersSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[VENDOR_USER_STATUS, str]] = ..., vendor_id: _Optional[int] = ..., user_id: _Optional[int] = ..., associate_id: _Optional[int] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class VendorsServicePaginatedUsersResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]

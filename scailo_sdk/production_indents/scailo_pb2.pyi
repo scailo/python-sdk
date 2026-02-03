@@ -84,7 +84,7 @@ PRODUCTION_INDENT_ITEM_STATUS_APPROVED: PRODUCTION_INDENT_ITEM_STATUS
 PRODUCTION_INDENT_ITEM_STATUS_UNAPPROVED: PRODUCTION_INDENT_ITEM_STATUS
 
 class ProductionIndentsServiceCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "reference_id", "location_id", "supervisor", "production_ref_for", "production_ref_id", "indent_ref_for", "indent_ref_id", "form_data")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -110,7 +110,7 @@ class ProductionIndentsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., location_id: _Optional[int] = ..., supervisor: _Optional[str] = ..., production_ref_for: _Optional[_Union[PRODUCTION_INDENT_PRODUCTION_REF_FOR, str]] = ..., production_ref_id: _Optional[int] = ..., indent_ref_for: _Optional[_Union[PRODUCTION_INDENT_INDENT_REF_FOR, str]] = ..., indent_ref_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class ProductionIndentsServiceUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "reference_id", "supervisor", "form_data")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -128,7 +128,7 @@ class ProductionIndentsServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., supervisor: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class ProductionIndentsServiceAutofillRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "uuid", "populate_using_equation_dependencies")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     UUID_FIELD_NUMBER: _ClassVar[int]
     POPULATE_USING_EQUATION_DEPENDENCIES_FIELD_NUMBER: _ClassVar[int]
@@ -138,7 +138,7 @@ class ProductionIndentsServiceAutofillRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., uuid: _Optional[str] = ..., populate_using_equation_dependencies: _Optional[bool] = ...) -> None: ...
 
 class ProductionIndent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "reference_id", "final_ref_number", "location_id", "supervisor", "production_ref_for", "production_ref_id", "indent_ref_for", "indent_ref_id", "list", "form_data")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -176,7 +176,7 @@ class ProductionIndent(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., location_id: _Optional[int] = ..., supervisor: _Optional[str] = ..., production_ref_for: _Optional[_Union[PRODUCTION_INDENT_PRODUCTION_REF_FOR, str]] = ..., production_ref_id: _Optional[int] = ..., indent_ref_for: _Optional[_Union[PRODUCTION_INDENT_INDENT_REF_FOR, str]] = ..., indent_ref_id: _Optional[int] = ..., list: _Optional[_Iterable[_Union[ProductionIndentItem, _Mapping]]] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class ProductionIndentsServiceItemCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "production_indent_id", "family_id", "internal_quantity")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     PRODUCTION_INDENT_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
@@ -188,7 +188,7 @@ class ProductionIndentsServiceItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., production_indent_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ...) -> None: ...
 
 class ProductionIndentsServiceItemUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "internal_quantity")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     INTERNAL_QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -198,7 +198,7 @@ class ProductionIndentsServiceItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., internal_quantity: _Optional[int] = ...) -> None: ...
 
 class ProductionIndentItem(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "production_indent_id", "family_id", "internal_quantity")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -218,19 +218,19 @@ class ProductionIndentItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., production_indent_id: _Optional[int] = ..., family_id: _Optional[int] = ..., internal_quantity: _Optional[int] = ...) -> None: ...
 
 class ProductionIndentsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[ProductionIndent]
     def __init__(self, list: _Optional[_Iterable[_Union[ProductionIndent, _Mapping]]] = ...) -> None: ...
 
 class ProductionIndentsItemsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[ProductionIndentItem]
     def __init__(self, list: _Optional[_Iterable[_Union[ProductionIndentItem, _Mapping]]] = ...) -> None: ...
 
 class ProductionIndentItemHistoryRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("production_indent_id", "family_id")
     PRODUCTION_INDENT_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     production_indent_id: int
@@ -238,7 +238,7 @@ class ProductionIndentItemHistoryRequest(_message.Message):
     def __init__(self, production_indent_id: _Optional[int] = ..., family_id: _Optional[int] = ...) -> None: ...
 
 class ProductionIndentItemProspectiveInfoRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("production_indent_id", "family_id")
     PRODUCTION_INDENT_ID_FIELD_NUMBER: _ClassVar[int]
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     production_indent_id: int
@@ -246,7 +246,7 @@ class ProductionIndentItemProspectiveInfoRequest(_message.Message):
     def __init__(self, production_indent_id: _Optional[int] = ..., family_id: _Optional[int] = ...) -> None: ...
 
 class ProductionIndentsServicePaginationReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -262,7 +262,7 @@ class ProductionIndentsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[PRODUCTION_INDENT_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class ProductionIndentsServicePaginationResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -274,7 +274,7 @@ class ProductionIndentsServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[ProductionIndent, _Mapping]]] = ...) -> None: ...
 
 class ProductionIndentsServiceFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "location_id", "supervisor", "production_ref_for", "production_ref_id", "indent_ref_for", "indent_ref_id", "family_id", "form_data")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -332,7 +332,7 @@ class ProductionIndentsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[PRODUCTION_INDENT_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., location_id: _Optional[int] = ..., supervisor: _Optional[str] = ..., production_ref_for: _Optional[_Union[PRODUCTION_INDENT_PRODUCTION_REF_FOR, str]] = ..., production_ref_id: _Optional[int] = ..., indent_ref_for: _Optional[_Union[PRODUCTION_INDENT_INDENT_REF_FOR, str]] = ..., indent_ref_id: _Optional[int] = ..., family_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class ProductionIndentsServiceCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "location_id", "supervisor", "production_ref_for", "production_ref_id", "indent_ref_for", "indent_ref_id", "family_id", "form_data")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -382,7 +382,7 @@ class ProductionIndentsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., location_id: _Optional[int] = ..., supervisor: _Optional[str] = ..., production_ref_for: _Optional[_Union[PRODUCTION_INDENT_PRODUCTION_REF_FOR, str]] = ..., production_ref_id: _Optional[int] = ..., indent_ref_for: _Optional[_Union[PRODUCTION_INDENT_INDENT_REF_FOR, str]] = ..., indent_ref_id: _Optional[int] = ..., family_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class ProductionIndentsServiceSearchAllReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key", "location_id", "supervisor", "production_ref_for", "production_ref_id", "indent_ref_for", "indent_ref_id")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -414,7 +414,7 @@ class ProductionIndentsServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[PRODUCTION_INDENT_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., search_key: _Optional[str] = ..., location_id: _Optional[int] = ..., supervisor: _Optional[str] = ..., production_ref_for: _Optional[_Union[PRODUCTION_INDENT_PRODUCTION_REF_FOR, str]] = ..., production_ref_id: _Optional[int] = ..., indent_ref_for: _Optional[_Union[PRODUCTION_INDENT_INDENT_REF_FOR, str]] = ..., indent_ref_id: _Optional[int] = ...) -> None: ...
 
 class ProductionIndentItemsSearchRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "production_indent_id", "family_id", "search_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -446,7 +446,7 @@ class ProductionIndentItemsSearchRequest(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[PRODUCTION_INDENT_ITEM_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[PRODUCTION_INDENT_ITEM_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., production_indent_id: _Optional[int] = ..., family_id: _Optional[int] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class ProductionIndentsServicePaginatedItemsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -458,7 +458,7 @@ class ProductionIndentsServicePaginatedItemsResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[ProductionIndentItem, _Mapping]]] = ...) -> None: ...
 
 class ProductionIndentIssuedStatistics(_message.Message):
-    __slots__ = ()
+    __slots__ = ("family_id", "indented_quantity", "unapproved_issued_quantity", "approved_issued_quantity")
     FAMILY_ID_FIELD_NUMBER: _ClassVar[int]
     INDENTED_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     UNAPPROVED_ISSUED_QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -470,7 +470,7 @@ class ProductionIndentIssuedStatistics(_message.Message):
     def __init__(self, family_id: _Optional[int] = ..., indented_quantity: _Optional[int] = ..., unapproved_issued_quantity: _Optional[int] = ..., approved_issued_quantity: _Optional[int] = ...) -> None: ...
 
 class ProductionIndentIssuedStatisticsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[ProductionIndentIssuedStatistics]
     def __init__(self, list: _Optional[_Iterable[_Union[ProductionIndentIssuedStatistics, _Mapping]]] = ...) -> None: ...

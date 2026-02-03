@@ -45,7 +45,7 @@ SKILL_GROUP_SORT_KEY_NAME: SKILL_GROUP_SORT_KEY
 SKILL_GROUP_SORT_KEY_ROLE_ID: SKILL_GROUP_SORT_KEY
 
 class SkillsGroupsServiceCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "name", "code", "role_id", "description", "form_data")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -65,7 +65,7 @@ class SkillsGroupsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., role_id: _Optional[int] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class SkillsGroupsServiceUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "name", "code", "role_id", "description", "form_data")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -87,7 +87,7 @@ class SkillsGroupsServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., role_id: _Optional[int] = ..., description: _Optional[str] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumCreateRequest, _Mapping]]] = ...) -> None: ...
 
 class SkillGroup(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "name", "code", "role_id", "description", "list", "form_data")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -117,7 +117,7 @@ class SkillGroup(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., role_id: _Optional[int] = ..., description: _Optional[str] = ..., list: _Optional[_Iterable[_Union[SkillGroupItem, _Mapping]]] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class SkillsGroupsServiceItemCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "skill_group_id", "skill_param_id", "input_value_type", "number_min_value", "number_max_value", "text_values", "description")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     SKILL_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     SKILL_PARAM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -137,7 +137,7 @@ class SkillsGroupsServiceItemCreateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., skill_group_id: _Optional[int] = ..., skill_param_id: _Optional[int] = ..., input_value_type: _Optional[_Union[SKILL_GROUP_ITEM_INPUT_VALUE_TYPE, str]] = ..., number_min_value: _Optional[int] = ..., number_max_value: _Optional[int] = ..., text_values: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ...) -> None: ...
 
 class SkillsGroupsServiceItemUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "input_value_type", "number_min_value", "number_max_value", "text_values", "description")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     INPUT_VALUE_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -155,7 +155,7 @@ class SkillsGroupsServiceItemUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., input_value_type: _Optional[_Union[SKILL_GROUP_ITEM_INPUT_VALUE_TYPE, str]] = ..., number_min_value: _Optional[int] = ..., number_max_value: _Optional[int] = ..., text_values: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ...) -> None: ...
 
 class SkillGroupItem(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "user_comment", "skill_group_id", "skill_param_id", "input_value_type", "number_min_value", "number_max_value", "text_values", "description")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -183,19 +183,19 @@ class SkillGroupItem(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., user_comment: _Optional[str] = ..., skill_group_id: _Optional[int] = ..., skill_param_id: _Optional[int] = ..., input_value_type: _Optional[_Union[SKILL_GROUP_ITEM_INPUT_VALUE_TYPE, str]] = ..., number_min_value: _Optional[int] = ..., number_max_value: _Optional[int] = ..., text_values: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ...) -> None: ...
 
 class SkillsGroupsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[SkillGroup]
     def __init__(self, list: _Optional[_Iterable[_Union[SkillGroup, _Mapping]]] = ...) -> None: ...
 
 class SkillsGroupsItemsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[SkillGroupItem]
     def __init__(self, list: _Optional[_Iterable[_Union[SkillGroupItem, _Mapping]]] = ...) -> None: ...
 
 class SkillGroupItemHistoryRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("skill_group_id", "skill_param_id")
     SKILL_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     SKILL_PARAM_ID_FIELD_NUMBER: _ClassVar[int]
     skill_group_id: int
@@ -203,7 +203,7 @@ class SkillGroupItemHistoryRequest(_message.Message):
     def __init__(self, skill_group_id: _Optional[int] = ..., skill_param_id: _Optional[int] = ...) -> None: ...
 
 class SkillsGroupsServicePaginationReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -219,7 +219,7 @@ class SkillsGroupsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SKILL_GROUP_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class SkillsGroupsServicePaginationResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -231,7 +231,7 @@ class SkillsGroupsServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[SkillGroup, _Mapping]]] = ...) -> None: ...
 
 class SkillsGroupsServiceFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "code", "role_id", "form_data")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -277,7 +277,7 @@ class SkillsGroupsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SKILL_GROUP_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., role_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class SkillsGroupsServiceCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "code", "role_id", "form_data")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -315,7 +315,7 @@ class SkillsGroupsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., role_id: _Optional[int] = ..., form_data: _Optional[_Iterable[_Union[_scailo_pb2_1.FormFieldDatumFilterRequest, _Mapping]]] = ...) -> None: ...
 
 class SkillsGroupsServiceSearchAllReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

@@ -863,6 +863,146 @@ class FamiliesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_add_image(
+        self, req: families.scailo_pb2.FamiliesServiceImageCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddImage, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/AddImage"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def add_image(
+        self, req: families.scailo_pb2.FamiliesServiceImageCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_add_image(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_update_image(
+        self, req: families.scailo_pb2.FamiliesServiceImageUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdateImage, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/UpdateImage"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def update_image(
+        self, req: families.scailo_pb2.FamiliesServiceImageUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_update_image(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_approve_image(
+        self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call ApproveImage, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/ApproveImage"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def approve_image(
+        self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_approve_image(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_delete_image(
+        self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call DeleteImage, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/DeleteImage"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def delete_image(
+        self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_delete_image(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_view_image_by_id(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[families.scailo_pb2.FamilyImage]:
+        """Low-level method to call ViewImageByID, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/ViewImageByID"
+        return self._connect_client.call_unary(url, req, families.scailo_pb2.FamilyImage,extra_headers, timeout_seconds)
+
+
+    def view_image_by_id(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> families.scailo_pb2.FamilyImage:
+        response = self.call_view_image_by_id(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_view_images(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[families.scailo_pb2.FamilyImagesList]:
+        """Low-level method to call ViewImages, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/ViewImages"
+        return self._connect_client.call_unary(url, req, families.scailo_pb2.FamilyImagesList,extra_headers, timeout_seconds)
+
+
+    def view_images(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> families.scailo_pb2.FamilyImagesList:
+        response = self.call_view_images(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_view_public_images(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[families.scailo_pb2.FamilyImagesList]:
+        """Low-level method to call ViewPublicImages, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/ViewPublicImages"
+        return self._connect_client.call_unary(url, req, families.scailo_pb2.FamilyImagesList,extra_headers, timeout_seconds)
+
+
+    def view_public_images(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> families.scailo_pb2.FamilyImagesList:
+        response = self.call_view_public_images(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_view_by_id(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[families.scailo_pb2.Family]:
@@ -2093,6 +2233,139 @@ class AsyncFamiliesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_add_image(
+        self, req: families.scailo_pb2.FamiliesServiceImageCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call AddImage, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/AddImage"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def add_image(
+        self, req: families.scailo_pb2.FamiliesServiceImageCreateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_add_image(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_update_image(
+        self, req: families.scailo_pb2.FamiliesServiceImageUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call UpdateImage, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/UpdateImage"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def update_image(
+        self, req: families.scailo_pb2.FamiliesServiceImageUpdateRequest,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_update_image(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_approve_image(
+        self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call ApproveImage, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/ApproveImage"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def approve_image(
+        self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_approve_image(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_delete_image(
+        self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call DeleteImage, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/DeleteImage"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def delete_image(
+        self, req: base.scailo_pb2.IdentifierWithUserComment,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_delete_image(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_view_image_by_id(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[families.scailo_pb2.FamilyImage]:
+        """Low-level method to call ViewImageByID, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/ViewImageByID"
+        return await self._connect_client.call_unary(url, req, families.scailo_pb2.FamilyImage,extra_headers, timeout_seconds)
+
+    async def view_image_by_id(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> families.scailo_pb2.FamilyImage:
+        response = await self.call_view_image_by_id(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_view_images(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[families.scailo_pb2.FamilyImagesList]:
+        """Low-level method to call ViewImages, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/ViewImages"
+        return await self._connect_client.call_unary(url, req, families.scailo_pb2.FamilyImagesList,extra_headers, timeout_seconds)
+
+    async def view_images(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> families.scailo_pb2.FamilyImagesList:
+        response = await self.call_view_images(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_view_public_images(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[families.scailo_pb2.FamilyImagesList]:
+        """Low-level method to call ViewPublicImages, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.FamiliesService/ViewPublicImages"
+        return await self._connect_client.call_unary(url, req, families.scailo_pb2.FamilyImagesList,extra_headers, timeout_seconds)
+
+    async def view_public_images(
+        self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> families.scailo_pb2.FamilyImagesList:
+        response = await self.call_view_public_images(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_view_by_id(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[families.scailo_pb2.Family]:
@@ -2596,6 +2869,20 @@ class FamiliesServiceProtocol(typing.Protocol):
         ...
     def view_qc_groups(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[families.scailo_pb2.FamilyQCGroupsList]:
         ...
+    def add_image(self, req: ClientRequest[families.scailo_pb2.FamiliesServiceImageCreateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
+    def update_image(self, req: ClientRequest[families.scailo_pb2.FamiliesServiceImageUpdateRequest]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
+    def approve_image(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
+    def delete_image(self, req: ClientRequest[base.scailo_pb2.IdentifierWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
+    def view_image_by_id(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[families.scailo_pb2.FamilyImage]:
+        ...
+    def view_images(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[families.scailo_pb2.FamilyImagesList]:
+        ...
+    def view_public_images(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[families.scailo_pb2.FamilyImagesList]:
+        ...
     def view_by_id(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[families.scailo_pb2.Family]:
         ...
     def view_by_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[families.scailo_pb2.Family]:
@@ -2686,6 +2973,13 @@ def wsgi_families_service(implementation: FamiliesServiceProtocol) -> WSGIApplic
     app.register_unary_rpc("/Scailo.FamiliesService/DeleteQCGroup", implementation.delete_qc_group, base.scailo_pb2.IdentifierWithUserComment)
     app.register_unary_rpc("/Scailo.FamiliesService/ViewQCGroupByID", implementation.view_qc_group_by_id, base.scailo_pb2.Identifier)
     app.register_unary_rpc("/Scailo.FamiliesService/ViewQCGroups", implementation.view_qc_groups, base.scailo_pb2.Identifier)
+    app.register_unary_rpc("/Scailo.FamiliesService/AddImage", implementation.add_image, families.scailo_pb2.FamiliesServiceImageCreateRequest)
+    app.register_unary_rpc("/Scailo.FamiliesService/UpdateImage", implementation.update_image, families.scailo_pb2.FamiliesServiceImageUpdateRequest)
+    app.register_unary_rpc("/Scailo.FamiliesService/ApproveImage", implementation.approve_image, base.scailo_pb2.IdentifierWithUserComment)
+    app.register_unary_rpc("/Scailo.FamiliesService/DeleteImage", implementation.delete_image, base.scailo_pb2.IdentifierWithUserComment)
+    app.register_unary_rpc("/Scailo.FamiliesService/ViewImageByID", implementation.view_image_by_id, base.scailo_pb2.Identifier)
+    app.register_unary_rpc("/Scailo.FamiliesService/ViewImages", implementation.view_images, base.scailo_pb2.Identifier)
+    app.register_unary_rpc("/Scailo.FamiliesService/ViewPublicImages", implementation.view_public_images, base.scailo_pb2.Identifier)
     app.register_unary_rpc("/Scailo.FamiliesService/ViewByID", implementation.view_by_id, base.scailo_pb2.Identifier)
     app.register_unary_rpc("/Scailo.FamiliesService/ViewByUUID", implementation.view_by_uuid, base.scailo_pb2.IdentifierUUID)
     app.register_unary_rpc("/Scailo.FamiliesService/ViewEssentialByID", implementation.view_essential_by_id, base.scailo_pb2.Identifier)

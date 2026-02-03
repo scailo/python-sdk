@@ -10,31 +10,42 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class SALE_RECEIPT_SORT_KEY(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+class SALES_RECEIPT_REF_FROM(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
-    SALE_RECEIPT_SORT_KEY_ID_UNSPECIFIED: _ClassVar[SALE_RECEIPT_SORT_KEY]
-    SALE_RECEIPT_SORT_KEY_CREATED_AT: _ClassVar[SALE_RECEIPT_SORT_KEY]
-    SALE_RECEIPT_SORT_KEY_MODIFIED_AT: _ClassVar[SALE_RECEIPT_SORT_KEY]
-    SALE_RECEIPT_SORT_KEY_APPROVED_ON: _ClassVar[SALE_RECEIPT_SORT_KEY]
-    SALE_RECEIPT_SORT_KEY_APPROVED_BY: _ClassVar[SALE_RECEIPT_SORT_KEY]
-    SALE_RECEIPT_SORT_KEY_APPROVER_ROLE_ID: _ClassVar[SALE_RECEIPT_SORT_KEY]
-    SALE_RECEIPT_SORT_KEY_COMPLETED_ON: _ClassVar[SALE_RECEIPT_SORT_KEY]
-    SALE_RECEIPT_SORT_KEY_REFERENCE_ID: _ClassVar[SALE_RECEIPT_SORT_KEY]
-    SALE_RECEIPT_SORT_KEY_FINAL_REF_NUMBER: _ClassVar[SALE_RECEIPT_SORT_KEY]
-    SALE_RECEIPT_SORT_KEY_PAYMENT_TIMESTAMP: _ClassVar[SALE_RECEIPT_SORT_KEY]
-SALE_RECEIPT_SORT_KEY_ID_UNSPECIFIED: SALE_RECEIPT_SORT_KEY
-SALE_RECEIPT_SORT_KEY_CREATED_AT: SALE_RECEIPT_SORT_KEY
-SALE_RECEIPT_SORT_KEY_MODIFIED_AT: SALE_RECEIPT_SORT_KEY
-SALE_RECEIPT_SORT_KEY_APPROVED_ON: SALE_RECEIPT_SORT_KEY
-SALE_RECEIPT_SORT_KEY_APPROVED_BY: SALE_RECEIPT_SORT_KEY
-SALE_RECEIPT_SORT_KEY_APPROVER_ROLE_ID: SALE_RECEIPT_SORT_KEY
-SALE_RECEIPT_SORT_KEY_COMPLETED_ON: SALE_RECEIPT_SORT_KEY
-SALE_RECEIPT_SORT_KEY_REFERENCE_ID: SALE_RECEIPT_SORT_KEY
-SALE_RECEIPT_SORT_KEY_FINAL_REF_NUMBER: SALE_RECEIPT_SORT_KEY
-SALE_RECEIPT_SORT_KEY_PAYMENT_TIMESTAMP: SALE_RECEIPT_SORT_KEY
+    SALES_RECEIPT_REF_FROM_ANY_UNSPECIFIED: _ClassVar[SALES_RECEIPT_REF_FROM]
+    SALES_RECEIPT_REF_FROM_SALES_ORDER: _ClassVar[SALES_RECEIPT_REF_FROM]
+    SALES_RECEIPT_REF_FROM_SALES_INVOICE: _ClassVar[SALES_RECEIPT_REF_FROM]
+    SALES_RECEIPT_REF_FROM_CREDIT_NOTE: _ClassVar[SALES_RECEIPT_REF_FROM]
+
+class SALES_RECEIPT_SORT_KEY(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    SALES_RECEIPT_SORT_KEY_ID_UNSPECIFIED: _ClassVar[SALES_RECEIPT_SORT_KEY]
+    SALES_RECEIPT_SORT_KEY_CREATED_AT: _ClassVar[SALES_RECEIPT_SORT_KEY]
+    SALES_RECEIPT_SORT_KEY_MODIFIED_AT: _ClassVar[SALES_RECEIPT_SORT_KEY]
+    SALES_RECEIPT_SORT_KEY_APPROVED_ON: _ClassVar[SALES_RECEIPT_SORT_KEY]
+    SALES_RECEIPT_SORT_KEY_APPROVED_BY: _ClassVar[SALES_RECEIPT_SORT_KEY]
+    SALES_RECEIPT_SORT_KEY_APPROVER_ROLE_ID: _ClassVar[SALES_RECEIPT_SORT_KEY]
+    SALES_RECEIPT_SORT_KEY_COMPLETED_ON: _ClassVar[SALES_RECEIPT_SORT_KEY]
+    SALES_RECEIPT_SORT_KEY_REFERENCE_ID: _ClassVar[SALES_RECEIPT_SORT_KEY]
+    SALES_RECEIPT_SORT_KEY_FINAL_REF_NUMBER: _ClassVar[SALES_RECEIPT_SORT_KEY]
+    SALES_RECEIPT_SORT_KEY_PAYMENT_TIMESTAMP: _ClassVar[SALES_RECEIPT_SORT_KEY]
+SALES_RECEIPT_REF_FROM_ANY_UNSPECIFIED: SALES_RECEIPT_REF_FROM
+SALES_RECEIPT_REF_FROM_SALES_ORDER: SALES_RECEIPT_REF_FROM
+SALES_RECEIPT_REF_FROM_SALES_INVOICE: SALES_RECEIPT_REF_FROM
+SALES_RECEIPT_REF_FROM_CREDIT_NOTE: SALES_RECEIPT_REF_FROM
+SALES_RECEIPT_SORT_KEY_ID_UNSPECIFIED: SALES_RECEIPT_SORT_KEY
+SALES_RECEIPT_SORT_KEY_CREATED_AT: SALES_RECEIPT_SORT_KEY
+SALES_RECEIPT_SORT_KEY_MODIFIED_AT: SALES_RECEIPT_SORT_KEY
+SALES_RECEIPT_SORT_KEY_APPROVED_ON: SALES_RECEIPT_SORT_KEY
+SALES_RECEIPT_SORT_KEY_APPROVED_BY: SALES_RECEIPT_SORT_KEY
+SALES_RECEIPT_SORT_KEY_APPROVER_ROLE_ID: SALES_RECEIPT_SORT_KEY
+SALES_RECEIPT_SORT_KEY_COMPLETED_ON: SALES_RECEIPT_SORT_KEY
+SALES_RECEIPT_SORT_KEY_REFERENCE_ID: SALES_RECEIPT_SORT_KEY
+SALES_RECEIPT_SORT_KEY_FINAL_REF_NUMBER: SALES_RECEIPT_SORT_KEY
+SALES_RECEIPT_SORT_KEY_PAYMENT_TIMESTAMP: SALES_RECEIPT_SORT_KEY
 
 class SalesReceiptsServiceCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "reference_id", "ref_from", "ref_id", "bank_account_id", "currency_id", "transaction_type", "amount_base", "amount_net", "payment_timestamp", "description")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -52,19 +63,19 @@ class SalesReceiptsServiceCreateRequest(_message.Message):
     user_comment: str
     vault_folder_id: int
     reference_id: str
-    ref_from: str
+    ref_from: SALES_RECEIPT_REF_FROM
     ref_id: int
     bank_account_id: int
     currency_id: int
-    transaction_type: str
+    transaction_type: _scailo_pb2.TRANSACTION_TYPE
     amount_base: int
     amount_net: int
     payment_timestamp: int
     description: str
-    def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[str] = ..., amount_base: _Optional[int] = ..., amount_net: _Optional[int] = ..., payment_timestamp: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., ref_from: _Optional[_Union[SALES_RECEIPT_REF_FROM, str]] = ..., ref_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[_Union[_scailo_pb2.TRANSACTION_TYPE, str]] = ..., amount_base: _Optional[int] = ..., amount_net: _Optional[int] = ..., payment_timestamp: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
 class SalesReceiptsServiceUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "reference_id", "bank_account_id", "currency_id", "transaction_type", "amount_base", "amount_net", "payment_timestamp", "description")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -84,15 +95,15 @@ class SalesReceiptsServiceUpdateRequest(_message.Message):
     reference_id: str
     bank_account_id: int
     currency_id: int
-    transaction_type: str
+    transaction_type: _scailo_pb2.TRANSACTION_TYPE
     amount_base: int
     amount_net: int
     payment_timestamp: int
     description: str
-    def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[str] = ..., amount_base: _Optional[int] = ..., amount_net: _Optional[int] = ..., payment_timestamp: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[_Union[_scailo_pb2.TRANSACTION_TYPE, str]] = ..., amount_base: _Optional[int] = ..., amount_net: _Optional[int] = ..., payment_timestamp: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
-class SaleReceiptAncillaryParameters(_message.Message):
-    __slots__ = ()
+class SalesReceiptAncillaryParameters(_message.Message):
+    __slots__ = ("ref_uuid", "client_uuid", "bank_account_uuid", "currency_uuid")
     REF_UUID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_UUID_FIELD_NUMBER: _ClassVar[int]
     BANK_ACCOUNT_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -103,8 +114,8 @@ class SaleReceiptAncillaryParameters(_message.Message):
     currency_uuid: str
     def __init__(self, ref_uuid: _Optional[str] = ..., client_uuid: _Optional[str] = ..., bank_account_uuid: _Optional[str] = ..., currency_uuid: _Optional[str] = ...) -> None: ...
 
-class SaleReceipt(_message.Message):
-    __slots__ = ()
+class SalesReceipt(_message.Message):
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "reference_id", "final_ref_number", "ref_from", "ref_id", "client_id", "bank_account_id", "currency_id", "transaction_type", "amount_base", "amount_net", "payment_timestamp", "description")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -133,26 +144,26 @@ class SaleReceipt(_message.Message):
     vault_folder_id: int
     reference_id: str
     final_ref_number: str
-    ref_from: str
+    ref_from: SALES_RECEIPT_REF_FROM
     ref_id: int
     client_id: int
     bank_account_id: int
     currency_id: int
-    transaction_type: str
+    transaction_type: _scailo_pb2.TRANSACTION_TYPE
     amount_base: int
     amount_net: int
     payment_timestamp: int
     description: str
-    def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., client_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[str] = ..., amount_base: _Optional[int] = ..., amount_net: _Optional[int] = ..., payment_timestamp: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., ref_from: _Optional[_Union[SALES_RECEIPT_REF_FROM, str]] = ..., ref_id: _Optional[int] = ..., client_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[_Union[_scailo_pb2.TRANSACTION_TYPE, str]] = ..., amount_base: _Optional[int] = ..., amount_net: _Optional[int] = ..., payment_timestamp: _Optional[int] = ..., description: _Optional[str] = ...) -> None: ...
 
 class SalesReceiptsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
-    list: _containers.RepeatedCompositeFieldContainer[SaleReceipt]
-    def __init__(self, list: _Optional[_Iterable[_Union[SaleReceipt, _Mapping]]] = ...) -> None: ...
+    list: _containers.RepeatedCompositeFieldContainer[SalesReceipt]
+    def __init__(self, list: _Optional[_Iterable[_Union[SalesReceipt, _Mapping]]] = ...) -> None: ...
 
 class SalesReceiptsServicePaginationReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -163,12 +174,12 @@ class SalesReceiptsServicePaginationReq(_message.Message):
     count: int
     offset: int
     sort_order: _scailo_pb2.SORT_ORDER
-    sort_key: SALE_RECEIPT_SORT_KEY
+    sort_key: SALES_RECEIPT_SORT_KEY
     status: _scailo_pb2.STANDARD_LIFECYCLE_STATUS
-    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SALE_RECEIPT_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
+    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SALES_RECEIPT_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class SalesReceiptsServicePaginationResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -176,11 +187,11 @@ class SalesReceiptsServicePaginationResponse(_message.Message):
     count: int
     offset: int
     total: int
-    payload: _containers.RepeatedCompositeFieldContainer[SaleReceipt]
-    def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[SaleReceipt, _Mapping]]] = ...) -> None: ...
+    payload: _containers.RepeatedCompositeFieldContainer[SalesReceipt]
+    def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[SalesReceipt, _Mapping]]] = ...) -> None: ...
 
 class SalesReceiptsServiceFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "ref_from", "ref_id", "client_id", "bank_account_id", "currency_id", "transaction_type", "payment_timestamp_start", "payment_timestamp_end")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -212,7 +223,7 @@ class SalesReceiptsServiceFilterReq(_message.Message):
     count: int
     offset: int
     sort_order: _scailo_pb2.SORT_ORDER
-    sort_key: SALE_RECEIPT_SORT_KEY
+    sort_key: SALES_RECEIPT_SORT_KEY
     creation_timestamp_start: int
     creation_timestamp_end: int
     modification_timestamp_start: int
@@ -227,18 +238,18 @@ class SalesReceiptsServiceFilterReq(_message.Message):
     completed_on_end: int
     reference_id: str
     final_ref_number: str
-    ref_from: str
+    ref_from: SALES_RECEIPT_REF_FROM
     ref_id: int
     client_id: int
     bank_account_id: int
     currency_id: int
-    transaction_type: str
+    transaction_type: _scailo_pb2.TRANSACTION_TYPE
     payment_timestamp_start: int
     payment_timestamp_end: int
-    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SALE_RECEIPT_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., client_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[str] = ..., payment_timestamp_start: _Optional[int] = ..., payment_timestamp_end: _Optional[int] = ...) -> None: ...
+    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SALES_RECEIPT_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., ref_from: _Optional[_Union[SALES_RECEIPT_REF_FROM, str]] = ..., ref_id: _Optional[int] = ..., client_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[_Union[_scailo_pb2.TRANSACTION_TYPE, str]] = ..., payment_timestamp_start: _Optional[int] = ..., payment_timestamp_end: _Optional[int] = ...) -> None: ...
 
 class SalesReceiptsServiceCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "reference_id", "final_ref_number", "ref_from", "ref_id", "client_id", "bank_account_id", "currency_id", "transaction_type", "payment_timestamp_start", "payment_timestamp_end")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -277,18 +288,18 @@ class SalesReceiptsServiceCountReq(_message.Message):
     completed_on_end: int
     reference_id: str
     final_ref_number: str
-    ref_from: str
+    ref_from: SALES_RECEIPT_REF_FROM
     ref_id: int
     client_id: int
     bank_account_id: int
     currency_id: int
-    transaction_type: str
+    transaction_type: _scailo_pb2.TRANSACTION_TYPE
     payment_timestamp_start: int
     payment_timestamp_end: int
-    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., ref_from: _Optional[str] = ..., ref_id: _Optional[int] = ..., client_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[str] = ..., payment_timestamp_start: _Optional[int] = ..., payment_timestamp_end: _Optional[int] = ...) -> None: ...
+    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., reference_id: _Optional[str] = ..., final_ref_number: _Optional[str] = ..., ref_from: _Optional[_Union[SALES_RECEIPT_REF_FROM, str]] = ..., ref_id: _Optional[int] = ..., client_id: _Optional[int] = ..., bank_account_id: _Optional[int] = ..., currency_id: _Optional[int] = ..., transaction_type: _Optional[_Union[_scailo_pb2.TRANSACTION_TYPE, str]] = ..., payment_timestamp_start: _Optional[int] = ..., payment_timestamp_end: _Optional[int] = ...) -> None: ...
 
 class SalesReceiptsServiceSearchAllReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key", "consignee_client_id", "buyer_client_id")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -303,10 +314,10 @@ class SalesReceiptsServiceSearchAllReq(_message.Message):
     count: int
     offset: int
     sort_order: _scailo_pb2.SORT_ORDER
-    sort_key: SALE_RECEIPT_SORT_KEY
+    sort_key: SALES_RECEIPT_SORT_KEY
     entity_uuid: str
     status: _scailo_pb2.STANDARD_LIFECYCLE_STATUS
     search_key: str
     consignee_client_id: int
     buyer_client_id: int
-    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SALE_RECEIPT_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., search_key: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ...) -> None: ...
+    def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[SALES_RECEIPT_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., search_key: _Optional[str] = ..., consignee_client_id: _Optional[int] = ..., buyer_client_id: _Optional[int] = ...) -> None: ...

@@ -323,6 +323,26 @@ class SalesReceiptsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_send_email(
+        self, req: base.scailo_pb2.IdentifierWithEmailAttributes,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call SendEmail, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.SalesReceiptsService/SendEmail"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+
+    def send_email(
+        self, req: base.scailo_pb2.IdentifierWithEmailAttributes,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = self.call_send_email(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_create_magic_link(
         self, req: magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[magic_links.scailo_pb2.MagicLink]:
@@ -345,15 +365,15 @@ class SalesReceiptsServiceClient:
 
     def call_view_by_id(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> UnaryOutput[sales_receipts.scailo_pb2.SaleReceipt]:
+    ) -> UnaryOutput[sales_receipts.scailo_pb2.SalesReceipt]:
         """Low-level method to call ViewByID, granting access to errors and metadata"""
         url = self.base_url + "/Scailo.SalesReceiptsService/ViewByID"
-        return self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SaleReceipt,extra_headers, timeout_seconds)
+        return self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SalesReceipt,extra_headers, timeout_seconds)
 
 
     def view_by_id(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> sales_receipts.scailo_pb2.SaleReceipt:
+    ) -> sales_receipts.scailo_pb2.SalesReceipt:
         response = self.call_view_by_id(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
@@ -365,15 +385,15 @@ class SalesReceiptsServiceClient:
 
     def call_view_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> UnaryOutput[sales_receipts.scailo_pb2.SaleReceipt]:
+    ) -> UnaryOutput[sales_receipts.scailo_pb2.SalesReceipt]:
         """Low-level method to call ViewByUUID, granting access to errors and metadata"""
         url = self.base_url + "/Scailo.SalesReceiptsService/ViewByUUID"
-        return self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SaleReceipt,extra_headers, timeout_seconds)
+        return self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SalesReceipt,extra_headers, timeout_seconds)
 
 
     def view_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> sales_receipts.scailo_pb2.SaleReceipt:
+    ) -> sales_receipts.scailo_pb2.SalesReceipt:
         response = self.call_view_by_uuid(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
@@ -385,15 +405,15 @@ class SalesReceiptsServiceClient:
 
     def call_view_essential_by_id(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> UnaryOutput[sales_receipts.scailo_pb2.SaleReceipt]:
+    ) -> UnaryOutput[sales_receipts.scailo_pb2.SalesReceipt]:
         """Low-level method to call ViewEssentialByID, granting access to errors and metadata"""
         url = self.base_url + "/Scailo.SalesReceiptsService/ViewEssentialByID"
-        return self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SaleReceipt,extra_headers, timeout_seconds)
+        return self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SalesReceipt,extra_headers, timeout_seconds)
 
 
     def view_essential_by_id(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> sales_receipts.scailo_pb2.SaleReceipt:
+    ) -> sales_receipts.scailo_pb2.SalesReceipt:
         response = self.call_view_essential_by_id(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
@@ -405,15 +425,15 @@ class SalesReceiptsServiceClient:
 
     def call_view_essential_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> UnaryOutput[sales_receipts.scailo_pb2.SaleReceipt]:
+    ) -> UnaryOutput[sales_receipts.scailo_pb2.SalesReceipt]:
         """Low-level method to call ViewEssentialByUUID, granting access to errors and metadata"""
         url = self.base_url + "/Scailo.SalesReceiptsService/ViewEssentialByUUID"
-        return self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SaleReceipt,extra_headers, timeout_seconds)
+        return self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SalesReceipt,extra_headers, timeout_seconds)
 
 
     def view_essential_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> sales_receipts.scailo_pb2.SaleReceipt:
+    ) -> sales_receipts.scailo_pb2.SalesReceipt:
         response = self.call_view_essential_by_uuid(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
@@ -445,15 +465,15 @@ class SalesReceiptsServiceClient:
 
     def call_view_ancillary_parameters_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> UnaryOutput[sales_receipts.scailo_pb2.SaleReceiptAncillaryParameters]:
+    ) -> UnaryOutput[sales_receipts.scailo_pb2.SalesReceiptAncillaryParameters]:
         """Low-level method to call ViewAncillaryParametersByUUID, granting access to errors and metadata"""
         url = self.base_url + "/Scailo.SalesReceiptsService/ViewAncillaryParametersByUUID"
-        return self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SaleReceiptAncillaryParameters,extra_headers, timeout_seconds)
+        return self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SalesReceiptAncillaryParameters,extra_headers, timeout_seconds)
 
 
     def view_ancillary_parameters_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> sales_receipts.scailo_pb2.SaleReceiptAncillaryParameters:
+    ) -> sales_receipts.scailo_pb2.SalesReceiptAncillaryParameters:
         response = self.call_view_ancillary_parameters_by_uuid(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
@@ -515,6 +535,46 @@ class SalesReceiptsServiceClient:
         self, req: sales_receipts.scailo_pb2.SalesReceiptsServicePaginationReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> sales_receipts.scailo_pb2.SalesReceiptsServicePaginationResponse:
         response = self.call_view_with_pagination(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_is_downloadable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.BooleanResponse]:
+        """Low-level method to call IsDownloadable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.SalesReceiptsService/IsDownloadable"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.BooleanResponse,extra_headers, timeout_seconds)
+
+
+    def is_downloadable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.BooleanResponse:
+        response = self.call_is_downloadable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    def call_download_by_uuid(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.StandardFile]:
+        """Low-level method to call DownloadByUUID, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.SalesReceiptsService/DownloadByUUID"
+        return self._connect_client.call_unary(url, req, base.scailo_pb2.StandardFile,extra_headers, timeout_seconds)
+
+
+    def download_by_uuid(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.StandardFile:
+        response = self.call_download_by_uuid(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
             raise err
@@ -900,6 +960,25 @@ class AsyncSalesReceiptsServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_send_email(
+        self, req: base.scailo_pb2.IdentifierWithEmailAttributes,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.IdentifierResponse]:
+        """Low-level method to call SendEmail, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.SalesReceiptsService/SendEmail"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.IdentifierResponse,extra_headers, timeout_seconds)
+
+    async def send_email(
+        self, req: base.scailo_pb2.IdentifierWithEmailAttributes,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.IdentifierResponse:
+        response = await self.call_send_email(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_create_magic_link(
         self, req: magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[magic_links.scailo_pb2.MagicLink]:
@@ -921,14 +1000,14 @@ class AsyncSalesReceiptsServiceClient:
 
     async def call_view_by_id(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> UnaryOutput[sales_receipts.scailo_pb2.SaleReceipt]:
+    ) -> UnaryOutput[sales_receipts.scailo_pb2.SalesReceipt]:
         """Low-level method to call ViewByID, granting access to errors and metadata"""
         url = self.base_url + "/Scailo.SalesReceiptsService/ViewByID"
-        return await self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SaleReceipt,extra_headers, timeout_seconds)
+        return await self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SalesReceipt,extra_headers, timeout_seconds)
 
     async def view_by_id(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> sales_receipts.scailo_pb2.SaleReceipt:
+    ) -> sales_receipts.scailo_pb2.SalesReceipt:
         response = await self.call_view_by_id(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
@@ -940,14 +1019,14 @@ class AsyncSalesReceiptsServiceClient:
 
     async def call_view_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> UnaryOutput[sales_receipts.scailo_pb2.SaleReceipt]:
+    ) -> UnaryOutput[sales_receipts.scailo_pb2.SalesReceipt]:
         """Low-level method to call ViewByUUID, granting access to errors and metadata"""
         url = self.base_url + "/Scailo.SalesReceiptsService/ViewByUUID"
-        return await self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SaleReceipt,extra_headers, timeout_seconds)
+        return await self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SalesReceipt,extra_headers, timeout_seconds)
 
     async def view_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> sales_receipts.scailo_pb2.SaleReceipt:
+    ) -> sales_receipts.scailo_pb2.SalesReceipt:
         response = await self.call_view_by_uuid(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
@@ -959,14 +1038,14 @@ class AsyncSalesReceiptsServiceClient:
 
     async def call_view_essential_by_id(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> UnaryOutput[sales_receipts.scailo_pb2.SaleReceipt]:
+    ) -> UnaryOutput[sales_receipts.scailo_pb2.SalesReceipt]:
         """Low-level method to call ViewEssentialByID, granting access to errors and metadata"""
         url = self.base_url + "/Scailo.SalesReceiptsService/ViewEssentialByID"
-        return await self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SaleReceipt,extra_headers, timeout_seconds)
+        return await self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SalesReceipt,extra_headers, timeout_seconds)
 
     async def view_essential_by_id(
         self, req: base.scailo_pb2.Identifier,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> sales_receipts.scailo_pb2.SaleReceipt:
+    ) -> sales_receipts.scailo_pb2.SalesReceipt:
         response = await self.call_view_essential_by_id(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
@@ -978,14 +1057,14 @@ class AsyncSalesReceiptsServiceClient:
 
     async def call_view_essential_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> UnaryOutput[sales_receipts.scailo_pb2.SaleReceipt]:
+    ) -> UnaryOutput[sales_receipts.scailo_pb2.SalesReceipt]:
         """Low-level method to call ViewEssentialByUUID, granting access to errors and metadata"""
         url = self.base_url + "/Scailo.SalesReceiptsService/ViewEssentialByUUID"
-        return await self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SaleReceipt,extra_headers, timeout_seconds)
+        return await self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SalesReceipt,extra_headers, timeout_seconds)
 
     async def view_essential_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> sales_receipts.scailo_pb2.SaleReceipt:
+    ) -> sales_receipts.scailo_pb2.SalesReceipt:
         response = await self.call_view_essential_by_uuid(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
@@ -1016,14 +1095,14 @@ class AsyncSalesReceiptsServiceClient:
 
     async def call_view_ancillary_parameters_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> UnaryOutput[sales_receipts.scailo_pb2.SaleReceiptAncillaryParameters]:
+    ) -> UnaryOutput[sales_receipts.scailo_pb2.SalesReceiptAncillaryParameters]:
         """Low-level method to call ViewAncillaryParametersByUUID, granting access to errors and metadata"""
         url = self.base_url + "/Scailo.SalesReceiptsService/ViewAncillaryParametersByUUID"
-        return await self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SaleReceiptAncillaryParameters,extra_headers, timeout_seconds)
+        return await self._connect_client.call_unary(url, req, sales_receipts.scailo_pb2.SalesReceiptAncillaryParameters,extra_headers, timeout_seconds)
 
     async def view_ancillary_parameters_by_uuid(
         self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
-    ) -> sales_receipts.scailo_pb2.SaleReceiptAncillaryParameters:
+    ) -> sales_receipts.scailo_pb2.SalesReceiptAncillaryParameters:
         response = await self.call_view_ancillary_parameters_by_uuid(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
@@ -1082,6 +1161,44 @@ class AsyncSalesReceiptsServiceClient:
         self, req: sales_receipts.scailo_pb2.SalesReceiptsServicePaginationReq,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> sales_receipts.scailo_pb2.SalesReceiptsServicePaginationResponse:
         response = await self.call_view_with_pagination(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_is_downloadable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.BooleanResponse]:
+        """Low-level method to call IsDownloadable, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.SalesReceiptsService/IsDownloadable"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.BooleanResponse,extra_headers, timeout_seconds)
+
+    async def is_downloadable(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.BooleanResponse:
+        response = await self.call_is_downloadable(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
+    async def call_download_by_uuid(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[base.scailo_pb2.StandardFile]:
+        """Low-level method to call DownloadByUUID, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.SalesReceiptsService/DownloadByUUID"
+        return await self._connect_client.call_unary(url, req, base.scailo_pb2.StandardFile,extra_headers, timeout_seconds)
+
+    async def download_by_uuid(
+        self, req: base.scailo_pb2.IdentifierUUID,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> base.scailo_pb2.StandardFile:
+        response = await self.call_download_by_uuid(req, extra_headers, timeout_seconds)
         err = response.error()
         if err is not None:
             raise err
@@ -1216,25 +1333,31 @@ class SalesReceiptsServiceProtocol(typing.Protocol):
         ...
     def comment_add(self, req: ClientRequest[base.scailo_pb2.IdentifierUUIDWithUserComment]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
         ...
+    def send_email(self, req: ClientRequest[base.scailo_pb2.IdentifierWithEmailAttributes]) -> ServerResponse[base.scailo_pb2.IdentifierResponse]:
+        ...
     def create_magic_link(self, req: ClientRequest[magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource]) -> ServerResponse[magic_links.scailo_pb2.MagicLink]:
         ...
-    def view_by_id(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[sales_receipts.scailo_pb2.SaleReceipt]:
+    def view_by_id(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[sales_receipts.scailo_pb2.SalesReceipt]:
         ...
-    def view_by_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[sales_receipts.scailo_pb2.SaleReceipt]:
+    def view_by_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[sales_receipts.scailo_pb2.SalesReceipt]:
         ...
-    def view_essential_by_id(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[sales_receipts.scailo_pb2.SaleReceipt]:
+    def view_essential_by_id(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[sales_receipts.scailo_pb2.SalesReceipt]:
         ...
-    def view_essential_by_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[sales_receipts.scailo_pb2.SaleReceipt]:
+    def view_essential_by_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[sales_receipts.scailo_pb2.SalesReceipt]:
         ...
     def view_from_i_ds(self, req: ClientRequest[base.scailo_pb2.IdentifiersList]) -> ServerResponse[sales_receipts.scailo_pb2.SalesReceiptsList]:
         ...
-    def view_ancillary_parameters_by_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[sales_receipts.scailo_pb2.SaleReceiptAncillaryParameters]:
+    def view_ancillary_parameters_by_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[sales_receipts.scailo_pb2.SalesReceiptAncillaryParameters]:
         ...
     def view_all(self, req: ClientRequest[base.scailo_pb2.ActiveStatus]) -> ServerResponse[sales_receipts.scailo_pb2.SalesReceiptsList]:
         ...
     def view_all_for_entity_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[sales_receipts.scailo_pb2.SalesReceiptsList]:
         ...
     def view_with_pagination(self, req: ClientRequest[sales_receipts.scailo_pb2.SalesReceiptsServicePaginationReq]) -> ServerResponse[sales_receipts.scailo_pb2.SalesReceiptsServicePaginationResponse]:
+        ...
+    def is_downloadable(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[base.scailo_pb2.BooleanResponse]:
+        ...
+    def download_by_uuid(self, req: ClientRequest[base.scailo_pb2.IdentifierUUID]) -> ServerResponse[base.scailo_pb2.StandardFile]:
         ...
     def search_all(self, req: ClientRequest[sales_receipts.scailo_pb2.SalesReceiptsServiceSearchAllReq]) -> ServerResponse[sales_receipts.scailo_pb2.SalesReceiptsList]:
         ...
@@ -1265,6 +1388,7 @@ def wsgi_sales_receipts_service(implementation: SalesReceiptsServiceProtocol) ->
     app.register_unary_rpc("/Scailo.SalesReceiptsService/Complete", implementation.complete, base.scailo_pb2.IdentifierUUIDWithUserComment)
     app.register_unary_rpc("/Scailo.SalesReceiptsService/Repeat", implementation.repeat, base.scailo_pb2.IdentifierUUIDWithUserComment)
     app.register_unary_rpc("/Scailo.SalesReceiptsService/CommentAdd", implementation.comment_add, base.scailo_pb2.IdentifierUUIDWithUserComment)
+    app.register_unary_rpc("/Scailo.SalesReceiptsService/SendEmail", implementation.send_email, base.scailo_pb2.IdentifierWithEmailAttributes)
     app.register_unary_rpc("/Scailo.SalesReceiptsService/CreateMagicLink", implementation.create_magic_link, magic_links.scailo_pb2.MagicLinksServiceCreateRequestForSpecificResource)
     app.register_unary_rpc("/Scailo.SalesReceiptsService/ViewByID", implementation.view_by_id, base.scailo_pb2.Identifier)
     app.register_unary_rpc("/Scailo.SalesReceiptsService/ViewByUUID", implementation.view_by_uuid, base.scailo_pb2.IdentifierUUID)
@@ -1275,6 +1399,8 @@ def wsgi_sales_receipts_service(implementation: SalesReceiptsServiceProtocol) ->
     app.register_unary_rpc("/Scailo.SalesReceiptsService/ViewAll", implementation.view_all, base.scailo_pb2.ActiveStatus)
     app.register_unary_rpc("/Scailo.SalesReceiptsService/ViewAllForEntityUUID", implementation.view_all_for_entity_uuid, base.scailo_pb2.IdentifierUUID)
     app.register_unary_rpc("/Scailo.SalesReceiptsService/ViewWithPagination", implementation.view_with_pagination, sales_receipts.scailo_pb2.SalesReceiptsServicePaginationReq)
+    app.register_unary_rpc("/Scailo.SalesReceiptsService/IsDownloadable", implementation.is_downloadable, base.scailo_pb2.IdentifierUUID)
+    app.register_unary_rpc("/Scailo.SalesReceiptsService/DownloadByUUID", implementation.download_by_uuid, base.scailo_pb2.IdentifierUUID)
     app.register_unary_rpc("/Scailo.SalesReceiptsService/SearchAll", implementation.search_all, sales_receipts.scailo_pb2.SalesReceiptsServiceSearchAllReq)
     app.register_unary_rpc("/Scailo.SalesReceiptsService/Filter", implementation.filter, sales_receipts.scailo_pb2.SalesReceiptsServiceFilterReq)
     app.register_unary_rpc("/Scailo.SalesReceiptsService/CountInStatus", implementation.count_in_status, base.scailo_pb2.CountInSLCStatusRequest)

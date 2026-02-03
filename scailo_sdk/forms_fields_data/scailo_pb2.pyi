@@ -26,7 +26,7 @@ FORM_FIELD_FILTER_OPERATOR_GREATER_THAN: FORM_FIELD_FILTER_OPERATOR
 FORM_FIELD_FILTER_OPERATOR_GREATER_THAN_OR_EQUAL: FORM_FIELD_FILTER_OPERATOR
 
 class FormFieldDatum(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "form_field_id", "form_field", "ref_uuid", "value", "selected_values", "need_approval")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     FORM_FIELD_ID_FIELD_NUMBER: _ClassVar[int]
@@ -46,7 +46,7 @@ class FormFieldDatum(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., form_field_id: _Optional[int] = ..., form_field: _Optional[_Union[_scailo_pb2_1.FormField, _Mapping]] = ..., ref_uuid: _Optional[str] = ..., value: _Optional[str] = ..., selected_values: _Optional[_Iterable[str]] = ..., need_approval: _Optional[bool] = ...) -> None: ...
 
 class FormFieldDatumCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("form_field_id", "value", "selected_values")
     FORM_FIELD_ID_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     SELECTED_VALUES_FIELD_NUMBER: _ClassVar[int]
@@ -56,13 +56,13 @@ class FormFieldDatumCreateRequest(_message.Message):
     def __init__(self, form_field_id: _Optional[int] = ..., value: _Optional[str] = ..., selected_values: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class FormFieldDatumList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[FormFieldDatum]
     def __init__(self, list: _Optional[_Iterable[_Union[FormFieldDatum, _Mapping]]] = ...) -> None: ...
 
 class FormFieldDatumHistoryRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("form_field_id", "ref_uuid")
     FORM_FIELD_ID_FIELD_NUMBER: _ClassVar[int]
     REF_UUID_FIELD_NUMBER: _ClassVar[int]
     form_field_id: int
@@ -70,7 +70,7 @@ class FormFieldDatumHistoryRequest(_message.Message):
     def __init__(self, form_field_id: _Optional[int] = ..., ref_uuid: _Optional[str] = ...) -> None: ...
 
 class FormFieldDatumFilterRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("form_field_id", "value", "operator")
     FORM_FIELD_ID_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     OPERATOR_FIELD_NUMBER: _ClassVar[int]

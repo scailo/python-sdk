@@ -903,6 +903,26 @@ class EquationsFamiliesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    def call_view_for_family_i_ds(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[equations_families.scailo_pb2.EquationsFamiliesList]:
+        """Low-level method to call ViewForFamilyIDs, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.EquationsFamiliesService/ViewForFamilyIDs"
+        return self._connect_client.call_unary(url, req, equations_families.scailo_pb2.EquationsFamiliesList,extra_headers, timeout_seconds)
+
+
+    def view_for_family_i_ds(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> equations_families.scailo_pb2.EquationsFamiliesList:
+        response = self.call_view_for_family_i_ds(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     def call_view_prospective_families(
         self, req: base.scailo_pb2.IdentifierWithSearchKey,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[families.scailo_pb2.FamiliesList]:
@@ -1931,6 +1951,25 @@ class AsyncEquationsFamiliesServiceClient:
             raise ConnectProtocolError('missing response message')
         return msg
 
+    async def call_view_for_family_i_ds(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> UnaryOutput[equations_families.scailo_pb2.EquationsFamiliesList]:
+        """Low-level method to call ViewForFamilyIDs, granting access to errors and metadata"""
+        url = self.base_url + "/Scailo.EquationsFamiliesService/ViewForFamilyIDs"
+        return await self._connect_client.call_unary(url, req, equations_families.scailo_pb2.EquationsFamiliesList,extra_headers, timeout_seconds)
+
+    async def view_for_family_i_ds(
+        self, req: base.scailo_pb2.IdentifiersList,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
+    ) -> equations_families.scailo_pb2.EquationsFamiliesList:
+        response = await self.call_view_for_family_i_ds(req, extra_headers, timeout_seconds)
+        err = response.error()
+        if err is not None:
+            raise err
+        msg = response.message()
+        if msg is None:
+            raise ConnectProtocolError('missing response message')
+        return msg
+
     async def call_view_prospective_families(
         self, req: base.scailo_pb2.IdentifierWithSearchKey,extra_headers: HeaderInput | None=None, timeout_seconds: float | None=None
     ) -> UnaryOutput[families.scailo_pb2.FamiliesList]:
@@ -2210,6 +2249,8 @@ class EquationsFamiliesServiceProtocol(typing.Protocol):
         ...
     def view_for_family_id(self, req: ClientRequest[base.scailo_pb2.Identifier]) -> ServerResponse[equations_families.scailo_pb2.EquationFamily]:
         ...
+    def view_for_family_i_ds(self, req: ClientRequest[base.scailo_pb2.IdentifiersList]) -> ServerResponse[equations_families.scailo_pb2.EquationsFamiliesList]:
+        ...
     def view_prospective_families(self, req: ClientRequest[base.scailo_pb2.IdentifierWithSearchKey]) -> ServerResponse[families.scailo_pb2.FamiliesList]:
         ...
     def filter_prospective_families(self, req: ClientRequest[families.scailo_pb2.FilterFamiliesReqForIdentifier]) -> ServerResponse[families.scailo_pb2.FamiliesList]:
@@ -2278,6 +2319,7 @@ def wsgi_equations_families_service(implementation: EquationsFamiliesServiceProt
     app.register_unary_rpc("/Scailo.EquationsFamiliesService/ViewAllForEntityUUID", implementation.view_all_for_entity_uuid, base.scailo_pb2.IdentifierUUID)
     app.register_unary_rpc("/Scailo.EquationsFamiliesService/ViewWithPagination", implementation.view_with_pagination, equations_families.scailo_pb2.EquationsFamiliesServicePaginationReq)
     app.register_unary_rpc("/Scailo.EquationsFamiliesService/ViewForFamilyID", implementation.view_for_family_id, base.scailo_pb2.Identifier)
+    app.register_unary_rpc("/Scailo.EquationsFamiliesService/ViewForFamilyIDs", implementation.view_for_family_i_ds, base.scailo_pb2.IdentifiersList)
     app.register_unary_rpc("/Scailo.EquationsFamiliesService/ViewProspectiveFamilies", implementation.view_prospective_families, base.scailo_pb2.IdentifierWithSearchKey)
     app.register_unary_rpc("/Scailo.EquationsFamiliesService/FilterProspectiveFamilies", implementation.filter_prospective_families, families.scailo_pb2.FilterFamiliesReqForIdentifier)
     app.register_unary_rpc("/Scailo.EquationsFamiliesService/IsDownloadable", implementation.is_downloadable, base.scailo_pb2.IdentifierUUID)

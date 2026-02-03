@@ -208,7 +208,7 @@ WORKFLOW_RULE_SORT_KEY_NAME: WORKFLOW_RULE_SORT_KEY
 WORKFLOW_RULE_SORT_KEY_SERVICE_NAME: WORKFLOW_RULE_SORT_KEY
 
 class WorkflowsRulesServiceCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_comment", "vault_folder_id", "name", "notify_user_id", "description", "service_name", "record_status", "moment", "execute_on", "user_payload")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     VAULT_FOLDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -234,7 +234,7 @@ class WorkflowsRulesServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., notify_user_id: _Optional[int] = ..., description: _Optional[str] = ..., service_name: _Optional[_Union[WORKFLOW_RULE_SERVICE_NAME, str]] = ..., record_status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., moment: _Optional[_Union[WORKFLOW_RULE_MOMENT, str]] = ..., execute_on: _Optional[_Union[WORKFLOW_RULE_EXECUTE_ON, str]] = ..., user_payload: _Optional[bytes] = ...) -> None: ...
 
 class WorkflowsRulesServiceUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "notify_users", "vault_folder_id", "name", "notify_user_id", "description", "service_name", "record_status", "moment", "execute_on", "user_payload")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -262,7 +262,7 @@ class WorkflowsRulesServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., notify_user_id: _Optional[int] = ..., description: _Optional[str] = ..., service_name: _Optional[_Union[WORKFLOW_RULE_SERVICE_NAME, str]] = ..., record_status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., moment: _Optional[_Union[WORKFLOW_RULE_MOMENT, str]] = ..., execute_on: _Optional[_Union[WORKFLOW_RULE_EXECUTE_ON, str]] = ..., user_payload: _Optional[bytes] = ...) -> None: ...
 
 class WorkflowRule(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "vault_folder_id", "name", "code", "notify_user_id", "description", "service_name", "record_status", "moment", "execute_on", "user_payload")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -298,13 +298,13 @@ class WorkflowRule(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., vault_folder_id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., notify_user_id: _Optional[int] = ..., description: _Optional[str] = ..., service_name: _Optional[_Union[WORKFLOW_RULE_SERVICE_NAME, str]] = ..., record_status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., moment: _Optional[_Union[WORKFLOW_RULE_MOMENT, str]] = ..., execute_on: _Optional[_Union[WORKFLOW_RULE_EXECUTE_ON, str]] = ..., user_payload: _Optional[bytes] = ...) -> None: ...
 
 class WorkflowsRulesList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[WorkflowRule]
     def __init__(self, list: _Optional[_Iterable[_Union[WorkflowRule, _Mapping]]] = ...) -> None: ...
 
 class WorkflowsRulesServicePaginationReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -320,7 +320,7 @@ class WorkflowsRulesServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[WORKFLOW_RULE_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class WorkflowsRulesServicePaginationResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -332,7 +332,7 @@ class WorkflowsRulesServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[WorkflowRule, _Mapping]]] = ...) -> None: ...
 
 class WorkflowsRulesServiceFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "code", "notify_user_id", "service_name", "record_status", "moment", "execute_on")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -384,7 +384,7 @@ class WorkflowsRulesServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[WORKFLOW_RULE_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., notify_user_id: _Optional[int] = ..., service_name: _Optional[_Union[WORKFLOW_RULE_SERVICE_NAME, str]] = ..., record_status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., moment: _Optional[_Union[WORKFLOW_RULE_MOMENT, str]] = ..., execute_on: _Optional[_Union[WORKFLOW_RULE_EXECUTE_ON, str]] = ...) -> None: ...
 
 class WorkflowsRulesServiceCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "code", "notify_user_id", "service_name", "record_status", "moment", "execute_on")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -428,7 +428,7 @@ class WorkflowsRulesServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., notify_user_id: _Optional[int] = ..., service_name: _Optional[_Union[WORKFLOW_RULE_SERVICE_NAME, str]] = ..., record_status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., moment: _Optional[_Union[WORKFLOW_RULE_MOMENT, str]] = ..., execute_on: _Optional[_Union[WORKFLOW_RULE_EXECUTE_ON, str]] = ...) -> None: ...
 
 class WorkflowsRulesServiceSearchAllReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -448,7 +448,7 @@ class WorkflowsRulesServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[WORKFLOW_RULE_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class WorkflowEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("event_id", "rule_code", "service_name", "transaction_status", "transaction_payload", "user_payload", "username")
     EVENT_ID_FIELD_NUMBER: _ClassVar[int]
     RULE_CODE_FIELD_NUMBER: _ClassVar[int]
     SERVICE_NAME_FIELD_NUMBER: _ClassVar[int]

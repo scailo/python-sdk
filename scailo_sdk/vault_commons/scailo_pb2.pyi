@@ -83,7 +83,7 @@ VAULT_ACCESS_LOG_OPERATION_PERMISSIONS: VAULT_ACCESS_LOG_OPERATION
 VAULT_ACCESS_LOG_OPERATION_EXECUTE: VAULT_ACCESS_LOG_OPERATION
 
 class VaultPermission(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "ref_for", "ref_id", "role_id", "permission_code")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     REF_FOR_FIELD_NUMBER: _ClassVar[int]
@@ -99,7 +99,7 @@ class VaultPermission(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., ref_for: _Optional[_Union[VAULT_REF_FOR, str]] = ..., ref_id: _Optional[int] = ..., role_id: _Optional[int] = ..., permission_code: _Optional[int] = ...) -> None: ...
 
 class VaultPermissionAddRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_comment", "ref_uuid", "role_id", "permission_code")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     REF_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -113,7 +113,7 @@ class VaultPermissionAddRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., ref_uuid: _Optional[str] = ..., role_id: _Optional[int] = ..., permission_code: _Optional[int] = ...) -> None: ...
 
 class VaultPermissionModifyRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("uuid", "user_comment", "permission_code")
     UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     PERMISSION_CODE_FIELD_NUMBER: _ClassVar[int]
@@ -123,7 +123,7 @@ class VaultPermissionModifyRequest(_message.Message):
     def __init__(self, uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., permission_code: _Optional[int] = ...) -> None: ...
 
 class GixResources(_message.Message):
-    __slots__ = ()
+    __slots__ = ("html_entry", "logos", "external_apis")
     HTML_ENTRY_FIELD_NUMBER: _ClassVar[int]
     LOGOS_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_APIS_FIELD_NUMBER: _ClassVar[int]
@@ -133,7 +133,7 @@ class GixResources(_message.Message):
     def __init__(self, html_entry: _Optional[str] = ..., logos: _Optional[_Iterable[str]] = ..., external_apis: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class GiXManifest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("manifest_version", "app_version", "app_name", "app_unique_identifier", "min_genesis_version", "max_genesis_version", "resources")
     MANIFEST_VERSION_FIELD_NUMBER: _ClassVar[int]
     APP_VERSION_FIELD_NUMBER: _ClassVar[int]
     APP_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -151,7 +151,7 @@ class GiXManifest(_message.Message):
     def __init__(self, manifest_version: _Optional[str] = ..., app_version: _Optional[str] = ..., app_name: _Optional[str] = ..., app_unique_identifier: _Optional[str] = ..., min_genesis_version: _Optional[str] = ..., max_genesis_version: _Optional[str] = ..., resources: _Optional[_Union[GixResources, _Mapping]] = ...) -> None: ...
 
 class GiXAppRun(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "vault_file_id", "vault_file_version_id", "app_unique_identifier", "extracted_path", "ip_addr", "manifest", "run_by", "app_version", "app_name", "app_endpoint")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     VAULT_FILE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -179,13 +179,13 @@ class GiXAppRun(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., vault_file_id: _Optional[int] = ..., vault_file_version_id: _Optional[int] = ..., app_unique_identifier: _Optional[str] = ..., extracted_path: _Optional[str] = ..., ip_addr: _Optional[str] = ..., manifest: _Optional[_Union[GiXManifest, _Mapping]] = ..., run_by: _Optional[str] = ..., app_version: _Optional[str] = ..., app_name: _Optional[str] = ..., app_endpoint: _Optional[str] = ...) -> None: ...
 
 class GiXAppRunsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[GiXAppRun]
     def __init__(self, list: _Optional[_Iterable[_Union[GiXAppRun, _Mapping]]] = ...) -> None: ...
 
 class GiXAppRunCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "vault_file_uuid", "vault_file_version_uuid", "run_by")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -205,7 +205,7 @@ class GiXAppRunCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., vault_file_uuid: _Optional[str] = ..., vault_file_version_uuid: _Optional[str] = ..., run_by: _Optional[str] = ...) -> None: ...
 
 class GiXAppRunFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "vault_file_uuid", "vault_file_version_uuid", "run_by")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -229,7 +229,7 @@ class GiXAppRunFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., vault_file_uuid: _Optional[str] = ..., vault_file_version_uuid: _Optional[str] = ..., run_by: _Optional[str] = ...) -> None: ...
 
 class EnclaveResources(_message.Message):
-    __slots__ = ()
+    __slots__ = ("logos", "folders", "files")
     LOGOS_FIELD_NUMBER: _ClassVar[int]
     FOLDERS_FIELD_NUMBER: _ClassVar[int]
     FILES_FIELD_NUMBER: _ClassVar[int]
@@ -239,7 +239,7 @@ class EnclaveResources(_message.Message):
     def __init__(self, logos: _Optional[_Iterable[str]] = ..., folders: _Optional[_Iterable[str]] = ..., files: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class EnclaveManifestEnvVariable(_message.Message):
-    __slots__ = ()
+    __slots__ = ("name", "value", "is_secret")
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     IS_SECRET_FIELD_NUMBER: _ClassVar[int]
@@ -249,7 +249,7 @@ class EnclaveManifestEnvVariable(_message.Message):
     def __init__(self, name: _Optional[str] = ..., value: _Optional[str] = ..., is_secret: _Optional[bool] = ...) -> None: ...
 
 class EnclaveManifest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("manifest_version", "enclave_runtime", "app_version", "app_name", "enclave_name", "app_unique_identifier", "start_exec", "entry_point_management", "env_variables", "resources")
     MANIFEST_VERSION_FIELD_NUMBER: _ClassVar[int]
     ENCLAVE_RUNTIME_FIELD_NUMBER: _ClassVar[int]
     APP_VERSION_FIELD_NUMBER: _ClassVar[int]
@@ -273,7 +273,7 @@ class EnclaveManifest(_message.Message):
     def __init__(self, manifest_version: _Optional[str] = ..., enclave_runtime: _Optional[str] = ..., app_version: _Optional[str] = ..., app_name: _Optional[str] = ..., enclave_name: _Optional[str] = ..., app_unique_identifier: _Optional[str] = ..., start_exec: _Optional[str] = ..., entry_point_management: _Optional[str] = ..., env_variables: _Optional[_Iterable[_Union[EnclaveManifestEnvVariable, _Mapping]]] = ..., resources: _Optional[_Union[EnclaveResources, _Mapping]] = ...) -> None: ...
 
 class EnclaveIngress(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "token", "expires_at", "vault_file_id", "vault_file_version_id", "enclave_name", "ip_addr", "runner_user_id", "runner_role_id", "app_endpoint")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
@@ -299,13 +299,13 @@ class EnclaveIngress(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., token: _Optional[str] = ..., expires_at: _Optional[int] = ..., vault_file_id: _Optional[int] = ..., vault_file_version_id: _Optional[int] = ..., enclave_name: _Optional[str] = ..., ip_addr: _Optional[str] = ..., runner_user_id: _Optional[int] = ..., runner_role_id: _Optional[int] = ..., app_endpoint: _Optional[str] = ...) -> None: ...
 
 class EnclaveIngressesList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[EnclaveIngress]
     def __init__(self, list: _Optional[_Iterable[_Union[EnclaveIngress, _Mapping]]] = ...) -> None: ...
 
 class EnclaveIngressCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "vault_file_uuid", "vault_file_version_uuid", "runner_user_id", "runner_role_id")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -327,7 +327,7 @@ class EnclaveIngressCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., vault_file_uuid: _Optional[str] = ..., vault_file_version_uuid: _Optional[str] = ..., runner_user_id: _Optional[int] = ..., runner_role_id: _Optional[int] = ...) -> None: ...
 
 class EnclaveIngressFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "vault_file_uuid", "vault_file_version_uuid", "runner_user_id", "runner_role_id")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -353,13 +353,13 @@ class EnclaveIngressFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., vault_file_uuid: _Optional[str] = ..., vault_file_version_uuid: _Optional[str] = ..., runner_user_id: _Optional[int] = ..., runner_role_id: _Optional[int] = ...) -> None: ...
 
 class VerifyEnclaveIngressRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("token",)
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     token: str
     def __init__(self, token: _Optional[str] = ...) -> None: ...
 
 class VerifyEnclaveIngressResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("enclave_name", "user_uuid", "role_uuid", "auth_token", "expires_at")
     ENCLAVE_NAME_FIELD_NUMBER: _ClassVar[int]
     USER_UUID_FIELD_NUMBER: _ClassVar[int]
     ROLE_UUID_FIELD_NUMBER: _ClassVar[int]
@@ -373,7 +373,7 @@ class VerifyEnclaveIngressResponse(_message.Message):
     def __init__(self, enclave_name: _Optional[str] = ..., user_uuid: _Optional[str] = ..., role_uuid: _Optional[str] = ..., auth_token: _Optional[str] = ..., expires_at: _Optional[int] = ...) -> None: ...
 
 class EnclaveEnvironmentVariableAddRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("file_uuid", "name", "value", "is_secret")
     FILE_UUID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -385,7 +385,7 @@ class EnclaveEnvironmentVariableAddRequest(_message.Message):
     def __init__(self, file_uuid: _Optional[str] = ..., name: _Optional[str] = ..., value: _Optional[str] = ..., is_secret: _Optional[bool] = ...) -> None: ...
 
 class EnclaveEnvironmentVariableUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("uuid", "value")
     UUID_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     uuid: str
@@ -393,7 +393,7 @@ class EnclaveEnvironmentVariableUpdateRequest(_message.Message):
     def __init__(self, uuid: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
 
 class EnclaveEnvironmentVariable(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "vault_file_id", "name", "value", "is_secret")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     VAULT_FILE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -409,13 +409,13 @@ class EnclaveEnvironmentVariable(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., vault_file_id: _Optional[int] = ..., name: _Optional[str] = ..., value: _Optional[str] = ..., is_secret: _Optional[bool] = ...) -> None: ...
 
 class EnclaveEnvironmentVariablesList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[EnclaveEnvironmentVariable]
     def __init__(self, list: _Optional[_Iterable[_Union[EnclaveEnvironmentVariable, _Mapping]]] = ...) -> None: ...
 
 class EnclaveDomainAddRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("file_uuid", "domain")
     FILE_UUID_FIELD_NUMBER: _ClassVar[int]
     DOMAIN_FIELD_NUMBER: _ClassVar[int]
     file_uuid: str
@@ -423,7 +423,7 @@ class EnclaveDomainAddRequest(_message.Message):
     def __init__(self, file_uuid: _Optional[str] = ..., domain: _Optional[str] = ...) -> None: ...
 
 class EnclaveDomain(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "vault_file_id", "domain", "service_addr")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     VAULT_FILE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -437,7 +437,7 @@ class EnclaveDomain(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., vault_file_id: _Optional[int] = ..., domain: _Optional[str] = ..., service_addr: _Optional[str] = ...) -> None: ...
 
 class EnclaveDomainsFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "domain", "service_addr")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -465,13 +465,13 @@ class EnclaveDomainsFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[ENCLAVE_DOMAIN_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., domain: _Optional[str] = ..., service_addr: _Optional[str] = ...) -> None: ...
 
 class EnclaveDomainsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[EnclaveDomain]
     def __init__(self, list: _Optional[_Iterable[_Union[EnclaveDomain, _Mapping]]] = ...) -> None: ...
 
 class EnclaveDomainSuffixResp(_message.Message):
-    __slots__ = ()
+    __slots__ = ("suffix", "relay")
     SUFFIX_FIELD_NUMBER: _ClassVar[int]
     RELAY_FIELD_NUMBER: _ClassVar[int]
     suffix: str
@@ -479,7 +479,7 @@ class EnclaveDomainSuffixResp(_message.Message):
     def __init__(self, suffix: _Optional[str] = ..., relay: _Optional[str] = ...) -> None: ...
 
 class EnclaveFrameAddRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("file_uuid", "sequence_number", "auto_refresh_interval", "width", "height")
     FILE_UUID_FIELD_NUMBER: _ClassVar[int]
     SEQUENCE_NUMBER_FIELD_NUMBER: _ClassVar[int]
     AUTO_REFRESH_INTERVAL_FIELD_NUMBER: _ClassVar[int]
@@ -493,7 +493,7 @@ class EnclaveFrameAddRequest(_message.Message):
     def __init__(self, file_uuid: _Optional[str] = ..., sequence_number: _Optional[int] = ..., auto_refresh_interval: _Optional[int] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
 
 class EnclaveFrameUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("uuid", "sequence_number", "auto_refresh_interval", "width", "height")
     UUID_FIELD_NUMBER: _ClassVar[int]
     SEQUENCE_NUMBER_FIELD_NUMBER: _ClassVar[int]
     AUTO_REFRESH_INTERVAL_FIELD_NUMBER: _ClassVar[int]
@@ -507,7 +507,7 @@ class EnclaveFrameUpdateRequest(_message.Message):
     def __init__(self, uuid: _Optional[str] = ..., sequence_number: _Optional[int] = ..., auto_refresh_interval: _Optional[int] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
 
 class EnclaveFrame(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "user_id", "vault_file_id", "sequence_number", "auto_refresh_interval", "width", "height")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -527,12 +527,14 @@ class EnclaveFrame(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., user_id: _Optional[int] = ..., vault_file_id: _Optional[int] = ..., sequence_number: _Optional[int] = ..., auto_refresh_interval: _Optional[int] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
 
 class EnclaveFrameSetup(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "expires_at", "enclave_name", "app_endpoint", "enclave_frame_uuid", "file_uuid", "app_version", "sequence_number", "auto_refresh_interval", "width", "height")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
     ENCLAVE_NAME_FIELD_NUMBER: _ClassVar[int]
     APP_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     ENCLAVE_FRAME_UUID_FIELD_NUMBER: _ClassVar[int]
+    FILE_UUID_FIELD_NUMBER: _ClassVar[int]
+    APP_VERSION_FIELD_NUMBER: _ClassVar[int]
     SEQUENCE_NUMBER_FIELD_NUMBER: _ClassVar[int]
     AUTO_REFRESH_INTERVAL_FIELD_NUMBER: _ClassVar[int]
     WIDTH_FIELD_NUMBER: _ClassVar[int]
@@ -542,20 +544,22 @@ class EnclaveFrameSetup(_message.Message):
     enclave_name: str
     app_endpoint: str
     enclave_frame_uuid: str
+    file_uuid: str
+    app_version: str
     sequence_number: int
     auto_refresh_interval: int
     width: int
     height: int
-    def __init__(self, entity_uuid: _Optional[str] = ..., expires_at: _Optional[int] = ..., enclave_name: _Optional[str] = ..., app_endpoint: _Optional[str] = ..., enclave_frame_uuid: _Optional[str] = ..., sequence_number: _Optional[int] = ..., auto_refresh_interval: _Optional[int] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
+    def __init__(self, entity_uuid: _Optional[str] = ..., expires_at: _Optional[int] = ..., enclave_name: _Optional[str] = ..., app_endpoint: _Optional[str] = ..., enclave_frame_uuid: _Optional[str] = ..., file_uuid: _Optional[str] = ..., app_version: _Optional[str] = ..., sequence_number: _Optional[int] = ..., auto_refresh_interval: _Optional[int] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
 
 class EnclaveFrameSetupList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[EnclaveFrameSetup]
     def __init__(self, list: _Optional[_Iterable[_Union[EnclaveFrameSetup, _Mapping]]] = ...) -> None: ...
 
 class VaultSearchReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "ref_for", "folder_uuid", "search_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -585,7 +589,7 @@ class VaultSearchReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[VAULT_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., ref_for: _Optional[_Union[VAULT_REF_FOR, str]] = ..., folder_uuid: _Optional[str] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class VaultSearchResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("name", "type", "element_id", "element_uuid", "path", "parent_folder_uuid")
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -601,13 +605,13 @@ class VaultSearchResponse(_message.Message):
     def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[VAULT_REF_FOR, str]] = ..., element_id: _Optional[int] = ..., element_uuid: _Optional[str] = ..., path: _Optional[str] = ..., parent_folder_uuid: _Optional[str] = ...) -> None: ...
 
 class VaultSearchResponsesList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[VaultSearchResponse]
     def __init__(self, list: _Optional[_Iterable[_Union[VaultSearchResponse, _Mapping]]] = ...) -> None: ...
 
 class VaultDuplicateCheckReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("name", "folder_uuid")
     NAME_FIELD_NUMBER: _ClassVar[int]
     FOLDER_UUID_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -615,7 +619,7 @@ class VaultDuplicateCheckReq(_message.Message):
     def __init__(self, name: _Optional[str] = ..., folder_uuid: _Optional[str] = ...) -> None: ...
 
 class VaultAccessLog(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "ref_for", "ref_id", "username", "ip_addr", "operation", "comment")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     REF_FOR_FIELD_NUMBER: _ClassVar[int]
@@ -635,7 +639,7 @@ class VaultAccessLog(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., ref_for: _Optional[_Union[VAULT_REF_FOR, str]] = ..., ref_id: _Optional[int] = ..., username: _Optional[str] = ..., ip_addr: _Optional[str] = ..., operation: _Optional[_Union[VAULT_ACCESS_LOG_OPERATION, str]] = ..., comment: _Optional[str] = ...) -> None: ...
 
 class VaultAccessLogCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "ref_for", "ref_id", "username", "ip_addr", "operation", "comment")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     REF_FOR_FIELD_NUMBER: _ClassVar[int]
     REF_ID_FIELD_NUMBER: _ClassVar[int]
@@ -653,7 +657,7 @@ class VaultAccessLogCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., ref_for: _Optional[_Union[VAULT_REF_FOR, str]] = ..., ref_id: _Optional[int] = ..., username: _Optional[str] = ..., ip_addr: _Optional[str] = ..., operation: _Optional[_Union[VAULT_ACCESS_LOG_OPERATION, str]] = ..., comment: _Optional[str] = ...) -> None: ...
 
 class VaultAccessLogsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[VaultAccessLog]
     def __init__(self, list: _Optional[_Iterable[_Union[VaultAccessLog, _Mapping]]] = ...) -> None: ...

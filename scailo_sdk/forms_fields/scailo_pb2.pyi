@@ -25,7 +25,7 @@ FORM_FIELD_SORT_KEY_CODE: FORM_FIELD_SORT_KEY
 FORM_FIELD_SORT_KEY_SECTION_ID_AND_RECORD_ID: FORM_FIELD_SORT_KEY
 
 class FormField(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "name", "code", "type", "section_id", "width", "element", "placeholder", "regex", "defined_values", "is_readonly", "is_hidden", "is_searchable", "is_public")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -59,13 +59,13 @@ class FormField(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., type: _Optional[_Union[_scailo_pb2.FORM_TYPE, str]] = ..., section_id: _Optional[int] = ..., width: _Optional[str] = ..., element: _Optional[_Union[_scailo_pb2.FORM_FIELD_ELEMENT, str]] = ..., placeholder: _Optional[str] = ..., regex: _Optional[str] = ..., defined_values: _Optional[_Iterable[str]] = ..., is_readonly: _Optional[bool] = ..., is_hidden: _Optional[bool] = ..., is_searchable: _Optional[bool] = ..., is_public: _Optional[bool] = ...) -> None: ...
 
 class FormsFieldsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[FormField]
     def __init__(self, list: _Optional[_Iterable[_Union[FormField, _Mapping]]] = ...) -> None: ...
 
 class FormFieldPaginationResp(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -77,7 +77,7 @@ class FormFieldPaginationResp(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[FormField, _Mapping]]] = ...) -> None: ...
 
 class FormsFieldsServiceCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_comment", "name", "code", "type", "section_id", "width", "element", "placeholder", "regex", "defined_values", "is_readonly", "is_hidden", "is_searchable", "is_public")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -111,7 +111,7 @@ class FormsFieldsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., type: _Optional[_Union[_scailo_pb2.FORM_TYPE, str]] = ..., section_id: _Optional[int] = ..., width: _Optional[str] = ..., element: _Optional[_Union[_scailo_pb2.FORM_FIELD_ELEMENT, str]] = ..., placeholder: _Optional[str] = ..., regex: _Optional[str] = ..., defined_values: _Optional[_Iterable[str]] = ..., is_readonly: _Optional[bool] = ..., is_hidden: _Optional[bool] = ..., is_searchable: _Optional[bool] = ..., is_public: _Optional[bool] = ...) -> None: ...
 
 class FormsFieldsServiceUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "name", "code", "section_id", "width", "placeholder", "regex", "defined_values", "is_readonly", "is_hidden", "is_searchable", "is_public")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -141,7 +141,7 @@ class FormsFieldsServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., section_id: _Optional[int] = ..., width: _Optional[str] = ..., placeholder: _Optional[str] = ..., regex: _Optional[str] = ..., defined_values: _Optional[_Iterable[str]] = ..., is_readonly: _Optional[bool] = ..., is_hidden: _Optional[bool] = ..., is_searchable: _Optional[bool] = ..., is_public: _Optional[bool] = ...) -> None: ...
 
 class FormsFieldsServicePaginationReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -155,7 +155,7 @@ class FormsFieldsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[FORM_FIELD_SORT_KEY, str]] = ...) -> None: ...
 
 class FormsFieldsServiceFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "name", "type", "section_id", "code")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -187,7 +187,7 @@ class FormsFieldsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[FORM_FIELD_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[_scailo_pb2.FORM_TYPE, str]] = ..., section_id: _Optional[int] = ..., code: _Optional[str] = ...) -> None: ...
 
 class FormsFieldsServiceCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "name", "type", "section_id", "code")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -211,7 +211,7 @@ class FormsFieldsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[_scailo_pb2.FORM_TYPE, str]] = ..., section_id: _Optional[int] = ..., code: _Optional[str] = ...) -> None: ...
 
 class FormsFieldsServiceSearchAllReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "search_key", "type", "section_id")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

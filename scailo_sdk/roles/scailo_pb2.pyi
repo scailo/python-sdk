@@ -31,7 +31,7 @@ ROLE_SORT_KEY_NAME: ROLE_SORT_KEY
 ROLE_SORT_KEY_CODE: ROLE_SORT_KEY
 
 class RolesServiceCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_comment", "name", "code", "description", "vault_access", "vault_root_folder_interactions", "http_access", "https_access", "access_list")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -55,7 +55,7 @@ class RolesServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., vault_access: _Optional[bool] = ..., vault_root_folder_interactions: _Optional[bool] = ..., http_access: _Optional[bool] = ..., https_access: _Optional[bool] = ..., access_list: _Optional[_Iterable[_Union[RolesServiceAccessCreateAndUpdateRequest, _Mapping]]] = ...) -> None: ...
 
 class RolesServiceUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_comment", "id", "notify_users", "name", "code", "description", "vault_access", "vault_root_folder_interactions", "http_access", "https_access", "access_list")
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_USERS_FIELD_NUMBER: _ClassVar[int]
@@ -81,7 +81,7 @@ class RolesServiceUpdateRequest(_message.Message):
     def __init__(self, user_comment: _Optional[str] = ..., id: _Optional[int] = ..., notify_users: _Optional[bool] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., vault_access: _Optional[bool] = ..., vault_root_folder_interactions: _Optional[bool] = ..., http_access: _Optional[bool] = ..., https_access: _Optional[bool] = ..., access_list: _Optional[_Iterable[_Union[RolesServiceAccessCreateAndUpdateRequest, _Mapping]]] = ...) -> None: ...
 
 class Role(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "status", "logs", "completed_on", "name", "code", "description", "vault_access", "vault_root_folder_interactions", "http_access", "https_access", "access_list")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -113,7 +113,7 @@ class Role(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., logs: _Optional[_Iterable[_Union[_scailo_pb2.LogbookLogConciseSLC, _Mapping]]] = ..., completed_on: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., vault_access: _Optional[bool] = ..., vault_root_folder_interactions: _Optional[bool] = ..., http_access: _Optional[bool] = ..., https_access: _Optional[bool] = ..., access_list: _Optional[_Iterable[_Union[RoleAccess, _Mapping]]] = ...) -> None: ...
 
 class RolesServiceAccessCreateAndUpdateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("menu_uid", "is_accessible")
     MENU_UID_FIELD_NUMBER: _ClassVar[int]
     IS_ACCESSIBLE_FIELD_NUMBER: _ClassVar[int]
     menu_uid: str
@@ -121,7 +121,7 @@ class RolesServiceAccessCreateAndUpdateRequest(_message.Message):
     def __init__(self, menu_uid: _Optional[str] = ..., is_accessible: _Optional[bool] = ...) -> None: ...
 
 class RolesServiceAccessDefinition(_message.Message):
-    __slots__ = ()
+    __slots__ = ("menu_uid", "menu_name", "menu_description")
     MENU_UID_FIELD_NUMBER: _ClassVar[int]
     MENU_NAME_FIELD_NUMBER: _ClassVar[int]
     MENU_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -131,7 +131,7 @@ class RolesServiceAccessDefinition(_message.Message):
     def __init__(self, menu_uid: _Optional[str] = ..., menu_name: _Optional[str] = ..., menu_description: _Optional[str] = ...) -> None: ...
 
 class RoleAccess(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "approval_metadata", "need_approval", "role_id", "menu_uid", "is_accessible")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -149,13 +149,13 @@ class RoleAccess(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., approval_metadata: _Optional[_Union[_scailo_pb2.ApprovalMetadata, _Mapping]] = ..., need_approval: _Optional[bool] = ..., role_id: _Optional[int] = ..., menu_uid: _Optional[str] = ..., is_accessible: _Optional[bool] = ...) -> None: ...
 
 class RolesList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[Role]
     def __init__(self, list: _Optional[_Iterable[_Union[Role, _Mapping]]] = ...) -> None: ...
 
 class RolesServicePaginationReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "status")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -171,7 +171,7 @@ class RolesServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[ROLE_SORT_KEY, str]] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ...) -> None: ...
 
 class RolesServicePaginationResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -183,7 +183,7 @@ class RolesServicePaginationResponse(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[Role, _Mapping]]] = ...) -> None: ...
 
 class RolesServiceFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "code")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -225,7 +225,7 @@ class RolesServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[ROLE_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ...) -> None: ...
 
 class RolesServiceCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "status", "approved_on_start", "approved_on_end", "approved_by_user_id", "approver_role_id", "completed_on_start", "completed_on_end", "name", "code")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -259,7 +259,7 @@ class RolesServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., status: _Optional[_Union[_scailo_pb2.STANDARD_LIFECYCLE_STATUS, str]] = ..., approved_on_start: _Optional[int] = ..., approved_on_end: _Optional[int] = ..., approved_by_user_id: _Optional[int] = ..., approver_role_id: _Optional[int] = ..., completed_on_start: _Optional[int] = ..., completed_on_end: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ...) -> None: ...
 
 class RolesServiceSearchAllReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "status", "search_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]

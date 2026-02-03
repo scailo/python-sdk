@@ -19,7 +19,7 @@ TRANSACTIONAL_EMAIL_SORT_KEY_CREATED_AT: TRANSACTIONAL_EMAIL_SORT_KEY
 TRANSACTIONAL_EMAIL_SORT_KEY_MODIFIED_AT: TRANSACTIONAL_EMAIL_SORT_KEY
 
 class TransactionalEmailsServiceCreateRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "user_comment", "sender_name", "title", "reply_to", "subject", "content", "recipients", "attachments")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     USER_COMMENT_FIELD_NUMBER: _ClassVar[int]
     SENDER_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -41,7 +41,7 @@ class TransactionalEmailsServiceCreateRequest(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., user_comment: _Optional[str] = ..., sender_name: _Optional[str] = ..., title: _Optional[str] = ..., reply_to: _Optional[str] = ..., subject: _Optional[str] = ..., content: _Optional[str] = ..., recipients: _Optional[_Iterable[_Union[TransactionalEmailsServiceAddRecipientRequest, _Mapping]]] = ..., attachments: _Optional[_Iterable[_Union[TransactionalEmailsServiceAddAttachmentRequest, _Mapping]]] = ...) -> None: ...
 
 class TransactionalEmail(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "sender_name", "title", "reply_to", "subject", "content", "tracking_url")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     SENDER_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -61,13 +61,13 @@ class TransactionalEmail(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., sender_name: _Optional[str] = ..., title: _Optional[str] = ..., reply_to: _Optional[str] = ..., subject: _Optional[str] = ..., content: _Optional[str] = ..., tracking_url: _Optional[str] = ...) -> None: ...
 
 class TransactionalEmailsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[TransactionalEmail]
     def __init__(self, list: _Optional[_Iterable[_Union[TransactionalEmail, _Mapping]]] = ...) -> None: ...
 
 class TransactionalEmailPaginationResp(_message.Message):
-    __slots__ = ()
+    __slots__ = ("count", "offset", "total", "payload")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -79,7 +79,7 @@ class TransactionalEmailPaginationResp(_message.Message):
     def __init__(self, count: _Optional[int] = ..., offset: _Optional[int] = ..., total: _Optional[int] = ..., payload: _Optional[_Iterable[_Union[TransactionalEmail, _Mapping]]] = ...) -> None: ...
 
 class TransactionalEmailsServicePaginationReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -93,7 +93,7 @@ class TransactionalEmailsServicePaginationReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[TRANSACTIONAL_EMAIL_SORT_KEY, str]] = ...) -> None: ...
 
 class TransactionalEmailsServiceFilterReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "sender_name", "title", "reply_to", "subject", "recipient_email_address")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -127,7 +127,7 @@ class TransactionalEmailsServiceFilterReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[TRANSACTIONAL_EMAIL_SORT_KEY, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., sender_name: _Optional[str] = ..., title: _Optional[str] = ..., reply_to: _Optional[str] = ..., subject: _Optional[str] = ..., recipient_email_address: _Optional[str] = ...) -> None: ...
 
 class TransactionalEmailsServiceCountReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "creation_timestamp_start", "creation_timestamp_end", "modification_timestamp_start", "modification_timestamp_end", "entity_uuid", "sender_name", "title", "reply_to", "subject", "recipient_email_address")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_START_FIELD_NUMBER: _ClassVar[int]
     CREATION_TIMESTAMP_END_FIELD_NUMBER: _ClassVar[int]
@@ -153,7 +153,7 @@ class TransactionalEmailsServiceCountReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., creation_timestamp_start: _Optional[int] = ..., creation_timestamp_end: _Optional[int] = ..., modification_timestamp_start: _Optional[int] = ..., modification_timestamp_end: _Optional[int] = ..., entity_uuid: _Optional[str] = ..., sender_name: _Optional[str] = ..., title: _Optional[str] = ..., reply_to: _Optional[str] = ..., subject: _Optional[str] = ..., recipient_email_address: _Optional[str] = ...) -> None: ...
 
 class TransactionalEmailsServiceSearchAllReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("is_active", "count", "offset", "sort_order", "sort_key", "entity_uuid", "search_key")
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -171,13 +171,13 @@ class TransactionalEmailsServiceSearchAllReq(_message.Message):
     def __init__(self, is_active: _Optional[_Union[_scailo_pb2.BOOL_FILTER, str]] = ..., count: _Optional[int] = ..., offset: _Optional[int] = ..., sort_order: _Optional[_Union[_scailo_pb2.SORT_ORDER, str]] = ..., sort_key: _Optional[_Union[TRANSACTIONAL_EMAIL_SORT_KEY, str]] = ..., entity_uuid: _Optional[str] = ..., search_key: _Optional[str] = ...) -> None: ...
 
 class TransactionalEmailsServiceAddRecipientRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("address",)
     ADDRESS_FIELD_NUMBER: _ClassVar[int]
     address: str
     def __init__(self, address: _Optional[str] = ...) -> None: ...
 
 class TransactionalEmailRecipient(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "transactional_email_id", "address")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     TRANSACTIONAL_EMAIL_ID_FIELD_NUMBER: _ClassVar[int]
@@ -189,13 +189,13 @@ class TransactionalEmailRecipient(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., transactional_email_id: _Optional[int] = ..., address: _Optional[str] = ...) -> None: ...
 
 class TransactionalEmailRecipientsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[TransactionalEmailRecipient]
     def __init__(self, list: _Optional[_Iterable[_Union[TransactionalEmailRecipient, _Mapping]]] = ...) -> None: ...
 
 class TransactionalEmailsServiceAddAttachmentRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("name", "content")
     NAME_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -203,7 +203,7 @@ class TransactionalEmailsServiceAddAttachmentRequest(_message.Message):
     def __init__(self, name: _Optional[str] = ..., content: _Optional[bytes] = ...) -> None: ...
 
 class TransactionalEmailAttachment(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_uuid", "metadata", "transactional_email_id", "name", "content")
     ENTITY_UUID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     TRANSACTIONAL_EMAIL_ID_FIELD_NUMBER: _ClassVar[int]
@@ -217,7 +217,7 @@ class TransactionalEmailAttachment(_message.Message):
     def __init__(self, entity_uuid: _Optional[str] = ..., metadata: _Optional[_Union[_scailo_pb2.EmployeeMetadata, _Mapping]] = ..., transactional_email_id: _Optional[int] = ..., name: _Optional[str] = ..., content: _Optional[bytes] = ...) -> None: ...
 
 class TransactionalEmailAttachmentsList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("list",)
     LIST_FIELD_NUMBER: _ClassVar[int]
     list: _containers.RepeatedCompositeFieldContainer[TransactionalEmailAttachment]
     def __init__(self, list: _Optional[_Iterable[_Union[TransactionalEmailAttachment, _Mapping]]] = ...) -> None: ...
